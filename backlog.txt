@@ -2,7 +2,7 @@
 
 ### Home Panel and List of Inspecciones ###
 
-[ ] Home Panel Page
+[*] Home Panel Page
 [ ] Ficha de Inspeccion
 
 
