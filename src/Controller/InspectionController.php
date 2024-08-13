@@ -17,8 +17,6 @@ class InspectionController extends AbstractController
     ])]
     public function formStep(Request $request, SessionInterface $session, int $inspection_id, int $step = 0): Response
     {
-        // var_dump($inspection_id);
-        // exit();
         $questions = [
             [
                 'id' => 1,
@@ -26,6 +24,9 @@ class InspectionController extends AbstractController
                 'type' => 'yes_no',
                 'status' => 'Aprobado',
                 'label' => '¿Exhibe el personal carnet de manipulación de alimentos vigente?',
+                'can_attach' => true,
+                'can_select_others' => false,
+                'can_summon' => true,
                 'options' => [
                     ['label' => 'Sí', 'value' => 'true'],
                     ['label' => 'No', 'value' => 'false'],
@@ -37,10 +38,14 @@ class InspectionController extends AbstractController
                 'type' => 'multiple_choice',
                 'status' => 'Rechazado',
                 'label' => '¿Qué dispositivos anti-insectos están presentes?',
+                'can_attach' => false,
+                'can_select_others' => true,
+                'can_summon' => true,
                 'options' => [
                     ['label' => 'Tela mosquitera', 'value' => 'tela_mosquitera'],
                     ['label' => 'Trampa para insectos', 'value' => 'trampa_insectos'],
                     ['label' => 'Repelente eléctrico', 'value' => 'repelente_electrico'],
+                    ['label' => 'Otros', 'value' => 'otros'],
                 ],
             ],
             [
@@ -49,6 +54,9 @@ class InspectionController extends AbstractController
                 'type' => 'multiple_choice',
                 'status' => 'Pendiente',
                 'label' => '¿Qué dispositivos contra incendios están presentes?',
+                'can_attach' => false,
+                'can_select_others' => false,
+                'can_summon' => true,
                 'options' => [
                     ['label' => 'Extintor', 'value' => 'extintor'],
                     ['label' => 'Manguera', 'value' => 'manguera'],
@@ -92,7 +100,7 @@ class InspectionController extends AbstractController
             }
         }
 
-        return $this->render('inspection/step.html.twig', [
+        return $this->render('inspection/step5.html.twig', [
             'inspection_id' => $inspection_id,
             'inspection' => $inspeccion,
             'question' => $questions[$step],

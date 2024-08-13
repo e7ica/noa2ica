@@ -1,0 +1,4 @@
+excelente armemos un siguiente modal donde preguntamos por dos opciones terminar inspeccion o continuar la inspeccion.
+te comento el problema, vos ayudame a pensar como pondrias las dos alternativas en mensaje.
+
+cuando el inspector encuentra una infraccion el puede decidir continuar pese a que ya no va ser aprobada la inspeccion pero le ayudara al comerciante a enteder todo l oque teiene que solucionar.

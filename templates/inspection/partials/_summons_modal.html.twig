@@ -1,0 +1,52 @@
+<!-- Modal para realizar emplazamiento -->
+<div id="emplazamientoModal" class="fixed hidden inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-96 my-64 md:w-[550px] ">
+        <h2 class="text-lg font-semibold mb-4 flex items-center justify-between">
+            <span>⚠️</span>
+            ¿Quieres emplazar la Infracción?
+            <span>⛔</span>
+        </h2>
+        <!-- Información sobre la fecha y días restantes -->
+        <!-- Información sobre la fecha y días restantes -->
+        <div class="space-y-2">
+            <!-- Fecha máxima para emplazar -->
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-calendar-alt text-blue-500"></i>
+                <p class="text-sm text-gray-600">Fecha límite para resolver:
+                    <span class="text-blue-600 font-semibold">10 de Julio</span>
+                </p>
+            </div>
+
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-info-circle text-blue-500"></i>
+                <p class="text-sm text-gray-600">Período de gracia:
+                    <span class="text-red-500 font-semibold">15 días</span>
+                </p>
+            </div>
+
+            <!-- Nota aclaratoria -->
+            <div class="flex items-center mt-4 space-x-0 px-4 py-4 border border-yellow-300 bg-yellow-50 rounded-lg text-sm">
+                <p class="text-sm text-gray-700 italic ">
+                    Al comercio se le otorgarian <span class="text-red-500 font-semibold">15 días</span> para resolver la situación antes de aplicar la infracción.
+                </p>
+                <i class="fas fa-info-circle text-yellow-500 relative"></i>
+            </div>
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="flex flex-col justify-center mt-4 space-y-4">
+            <!-- Botón para realizar el emplazamiento -->
+            <button id="emplazamientoContinuarBtn" class="
+        bg-green-500 px-6 py-3 hover:bg-green-600 text-white text-lg font-semibold rounded-full shadow-md flex items-center justify-center transition duration-300 ease-in-out">
+                <i class="fas fa-check-circle mr-2"></i>
+                Sí, Realizar Emplazamiento
+            </button>
+            <!-- Botón para realizar la infracción directamente -->
+            <button id="emplazamientoInfraccionBtn" class="
+        px-6 py-3 text-red-500 hover:text-red-600 text-lg font-semibold rounded-full flex items-center justify-center transition duration-300 ease-in-out">
+                <i class="fas fa-times-circle mr-2"></i>
+                No, Realizar Infracción
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,189 @@
+{% extends '/base.html.twig' %}
+
+{% block title %}
+    Iniciar Sesión
+{% endblock %}
+
+{% block custom_styles %}
+    <style>
+        .header {
+            background-color: #3b82f6; /* Color azul similar a Duolingo */
+            color: white;
+            padding: 16px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+
+        body {
+            background-color: rgb(191, 219, 254); /* Color de fondo similar al de Duolingo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .form-container {
+            max-width: 400px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .form-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4a90e2; /* Color principal */
+            margin-bottom: 20px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .btn-primary {
+            background-color: #4a90e2; /* Color del botón principal */
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #357abd; /* Color más oscuro para el hover */
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .extra-links {
+            margin-top: 20px;
+        }
+        .extra-links a {
+            color: #4a90e2; /* Color del enlace */
+            text-decoration: none;
+        }
+        .extra-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo del modal */
+        #otrosModal {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            display: none; /* Por defecto oculto */
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        #otrosModal .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #otrosModal .modal-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        #otrosModal .textarea-wrapper {
+            position: relative;
+        }
+        #otrosModal textarea {
+            width: 100%;
+            padding: 10px 10px 10px 40px;
+            border: 2px dashed #ccc;
+            border-radius: 4px;
+            resize: none;
+            height: 100px;
+            box-sizing: border-box;
+        }
+        #otrosModal .modal-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #4a90e2;
+        }
+        #otrosModal .modal-button {
+            background-color: #34d399;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        #otrosModal .modal-button:hover {
+            background-color: #2f9e77;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <main class="md:w-128 px-2 py-4 bg-blue-200 h-[100vh] relative">
+
+        <!-- Encabezado -->
+        <div class="header flex flex-row w-full items-center justify-center">
+            <div class="w-20 h-20">
+            <img src="/images/logo.svg" alt="Logo"> <!-- Reemplaza con la ruta de tu logo -->
+            </div>
+            <p class="text-4xl text-blue-900 text-bold"> FiscaApp </p>
+        </div>
+
+        <div class="max-w-2xl mt-6 mx-auto p-6 bg-white rounded-lg shadow-lg items-center justify-center">
+
+        <div class="form-container items-center justify-center">
+            <h1 class="form-title">Iniciar Sesión</h1>
+
+            {% if error %}
+                <div class="error-message">
+                    Error al iniciar sesión
+                </div>
+            {% endif %}
+
+            <form action="{{ path('auth_login') }}" method="post" class="items-center justify-center ">
+                <input type="text" name="_username"
+                       class="form-control my-2" placeholder="Nombre de usuario" value="{{ last_username }}" required autofocus>
+                <input type="password" name="_password"
+                       class="form-control my-2" placeholder="Contraseña" required>
+
+                <div class="flex w-full  items-end justify-end  ">
+                <button type="submit" class="my-2 btn-primary px-8 py-2 ">Entrar</button>
+                </div>
+            </form>
+
+            <div class="extra-links flex-column flex ">
+                <p class="flex my-1"><a href="#">¿Olvidaste tu contraseña?</a></p>
+                <p class="flex my-1"><a href="#">¿No tienes cuenta? Comunicate con nosotros</a></p>
+            </div>
+        </div>
+
+        </div>
+    </main>
+
+
+{% endblock %}
+
