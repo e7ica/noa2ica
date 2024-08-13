@@ -1,0 +1,17 @@
+{# templates/base.html.twig #}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Formulario de Inspección{% endblock %}</title>
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.9/lib/index.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.9/base.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+<div class="container mx-auto mt-10">
+    {% block body %}{% endblock %}
+</div>
+</body>
+</html>

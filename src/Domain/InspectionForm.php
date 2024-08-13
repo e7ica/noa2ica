@@ -4,11 +4,11 @@ namespace App\Domain;
 
 class InspectionForm
 {
-    private string $formId;
-    private string $formName;
-    private string $title;
-    private string $description;
-    private array $fields;
+    public string $formId;
+    public string $formName;
+    public string $title;
+    public string $description;
+    public array $fields;
 
     public function __construct(
         string $formId,
