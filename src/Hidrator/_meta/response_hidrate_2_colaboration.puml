@@ -1,0 +1,39 @@
+@startuml
+
+actor User as user
+participant "ResponseHydrator" as hydrator
+participant "InspectionResponse" as response
+participant "Inspector" as inspector
+participant "Store" as store
+participant "ControlAnswer" as answer1
+participant "ControlAnswer" as answer2
+participant "AnswerField" as field1
+participant "AnswerField" as field2
+participant "AnswerChoice" as choice1
+participant "AnswerChoice" as choice2
+participant "AnswerAttachment" as attachment1
+
+user -> hydrator : hydrate()
+hydrator -> hydrator : load JSON data
+hydrator -> response : createInspectionResponse(data)
+hydrator -> inspector : create Inspector(id, name)
+hydrator -> store : create Store(id, name)
+hydrator -> answer1 : create ControlAnswer(field, type, choices, choice, boolean, attachments)
+hydrator -> field1 : create AnswerField(sort, id, ref, type)
+answer1 -> field1 : setField(field1)
+hydrator -> choice1 : create AnswerChoice(label, ref)
+answer1 -> choice1 : addChoice(choice1)
+hydrator -> attachment1 : create AnswerAttachment(url, type, name, size)
+answer1 -> attachment1 : addAttachment(attachment1)
+hydrator -> answer2 : create ControlAnswer(field, type, choices, choice, boolean, attachments)
+hydrator -> field2 : create AnswerField(sort, id, ref, type)
+answer2 -> field2 : setField(field2)
+hydrator -> choice2 : create AnswerChoice(label, ref)
+answer2 -> choice2 : setChoice(choice2)
+
+response -> inspector : setInspector(inspector)
+response -> store : setStore(store)
+response -> answer1 : addAnswer(answer1)
+response -> answer2 : addAnswer(answer2)
+
+@enduml

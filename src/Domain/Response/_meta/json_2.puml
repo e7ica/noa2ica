@@ -1,0 +1,100 @@
+@startjson
+{
+  "id": "21085286190ffad1248d17c4135ee56f",
+  "submitted_at": "2023-07-29T22:38:22Z",
+  "inspector": {
+    "id": "1234567890",
+    "name": "John Doe"
+  },
+  "store": {
+    "id": "0987654321",
+    "name": "John's Store"
+  },
+  "answers": [
+    {
+      "field": {
+        "sort": 1,
+        "id": "1",
+        "ref": "dispocitivos_anti_inceptos",
+        "type": "multiple_choice"
+      },
+      "choices": [
+        {
+          "label": "tela mosquitera",
+          "ref": "tela_mosquitera"
+        }
+      ],
+      "attachments": [
+        {
+          "url": "https://example.com/attachments/5.png",
+          "name": "foto ventana lateral cocina",
+          "description": "foto de ventana lateral cocina",
+          "type": "image",
+          "size": 0
+        }
+      ],
+      "type": "choices"
+    },
+    {
+      "field": {
+        "sort": 2,
+        "id": "2",
+        "ref": "carnet_manipulacion_alimentos",
+        "type": "yes_no"
+      },
+      "boolean": false,
+      "type": "boolean"
+    },
+    {
+      "field": {
+        "sort": 3,
+        "id": "3",
+        "ref": "dispocitivos_incendios",
+        "type": "multiple_choice"
+      },
+      "choices": [
+        {
+          "label": "extintor",
+          "ref": "extintor"
+        },
+        {
+          "label": "manguera",
+          "ref": "manguera"
+        }
+      ],
+      "attachments": [
+        {
+          "url": "https://example.com/attachments/3.png",
+          "name": "foto extintor pasillo",
+          "description": "foto de extintor en pasillo",
+          "type": "image",
+          "size": 0
+        },
+        {
+          "url": "https://example.com/attachments/1.png",
+          "name": "foto extintor patio",
+          "description": "foto de extintor en patio",
+          "type": "image",
+          "size": 0
+        },
+        {
+          "url": "https://example.com/attachments/2.png",
+          "name": "foto extintor estacionamiento",
+          "description": "foto de extintor en estacionamiento",
+          "type": "image",
+          "size": 0
+        },
+        {
+          "url": "https://example.com/attachments/4.png",
+          "name": "foto manguera y extintor",
+          "description": "foto de manguera y extintor",
+          "type": "image",
+          "size": 0
+        }
+      ],
+      "type": "choice"
+    }
+  ]
+}
+
+@endjson

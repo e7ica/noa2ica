@@ -1,0 +1,38 @@
+@startuml
+actor User
+participant "JSON File" as JsonFile
+participant "InspectionFormService" as FormService
+participant "InspectionFormBuilder" as FormBuilder
+participant "InspectionForm" as Form
+participant "ControlFieldValidations" as Validations
+participant "PenaltyLevels" as PenaltyLevels
+
+User -> JsonFile: Leer archivo JSON
+JsonFile -> User: Devolver contenido JSON
+User -> FormService: hidratarFormulario(jsonData)
+FormService -> FormBuilder: iniciarConstrucción(jsonData)
+FormBuilder -> FormBuilder: setFormId(jsonData.form_id)
+FormBuilder -> FormBuilder: setFormName(jsonData.form_name)
+FormBuilder -> FormBuilder: setTitle(jsonData.title)
+FormBuilder -> FormBuilder: setDescription(jsonData.description)
+FormBuilder -> FormBuilder: crearCampos(jsonData.fields)
+
+alt cada campo
+    loop para cada campo en jsonData.fields
+        FormBuilder -> FormBuilder: crearControlField(campo)
+        alt tipo de campo es "dropdown"
+            FormBuilder -> FormBuilder: crearDropdownField(campo)
+        else tipo de campo es "multiple_choice"
+            FormBuilder -> FormBuilder: crearMultipleChoiceField(campo)
+        else tipo de campo es "yes_no"
+            FormBuilder -> FormBuilder: crearYesNoField(campo)
+        end
+        FormBuilder -> Validations: crearValidations(campo.validations)
+        Validations -> PenaltyLevels: crearPenaltyLevels(campo.validations.penalty_levels)
+    end
+end
+
+FormBuilder -> Form: construir()
+
+FormService -> User: devolver instancia de InspectionForm
+@enduml

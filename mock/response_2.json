@@ -1,0 +1,52 @@
+  {
+      "answers": [
+        {
+          "field": {
+            "sort": 1,
+            "id": "hVONkQcnSNRj",
+            "ref": "my_custom_dropdown_reference",
+            "type": "multiplechoice"
+          },
+          "choices": [
+            {
+            "label": "A friend's experience in Sydney",
+            "ref": "my_custom_dropdown_reference_choice"
+            }
+          ],
+          "type": "choices"
+        },
+        {
+          "field": {
+            "sort": 1,
+            "id": "hVONkQcnSNRj",
+            "ref": "my_custom_dropdown_reference",
+            "type": "multiplechoice"
+          },
+          "choice": {
+            "label": "A friend's experience in Sydney",
+            "ref": "my_custom_dropdown_reference_choice"
+          },
+          "type": "choice"
+        },
+        {
+          "field": {
+            "sort": 2,
+            "id": "RUqkXSeXBXSd",
+            "ref": "my_custom_yes_no_reference",
+            "type": "yes_no"
+          },
+          "boolean": false,
+          "type": "boolean"
+        }
+      ],
+      "response_id": "21085286190ffad1248d17c4135ee56f",
+      "submitted_at": "2017-09-14T22:38:22Z",
+      "inspector": {
+        "id": "1234567890",
+        "name": "John Doe"
+      },
+      "store": {
+        "id": "1234567890",
+        "name": "John's Store"
+      }
+  }

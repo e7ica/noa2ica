@@ -1,0 +1,33 @@
+@startuml
+actor User
+participant "JSON File" as JsonFile
+participant "InspectionResponseService" as ResponseService
+participant "InspectionResponseBuilder" as ResponseBuilder
+participant "InspectionResponse" as Response
+
+User -> JsonFile: Leer archivo JSON
+JsonFile -> User: Devolver contenido JSON
+User -> ResponseService: hidratarRespuesta(jsonData)
+ResponseService -> ResponseBuilder: iniciarConstrucción(jsonData)
+ResponseBuilder -> ResponseBuilder: crearInspector(jsonData.inspector)
+ResponseBuilder -> ResponseBuilder: crearStore(jsonData.store)
+ResponseBuilder -> ResponseBuilder: crearRespuestas(jsonData.answers)
+
+alt cada respuesta
+    loop para cada respuesta en jsonData.answers
+        ResponseBuilder -> ResponseBuilder: crearControlAnswer(respuesta)
+        ResponseBuilder -> ResponseBuilder: crearField(respuesta.field)
+        alt tipo de respuesta es "choices"
+            ResponseBuilder -> ResponseBuilder: agregarChoices(respuesta.choices)
+        else tipo de respuesta es "choice"
+            ResponseBuilder -> ResponseBuilder: agregarChoice(respuesta.choice)
+        else tipo de respuesta es "boolean"
+            ResponseBuilder -> ResponseBuilder: setBoolean(respuesta.boolean)
+        end
+    end
+end
+
+ResponseBuilder -> Response: construir()
+
+ResponseService -> User: devolver instancia de InspectionResponse
+@enduml

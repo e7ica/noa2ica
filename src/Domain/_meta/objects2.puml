@@ -1,0 +1,118 @@
+@startuml
+
+object InspectionForm {
+    formId = "2"
+    title = "Formulario de Control de Carnet de Manipulación de Alimentos"
+}
+
+object MultipleChoiceControlField {
+    fieldId = "1"
+    title = "Dispositivos anti-inceptos"
+    type = "multiple_choice"
+    ref = "dispocitivos_anti_inceptos"
+    description = "Cuenta con dispositivos anti-inceptos en todas las aberturas y/o cortinas de aire en buen estado"
+}
+
+object MultipleChoiceControlFieldProperties {
+    description = "Cuenta con dispositivos anti-inceptos en todas las aberturas y/o cortinas de aire en buen estado"
+    allowAttachments = true
+    allowMultipleSelection = false
+    allowOtherChoice = false
+    randomize = false
+    verticalAlignment = false
+}
+
+object Choice1 {
+    label = "tela mosquitera"
+    ref = "tela_mosquitera"
+    description = "tela mosquitera"
+    compliance = true
+}
+
+object Choice2 {
+    label = "cortina de aire"
+    ref = "cortina_de_aire"
+    description = "cortina de aire"
+    compliance = true
+}
+
+object Choice3 {
+    label = "malla plastica"
+    ref = "malla_plastica"
+    description = "malla plastica"
+    compliance = true
+}
+
+object Choice4 {
+    label = "sin proteccion"
+    ref = "sin_proteccion"
+    description = "sin proteccion"
+    compliance = false
+}
+
+object ControlFieldValidations1 {
+    required = true
+    enforceable = true
+    rectifiable = true
+    gracePeriodDays = 30
+}
+
+object YesNoControlField {
+    fieldId = "2"
+    title = "Carnet de Manipulación de Alimentos"
+    type = "yes_no"
+    ref = "carnet_manipulacion_alimentos"
+    description = "Exhibe el personal carnet de manipulación de alimentos vigente?"
+}
+
+object YesNoControlFieldProperties {
+    description = "Exhibe el personal carnet de manipulación de alimentos vigente?"
+    allowAttachments = false
+}
+
+object ChoiceYes {
+    label = "Sí"
+    ref = "si"
+    description = "Cumple"
+    compliance = true
+}
+
+object ChoiceNo {
+    label = "No"
+    ref = "no"
+    description = "No Cumple"
+    compliance = false
+}
+
+object ControlFieldValidations2 {
+    required = true
+    enforceable = true
+    rectifiable = true
+    gracePeriodDays = 15
+    penaltyLevels = PenaltyLevels1
+}
+
+object PenaltyLevels1 {
+    infringement = true
+    closure = true
+}
+
+InspectionForm -- MultipleChoiceControlField : contains
+InspectionForm -- YesNoControlField : contains
+
+MultipleChoiceControlField -- MultipleChoiceControlFieldProperties : hasProperties
+MultipleChoiceControlFieldProperties -- Choice1 : contains
+MultipleChoiceControlFieldProperties -- Choice2 : contains
+MultipleChoiceControlFieldProperties -- Choice3 : contains
+MultipleChoiceControlFieldProperties -- Choice4 : contains
+
+YesNoControlField -- YesNoControlFieldProperties : hasProperties
+YesNoControlFieldProperties -- ChoiceYes : contains
+YesNoControlFieldProperties -- ChoiceNo : contains
+
+MultipleChoiceControlField -- ControlFieldValidations1 : hasValidations
+YesNoControlField -- ControlFieldValidations2 : hasValidations
+
+ControlFieldValidations2 -- PenaltyLevels1 : includes
+
+@enduml

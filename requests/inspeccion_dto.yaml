@@ -1,0 +1,68 @@
+
+Inspeccion DTO:
+  estado: "ACTIVO"
+  id: 1
+  protocolo: 1
+  codigo: "INSPECCION-1"
+  nombre: "Inspeccion 1"
+  descripcion: "Inspeccion 1"
+  vigencia_desde: "2021-01-01"
+  vigencia_hasta: "2021-12-31"
+  fecha_modificacion: "2021-01-01"
+
+  valores: [
+    .... <VALORES_CARGADOS>,
+    <VALOR_ACTUAL__SIN_CARGAR>
+  ]
+
+
+Valor DTO: # VALOR SIN CARGAR / O PROXIMO A CARGAR
+  orden: 1
+  estado:
+      | SIN_CARGAR
+  control: "CONTROL-1"
+  nombre: "ControlValor 1"
+  descripcion: "ControlValor 1"
+  tipo_control:
+      | VARIAS_OPCIONES 
+      | VERIFICACION_MULTIPLE 
+      | VERIFICACION_OBLIATORIA
+  opctiones: [
+    {
+        codigo: "OPCION-1"
+        texto: "OpcionValor 1"
+        cumple: SI | NO | INDICA
+        constancia: SI | NO | OPCIONAL
+    },
+    {
+        codigo: "OPCION-2"
+        texto: "OpcionValor 2"
+        cumple: SI | NO | INDICA
+        constancia: SI | NO | OPCIONAL
+    }
+  ],
+  dias_emplazamiento:
+  subsanable: true | false
+  no_cumple: true | false
+  respuesta: [ <vacio> ]
+
+
+
+
+
+
+[ PATCH ] de CARGA DE VALOR:
+#############################
+
+inspeccion: <id_inspeccion>
+valores: [
+  {
+    "control": "CONTROL-1",
+    "respuesta": [
+      {
+        "codigo": "OPCION-1",
+        "valor": "SI"
+      }
+    ]"
+  }
+]

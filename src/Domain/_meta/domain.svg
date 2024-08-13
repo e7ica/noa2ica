@@ -1,0 +1,400 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css"
+     height="540px" preserveAspectRatio="none" style="width:2305px;height:540px;background:#FFFFFF;" version="1.1"
+     viewBox="0 0 2305 540" width="2305px" zoomAndPan="magnify">
+    <defs/>
+    <g><!--class InspectionForm-->
+        <g id="elem_InspectionForm">
+            <rect codeLine="1" fill="#F1F1F1" height="96.8906" id="InspectionForm" rx="2.5" ry="2.5"
+                  style="stroke:#181818;stroke-width:0.5;" width="140.3223" x="767.72" y="7"/>
+            <ellipse cx="782.72" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/>
+            <path d="M785.6888,28.6406 Q785.1106,28.9375 784.47,29.0781 Q783.8294,29.2344 783.1263,29.2344 Q780.6263,29.2344 779.2981,27.5938 Q777.9856,25.9375 777.9856,22.8125 Q777.9856,19.6875 779.2981,18.0313 Q780.6263,16.375 783.1263,16.375 Q783.8294,16.375 784.47,16.5313 Q785.1263,16.6875 785.6888,16.9844 L785.6888,19.7031 Q785.0638,19.125 784.47,18.8594 Q783.8763,18.5781 783.2513,18.5781 Q781.9075,18.5781 781.22,19.6563 Q780.5325,20.7188 780.5325,22.8125 Q780.5325,24.9063 781.22,25.9844 Q781.9075,27.0469 783.2513,27.0469 Q783.8763,27.0469 784.47,26.7813 Q785.0638,26.5 785.6888,25.9219 L785.6888,28.6406 Z "
+                  fill="#000000"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108.3223"
+                  x="796.72" y="27.8467">InspectionForm
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="768.72" x2="907.0423" y1="39" y2="39"/>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="775.72" y="49.6484"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90.542"
+                  x="787.72" y="55.9951">string formId
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="775.72" y="65.9453"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72.0098"
+                  x="787.72" y="72.292">string title
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="775.72" y="82.2422"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78.9072"
+                  x="787.72" y="88.5889">array fields
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="768.72" x2="907.0423" y1="95.8906" y2="95.8906"/>
+        </g><!--class ControlField-->
+        <g id="elem_ControlField">
+            <rect codeLine="7" fill="#F1F1F1" height="162.0781" id="ControlField" rx="2.5" ry="2.5"
+                  style="stroke:#181818;stroke-width:0.5;" width="268.4297" x="703.66" y="180.89"/>
+            <ellipse cx="791.5018" cy="196.89" fill="#A9DCDF" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/>
+            <path d="M791.6112,192.2338 L790.4549,197.3119 L792.783,197.3119 L791.6112,192.2338 Z M790.1268,189.9994 L793.1112,189.9994 L796.4705,202.39 L794.0174,202.39 L793.2518,199.3275 L789.9705,199.3275 L789.2205,202.39 L786.783,202.39 L790.1268,189.9994 Z "
+                  fill="#000000"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing"
+                  textLength="84.2461" x="812.0018" y="201.7367">ControlField
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="704.66" x2="971.0897" y1="212.89" y2="212.89"/>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="711.66" y="223.5384"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87.8623"
+                  x="723.66" y="229.8851">string fieldId
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="711.66" y="239.8353"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72.0098"
+                  x="723.66" y="246.182">string title
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="711.66" y="256.1322"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75.9131"
+                  x="723.66" y="262.4789">string type
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="711.66" y="272.4291"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63.9365"
+                  x="723.66" y="278.7757">string ref
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="711.66" y="288.7259"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="129.9102"
+                  x="723.66" y="295.0726">?string description
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="711.66" y="305.0228"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242.4297"
+                  x="723.66" y="311.3695">ControlFieldValidations validations
+            </text>
+            <line style="stroke:#181818;stroke-width:1.0;" x1="704.66" x2="971.0897" y1="318.6713" y2="318.6713"/>
+            <ellipse cx="714.66" cy="332.3197" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105.2188"
+                  x="723.66" y="335.6664">getProperties()
+            </text>
+        </g><!--class ControlFieldValidations-->
+        <g id="elem_ControlFieldValidations">
+            <rect codeLine="18" fill="#F1F1F1" height="113.1875" id="ControlFieldValidations" rx="2.5" ry="2.5"
+                  style="stroke:#181818;stroke-width:0.5;" width="193.7588" x="7" y="419.97"/>
+            <ellipse cx="22" cy="435.97" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/>
+            <path d="M24.9688,441.6106 Q24.3906,441.9075 23.75,442.0481 Q23.1094,442.2044 22.4063,442.2044 Q19.9063,442.2044 18.5781,440.5637 Q17.2656,438.9075 17.2656,435.7825 Q17.2656,432.6575 18.5781,431.0012 Q19.9063,429.345 22.4063,429.345 Q23.1094,429.345 23.75,429.5012 Q24.4063,429.6575 24.9688,429.9544 L24.9688,432.6731 Q24.3438,432.095 23.75,431.8294 Q23.1563,431.5481 22.5313,431.5481 Q21.1875,431.5481 20.5,432.6262 Q19.8125,433.6887 19.8125,435.7825 Q19.8125,437.8762 20.5,438.9544 Q21.1875,440.0169 22.5313,440.0169 Q23.1563,440.0169 23.75,439.7512 Q24.3438,439.47 24.9688,438.8919 L24.9688,441.6106 Z "
+                  fill="#000000"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161.7588"
+                  x="36" y="440.8167">ControlFieldValidations
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="199.7588" y1="451.97" y2="451.97"/>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="462.6184"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93.6318"
+                  x="27" y="468.9651">bool required
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="478.9153"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="117.373"
+                  x="27" y="485.262">bool enforceable
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="495.2122"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104.5898"
+                  x="27" y="501.5589">bool rectifiable
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="511.5091"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="148.7568"
+                  x="27" y="517.8557">?int gracePeriodDays
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="199.7588" y1="525.1575" y2="525.1575"/>
+        </g><!--class ControlFieldProperties-->
+        <g id="elem_ControlFieldProperties">
+            <rect codeLine="25" fill="#F1F1F1" height="80.5938" id="ControlFieldProperties" rx="2.5" ry="2.5"
+                  style="stroke:#181818;stroke-width:0.5;" width="187.5518" x="1609.1" y="15.15"/>
+            <ellipse cx="1624.1" cy="31.15" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/>
+            <path d="M1627.0688,36.7906 Q1626.4906,37.0875 1625.85,37.2281 Q1625.2094,37.3844 1624.5063,37.3844 Q1622.0063,37.3844 1620.6781,35.7437 Q1619.3656,34.0875 1619.3656,30.9625 Q1619.3656,27.8375 1620.6781,26.1812 Q1622.0063,24.525 1624.5063,24.525 Q1625.2094,24.525 1625.85,24.6812 Q1626.5063,24.8375 1627.0688,25.1344 L1627.0688,27.8531 Q1626.4438,27.275 1625.85,27.0094 Q1625.2563,26.7281 1624.6313,26.7281 Q1623.2875,26.7281 1622.6,27.8062 Q1621.9125,28.8687 1621.9125,30.9625 Q1621.9125,33.0562 1622.6,34.1344 Q1623.2875,35.1969 1624.6313,35.1969 Q1625.2563,35.1969 1625.85,34.9312 Q1626.4438,34.65 1627.0688,34.0719 L1627.0688,36.7906 Z "
+                  fill="#000000"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="155.5518"
+                  x="1638.1" y="35.9967">ControlFieldProperties
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="1610.1" x2="1795.6518" y1="47.15" y2="47.15"/>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1617.1" y="57.7984"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="129.9102"
+                  x="1629.1" y="64.1451">?string description
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1617.1" y="74.0953"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="160.3438"
+                  x="1629.1" y="80.442">bool allowAttachments
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="1610.1" x2="1795.6518" y1="87.7437" y2="87.7437"/>
+        </g><!--class DropdownControlFieldProperties-->
+        <g id="elem_DropdownControlFieldProperties">
+            <rect codeLine="30" fill="#F1F1F1" height="96.8906" id="DropdownControlFieldProperties" rx="2.5" ry="2.5"
+                  style="stroke:#181818;stroke-width:0.5;" width="259.3154" x="1263.22" y="213.49"/>
+            <ellipse cx="1278.22" cy="229.49" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/>
+            <path d="M1281.1888,235.1306 Q1280.6106,235.4275 1279.97,235.5681 Q1279.3294,235.7244 1278.6263,235.7244 Q1276.1263,235.7244 1274.7981,234.0837 Q1273.4856,232.4275 1273.4856,229.3025 Q1273.4856,226.1775 1274.7981,224.5212 Q1276.1263,222.865 1278.6263,222.865 Q1279.3294,222.865 1279.97,223.0212 Q1280.6263,223.1775 1281.1888,223.4744 L1281.1888,226.1931 Q1280.5638,225.615 1279.97,225.3494 Q1279.3763,225.0681 1278.7513,225.0681 Q1277.4075,225.0681 1276.72,226.1462 Q1276.0325,227.2087 1276.0325,229.3025 Q1276.0325,231.3962 1276.72,232.4744 Q1277.4075,233.5369 1278.7513,233.5369 Q1279.3763,233.5369 1279.97,233.2712 Q1280.5638,232.99 1281.1888,232.4119 L1281.1888,235.1306 Z "
+                  fill="#000000"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="227.3154"
+                  x="1292.22" y="234.3367">DropdownControlFieldProperties
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="1264.22" x2="1521.5354" y1="245.49" y2="245.49"/>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1271.22" y="256.1384"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="160.2412"
+                  x="1283.22" y="262.4851">bool alphabeticalOrder
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1271.22" y="272.4353"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108.5068"
+                  x="1283.22" y="278.782">bool randomize
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1271.22" y="288.7322"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94.0352"
+                  x="1283.22" y="295.0789">array choices
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="1264.22" x2="1521.5354" y1="302.3806" y2="302.3806"/>
+        </g><!--class MultipleChoiceControlFieldProperties-->
+        <g id="elem_MultipleChoiceControlFieldProperties">
+            <rect codeLine="36" fill="#F1F1F1" height="129.4844" id="MultipleChoiceControlFieldProperties" rx="2.5"
+                  ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="290.5762" x="1557.59" y="197.19"/>
+            <ellipse cx="1572.59" cy="213.19" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/>
+            <path d="M1575.5588,218.8306 Q1574.9806,219.1275 1574.34,219.2681 Q1573.6994,219.4244 1572.9963,219.4244 Q1570.4963,219.4244 1569.1681,217.7837 Q1567.8556,216.1275 1567.8556,213.0025 Q1567.8556,209.8775 1569.1681,208.2212 Q1570.4963,206.565 1572.9963,206.565 Q1573.6994,206.565 1574.34,206.7212 Q1574.9963,206.8775 1575.5588,207.1744 L1575.5588,209.8931 Q1574.9338,209.315 1574.34,209.0494 Q1573.7463,208.7681 1573.1213,208.7681 Q1571.7775,208.7681 1571.09,209.8462 Q1570.4025,210.9087 1570.4025,213.0025 Q1570.4025,215.0962 1571.09,216.1744 Q1571.7775,217.2369 1573.1213,217.2369 Q1573.7463,217.2369 1574.34,216.9712 Q1574.9338,216.69 1575.5588,216.1119 L1575.5588,218.8306 Z "
+                  fill="#000000"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="258.5762"
+                  x="1586.59" y="218.0367">MultipleChoiceControlFieldProperties
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="1558.59" x2="1847.1662" y1="229.19" y2="229.19"/>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1565.59" y="239.8384"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="190.8594"
+                  x="1577.59" y="246.1851">bool allowMultipleSelection
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1565.59" y="256.1353"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="157.8965"
+                  x="1577.59" y="262.482">bool allowOtherChoice
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1565.59" y="272.4322"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108.5068"
+                  x="1577.59" y="278.7789">bool randomize
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1565.59" y="288.7291"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158.2861"
+                  x="1577.59" y="295.0757">bool verticalAlignment
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1565.59" y="305.0259"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94.0352"
+                  x="1577.59" y="311.3726">array choices
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="1558.59" x2="1847.1662" y1="318.6744" y2="318.6744"/>
+        </g><!--class YesNoControlFieldProperties-->
+        <g id="elem_YesNoControlFieldProperties">
+            <rect codeLine="44" fill="#F1F1F1" height="64.2969" id="YesNoControlFieldProperties" rx="2.5" ry="2.5"
+                  style="stroke:#181818;stroke-width:0.5;" width="415.8125" x="1882.97" y="229.78"/>
+            <ellipse cx="1987.1018" cy="245.78" fill="#ADD1B2" rx="11" ry="11"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+            <path d="M1990.0706,251.4206 Q1989.4925,251.7175 1988.8518,251.8581 Q1988.2112,252.0144 1987.5081,252.0144 Q1985.0081,252.0144 1983.68,250.3737 Q1982.3675,248.7175 1982.3675,245.5925 Q1982.3675,242.4675 1983.68,240.8112 Q1985.0081,239.155 1987.5081,239.155 Q1988.2112,239.155 1988.8518,239.3112 Q1989.5081,239.4675 1990.0706,239.7644 L1990.0706,242.4831 Q1989.4456,241.905 1988.8518,241.6394 Q1988.2581,241.3581 1987.6331,241.3581 Q1986.2893,241.3581 1985.6018,242.4362 Q1984.9143,243.4987 1984.9143,245.5925 Q1984.9143,247.6862 1985.6018,248.7644 Q1986.2893,249.8269 1987.6331,249.8269 Q1988.2581,249.8269 1988.8518,249.5612 Q1989.4456,249.28 1990.0706,248.7019 L1990.0706,251.4206 Z "
+                  fill="#000000"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199.0488"
+                  x="2007.6018" y="250.6267">YesNoControlFieldProperties
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="1883.97" x2="2297.7825" y1="261.78" y2="261.78"/>
+            <line style="stroke:#181818;stroke-width:1.0;" x1="1883.97" x2="2297.7825" y1="269.78" y2="269.78"/>
+            <ellipse cx="1893.97" cy="283.4284" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="389.8125"
+                  x="1902.97" y="286.7751">__construct(bool allowAttachments, ?string description)
+            </text>
+        </g><!--class DropdownControlField-->
+        <g id="elem_DropdownControlField">
+            <rect codeLine="49" fill="#F1F1F1" height="80.5938" id="DropdownControlField" rx="2.5" ry="2.5"
+                  style="stroke:#181818;stroke-width:0.5;" width="367.7012" x="236.03" y="436.27"/>
+            <ellipse cx="337.6257" cy="452.27" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/>
+            <path d="M340.5945,457.9106 Q340.0163,458.2075 339.3757,458.3481 Q338.7351,458.5044 338.032,458.5044 Q335.532,458.5044 334.2038,456.8638 Q332.8913,455.2075 332.8913,452.0825 Q332.8913,448.9575 334.2038,447.3013 Q335.532,445.645 338.032,445.645 Q338.7351,445.645 339.3757,445.8013 Q340.032,445.9575 340.5945,446.2544 L340.5945,448.9731 Q339.9695,448.395 339.3757,448.1294 Q338.782,447.8481 338.157,447.8481 Q336.8132,447.8481 336.1257,448.9263 Q335.4382,449.9888 335.4382,452.0825 Q335.4382,454.1763 336.1257,455.2544 Q336.8132,456.3169 338.157,456.3169 Q338.782,456.3169 339.3757,456.0513 Q339.9695,455.77 340.5945,455.1919 L340.5945,457.9106 Z "
+                  fill="#000000"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156.0098"
+                  x="358.1257" y="457.1167">DropdownControlField
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="237.03" x2="602.7312" y1="468.27" y2="468.27"/>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="244.03" y="478.9184"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="303.5156"
+                  x="256.03" y="485.2651">DropdownControlFieldProperties properties
+            </text>
+            <line style="stroke:#181818;stroke-width:1.0;" x1="237.03" x2="602.7312" y1="492.5669" y2="492.5669"/>
+            <ellipse cx="247.03" cy="506.2153" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="341.7012"
+                  x="256.03" y="509.562">getProperties(): DropdownControlFieldProperties
+            </text>
+        </g><!--class MultipleChoiceControlField-->
+        <g id="elem_MultipleChoiceControlField">
+            <rect codeLine="55" fill="#F1F1F1" height="80.5938" id="MultipleChoiceControlField" rx="2.5" ry="2.5"
+                  style="stroke:#181818;stroke-width:0.5;" width="398.9619" x="638.4" y="436.27"/>
+            <ellipse cx="739.9957" cy="452.27" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/>
+            <path d="M742.9645,457.9106 Q742.3863,458.2075 741.7457,458.3481 Q741.1051,458.5044 740.402,458.5044 Q737.902,458.5044 736.5738,456.8638 Q735.2613,455.2075 735.2613,452.0825 Q735.2613,448.9575 736.5738,447.3013 Q737.902,445.645 740.402,445.645 Q741.1051,445.645 741.7457,445.8013 Q742.402,445.9575 742.9645,446.2544 L742.9645,448.9731 Q742.3395,448.395 741.7457,448.1294 Q741.152,447.8481 740.527,447.8481 Q739.1832,447.8481 738.4957,448.9263 Q737.8082,449.9888 737.8082,452.0825 Q737.8082,454.1763 738.4957,455.2544 Q739.1832,456.3169 740.527,456.3169 Q741.152,456.3169 741.7457,456.0513 Q742.3395,455.77 742.9645,455.1919 L742.9645,457.9106 Z "
+                  fill="#000000"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="187.2705"
+                  x="760.4957" y="457.1167">MultipleChoiceControlField
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="639.4" x2="1036.3619" y1="468.27" y2="468.27"/>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="646.4" y="478.9184"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="334.7764"
+                  x="658.4" y="485.2651">MultipleChoiceControlFieldProperties properties
+            </text>
+            <line style="stroke:#181818;stroke-width:1.0;" x1="639.4" x2="1036.3619" y1="492.5669" y2="492.5669"/>
+            <ellipse cx="649.4" cy="506.2153" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="372.9619"
+                  x="658.4" y="509.562">getProperties(): MultipleChoiceControlFieldProperties
+            </text>
+        </g><!--class YesNoControlField-->
+        <g id="elem_YesNoControlField">
+            <rect codeLine="61" fill="#F1F1F1" height="80.5938" id="YesNoControlField" rx="2.5" ry="2.5"
+                  style="stroke:#181818;stroke-width:0.5;" width="339.4346" x="1072.16" y="436.27"/>
+            <ellipse cx="1173.7557" cy="452.27" fill="#ADD1B2" rx="11" ry="11"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+            <path d="M1176.7245,457.9106 Q1176.1463,458.2075 1175.5057,458.3481 Q1174.8651,458.5044 1174.162,458.5044 Q1171.662,458.5044 1170.3338,456.8638 Q1169.0213,455.2075 1169.0213,452.0825 Q1169.0213,448.9575 1170.3338,447.3013 Q1171.662,445.645 1174.162,445.645 Q1174.8651,445.645 1175.5057,445.8013 Q1176.162,445.9575 1176.7245,446.2544 L1176.7245,448.9731 Q1176.0995,448.395 1175.5057,448.1294 Q1174.912,447.8481 1174.287,447.8481 Q1172.9432,447.8481 1172.2557,448.9263 Q1171.5682,449.9888 1171.5682,452.0825 Q1171.5682,454.1763 1172.2557,455.2544 Q1172.9432,456.3169 1174.287,456.3169 Q1174.912,456.3169 1175.5057,456.0513 Q1176.0995,455.77 1176.7245,455.1919 L1176.7245,457.9106 Z "
+                  fill="#000000"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127.7432"
+                  x="1194.2557" y="457.1167">YesNoControlField
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="1073.16" x2="1410.5946" y1="468.27" y2="468.27"/>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1080.16" y="478.9184"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="275.249"
+                  x="1092.16" y="485.2651">YesNoControlFieldProperties properties
+            </text>
+            <line style="stroke:#181818;stroke-width:1.0;" x1="1073.16" x2="1410.5946" y1="492.5669" y2="492.5669"/>
+            <ellipse cx="1083.16" cy="506.2153" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="313.4346"
+                  x="1092.16" y="509.562">getProperties(): YesNoControlFieldProperties
+            </text>
+        </g><!--class Choice-->
+        <g id="elem_Choice">
+            <rect codeLine="67" fill="#F1F1F1" height="113.1875" id="Choice" rx="2.5" ry="2.5"
+                  style="stroke:#181818;stroke-width:0.5;" width="148.4795" x="1446.64" y="419.97"/>
+            <ellipse cx="1492.9227" cy="435.97" fill="#ADD1B2" rx="11" ry="11"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+            <path d="M1495.8915,441.6106 Q1495.3133,441.9075 1494.6727,442.0481 Q1494.0321,442.2044 1493.329,442.2044 Q1490.829,442.2044 1489.5008,440.5637 Q1488.1883,438.9075 1488.1883,435.7825 Q1488.1883,432.6575 1489.5008,431.0012 Q1490.829,429.345 1493.329,429.345 Q1494.0321,429.345 1494.6727,429.5012 Q1495.329,429.6575 1495.8915,429.9544 L1495.8915,432.6731 Q1495.2665,432.095 1494.6727,431.8294 Q1494.079,431.5481 1493.454,431.5481 Q1492.1102,431.5481 1491.4227,432.6262 Q1490.7352,433.6887 1490.7352,435.7825 Q1490.7352,437.8762 1491.4227,438.9544 Q1492.1102,440.0169 1493.454,440.0169 Q1494.079,440.0169 1494.6727,439.7512 Q1495.2665,439.47 1495.8915,438.8919 L1495.8915,441.6106 Z "
+                  fill="#000000"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47.4141"
+                  x="1513.4227" y="440.8167">Choice
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="1447.64" x2="1594.1195" y1="451.97" y2="451.97"/>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1454.64" y="462.6184"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78.4971"
+                  x="1466.64" y="468.9651">string label
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1454.64" y="478.9153"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63.9365"
+                  x="1466.64" y="485.262">string ref
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1454.64" y="495.2122"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122.4795"
+                  x="1466.64" y="501.5589">string description
+            </text>
+            <rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1454.64" y="511.5091"/>
+            <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114.6865"
+                  x="1466.64" y="517.8557">bool compliance
+            </text>
+            <line style="stroke:#181818;stroke-width:0.5;" x1="1447.64" x2="1594.1195" y1="525.1575" y2="525.1575"/>
+        </g><!--reverse link ControlFieldProperties to DropdownControlFieldProperties-->
+        <g id="link_ControlFieldProperties_DropdownControlFieldProperties">
+            <path d="M1617.1317,105.637 C1563.4317,139.087 1505.77,177.53 1454.4,213.1 " fill="none"
+                  id="ControlFieldProperties-backto-DropdownControlFieldProperties"
+                  style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="none" points="1632.41,96.12,1613.9593,100.5442,1620.304,110.7297,1632.41,96.12"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+        </g><!--reverse link ControlFieldProperties to DropdownControlFieldProperties-->
+        <g id="link_ControlFieldProperties_DropdownControlFieldProperties">
+            <path codeLine="77" d="M1638.9589,106.478 C1591.4189,139.928 1533.65,177.53 1477.02,213.1 " fill="none"
+                  id="ControlFieldProperties-backto-DropdownControlFieldProperties-1"
+                  style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="none" points="1653.68,96.12,1635.5062,101.571,1642.4116,111.3851,1653.68,96.12"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+        </g><!--reverse link ControlFieldProperties to MultipleChoiceControlFieldProperties-->
+        <g id="link_ControlFieldProperties_MultipleChoiceControlFieldProperties">
+            <path d="M1690.9561,113.8075 C1688.3761,142.4675 1689.46,163.96 1690.96,197.09 " fill="none"
+                  id="ControlFieldProperties-backto-MultipleChoiceControlFieldProperties"
+                  style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="none" points="1692.57,95.88,1684.9803,113.2696,1696.932,114.3455,1692.57,95.88"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+        </g><!--reverse link ControlFieldProperties to MultipleChoiceControlFieldProperties-->
+        <g id="link_ControlFieldProperties_MultipleChoiceControlFieldProperties">
+            <path codeLine="78" d="M1715.5069,113.7989 C1718.2369,142.4589 1717.09,163.96 1715.49,197.09 " fill="none"
+                  id="ControlFieldProperties-backto-MultipleChoiceControlFieldProperties-1"
+                  style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="none" points="1713.8,95.88,1709.5339,114.3678,1721.4798,113.2299,1713.8,95.88"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+        </g><!--reverse link ControlFieldProperties to YesNoControlFieldProperties-->
+        <g id="link_ControlFieldProperties_YesNoControlFieldProperties">
+            <path d="M1783.5713,104.8319 C1853.9213,143.7419 1949.54,193.58 2021.55,229.41 " fill="none"
+                  id="ControlFieldProperties-backto-YesNoControlFieldProperties"
+                  style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="none" points="1767.82,96.12,1780.6673,110.0823,1786.4752,99.5815,1767.82,96.12"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+        </g><!--reverse link ControlFieldProperties to YesNoControlFieldProperties-->
+        <g id="link_ControlFieldProperties_YesNoControlFieldProperties">
+            <path codeLine="79" d="M1805.1768,104.1956 C1882.6868,143.1056 1977.41,193.58 2041.14,229.41 " fill="none"
+                  id="ControlFieldProperties-backto-YesNoControlFieldProperties-1"
+                  style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="none" points="1789.09,96.12,1802.4849,109.5578,1807.8687,98.8333,1789.09,96.12"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+        </g><!--reverse link ControlField to DropdownControlField-->
+        <g id="link_ControlField_DropdownControlField">
+            <path d="M687.1462,333.4414 C615.1862,369.1514 545.9,404.86 487.69,435.89 " fill="none"
+                  id="ControlField-backto-DropdownControlField" style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="none" points="703.27,325.44,684.479,328.0668,689.8133,338.816,703.27,325.44"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+        </g><!--reverse link ControlField to DropdownControlField-->
+        <g id="link_ControlField_DropdownControlField">
+            <path codeLine="74" d="M687.1969,346.3289 C623.5069,379.3189 565.27,408.42 508.7,435.87 " fill="none"
+                  id="ControlField-backto-DropdownControlField-1" style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="none" points="703.18,338.05,684.4373,341.0012,689.9565,351.6566,703.18,338.05"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+        </g><!--reverse link ControlField to MultipleChoiceControlField-->
+        <g id="link_ControlField_MultipleChoiceControlField">
+            <path d="M824.9866,361.3135 C824.1366,392.9535 825.36,409.85 827.68,435.85 " fill="none"
+                  id="ControlField-backto-MultipleChoiceControlField" style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="none" points="825.47,343.32,818.9888,361.1524,830.9844,361.4746,825.47,343.32"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+        </g><!--reverse link ControlField to MultipleChoiceControlField-->
+        <g id="link_ControlField_MultipleChoiceControlField">
+            <path codeLine="75" d="M851.5318,361.3127 C852.4318,392.9527 851.14,409.85 848.68,435.85 " fill="none"
+                  id="ControlField-backto-MultipleChoiceControlField-1" style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="none" points="851.02,343.32,845.5342,361.4833,857.5294,361.1421,851.02,343.32"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+        </g><!--reverse link ControlField to YesNoControlField-->
+        <g id="link_ControlField_YesNoControlField">
+            <path d="M988.4315,348.791 C1049.0315,381.211 1102.85,409.02 1156.22,435.85 " fill="none"
+                  id="ControlField-backto-YesNoControlField" style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="none" points="972.56,340.3,985.6011,354.0815,991.2618,343.5005,972.56,340.3"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+        </g><!--reverse link ControlField to YesNoControlField-->
+        <g id="link_ControlField_YesNoControlField">
+            <path codeLine="76" d="M988.4448,335.3775 C1057.4348,370.7775 1122.2,405.37 1177.3,435.9 " fill="none"
+                  id="ControlField-backto-YesNoControlField-1" style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="none" points="972.43,327.16,985.7056,340.7157,991.1839,330.0392,972.43,327.16"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+        </g><!--link InspectionForm to ControlField-->
+        <g id="link_InspectionForm_ControlField">
+            <path codeLine="80" d="M837.88,104.39 C837.88,127.06 837.88,148.74 837.88,174.48 " fill="none"
+                  id="InspectionForm-to-ControlField" style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="#181818" points="837.88,180.48,841.88,171.48,837.88,175.48,833.88,171.48,837.88,180.48"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+            <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="34.8232"
+                  x="838.88" y="146.9569">fields
+            </text>
+        </g><!--link DropdownControlFieldProperties to Choice-->
+        <g id="link_DropdownControlFieldProperties_Choice">
+            <path codeLine="81" d="M1421.61,310.65 C1441.06,342.98 1463.7566,380.6689 1484.1666,414.5889 " fill="none"
+                  id="DropdownControlFieldProperties-to-Choice" style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="#181818"
+                     points="1487.26,419.73,1486.0472,409.9561,1484.6821,415.4458,1479.1925,414.0807,1487.26,419.73"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+            <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="48.8706"
+                  x="1469.88" y="386.0369">choices
+            </text>
+        </g><!--link MultipleChoiceControlFieldProperties to Choice-->
+        <g id="link_MultipleChoiceControlFieldProperties_Choice">
+            <path codeLine="82" d="M1648.03,327.02 C1622.8,356.49 1597.0518,386.572 1572.7318,414.982 " fill="none"
+                  id="MultipleChoiceControlFieldProperties-to-Choice" style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="#181818"
+                     points="1568.83,419.54,1577.7214,415.3042,1572.0815,415.7416,1571.6441,410.1017,1568.83,419.54"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+            <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="48.8706"
+                  x="1607.88" y="386.0369">choices
+            </text>
+        </g><!--link ControlField to ControlFieldValidations-->
+        <g id="link_ControlField_ControlFieldValidations">
+            <path codeLine="83"
+                  d="M703.31,288.87 C576.32,315.26 381.65,360.67 218.88,419.97 C213.05,422.1 212.6534,422.1242 206.7134,424.5842 "
+                  fill="none" id="ControlField-to-ControlFieldValidations" style="stroke:#181818;stroke-width:1.0;"/>
+            <polygon fill="#181818"
+                     points="201.17,426.88,211.0156,427.132,205.7895,424.9669,207.9546,419.7407,201.17,426.88"
+                     style="stroke:#181818;stroke-width:1.0;"/>
+            <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="70.7764"
+                  x="352.88" y="386.0369">validations
+            </text>
+        </g><!--SRC=[hLNBQiCm4BpxAtHCQVq3eJI4X48FVK2Xq5DGf4sye4Ykj6cRFlwzicExSc8hXZQNcDLgTcPt90d5dMCtskKW28s-DdR3FXFcVobpP56lsSh7RcGxHaWAgX2tbk_O2a59btmd2L_w92w8YH9yPZHPewwBzIFe8XZ3haEx_21YOLK59bL4WXCMyq95jH9MVk8A9IyM7Nlz_TvdfkNVELi3FLYJWoK4Dpehn1nh295gEKjZbAVqiaKBCeo1zjqJm9UDeYhLTtk5GNY2cjZQjmqUmAAHSxvptVL_6JRb-rjGLkDAcRSf4HVP1ZG5k7EF9SsRxi67Tm8jJvQlYkGPNmAXuEhUIh0jlLnBiy6FjcL4Pb10GETsgmXp1RDouLz8UUKrwYEelScFCkuf0xil6cDT1b-BEbxZLE5Q5-sCIte6TsV-fAGsvs8XlEN8RWMDEiTwqUM3i_YmEpaqFJnXZxpvZ1wZyGcS8VEFynpacy5iXw151Xod6lF3O8OHaE3EAEaVthZAdr7LTvN6hn5XDhb2hlqXyKLQwYw_qcwtTAJrjxSZ-KXfqjExNWP1Qs9R1mqz1X2RoS7xcgPNRNECwzVpn84hD-x7Ecwkca7cxzpPud18Adpcnk6J-GC0]-->
+    </g>
+</svg>

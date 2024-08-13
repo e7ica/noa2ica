@@ -1,0 +1,384 @@
+{
+  "fields": [
+    {
+      "properties": {
+        "postpon": true,
+        "allow_attachments": false,
+        "description": "Cool description for the date",
+        "separator": "-",
+        "structure": "DDMMYYYY"
+      },
+      "ref": "nice_readable_date_reference",
+      "title": "Date Title",
+      "type": "date",
+      "validations": {
+        "required": false,
+        "enforceable": true,
+        "grace_period_days": 15
+      }
+    },
+    {
+      "properties": {
+        "alphabetical_order": false,
+        "choices": [
+          {
+            "label": "Foo"
+          },
+          {
+            "label": "Bar"
+          }
+        ],
+        "description": "Cool description for the dropdown",
+        "randomize": false
+      },
+      "ref": "nice_readable_dropdown_reference",
+      "title": "Dropdown Title",
+      "type": "dropdown",
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "description": "Cool description for the email"
+      },
+      "ref": "nice_readable_email_reference",
+      "title": "Email Title",
+      "type": "email",
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "description": "Cool description for the file upload"
+      },
+      "ref": "nice_readable_file_upload_reference",
+      "title": "File Upload Title",
+      "type": "file_upload",
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "description": "Cool description for the legal"
+      },
+      "ref": "nice_readable_legal_reference",
+      "title": "Legal Title",
+      "type": "legal",
+      "validations": {
+        "required": true,
+        "enforceable": true,
+        "grace_period_days": 30
+      }
+    },
+    {
+      "properties": {
+        "description": "Cool description for the long text"
+      },
+      "ref": "nice_readable_long_text_reference",
+      "title": "Long Text Title",
+      "type": "long_text",
+      "validations": {
+        "max_length": 20,
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "allow_multiple_selection": false,
+        "allow_other_choice": true,
+        "choices": [
+          {
+            "label": "Foo",
+            "ref": "foo_choice_ref"
+          },
+          {
+            "label": "Bar",
+            "ref": "bar_choice_ref"
+          }
+        ],
+        "description": "Cool description for the multiple choice",
+        "randomize": true,
+        "vertical_alignment": false
+      },
+      "ref": "nice_readable_multiple_choice_reference",
+      "title": "Multiple Choice Title",
+      "type": "multiple_choice",
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "allow_multiple_selection": false,
+        "choices": [
+          {
+            "label": "Foo",
+            "ref": "foo_choice_ref"
+          },
+          {
+            "label": "Bar",
+            "ref": "bar_choice_ref"
+          }
+        ],
+        "description": "Description for the ranking",
+        "randomize": true
+      },
+      "ref": "nice_readable_ranking_reference",
+      "title": "Ranking Title",
+      "type": "ranking",
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "description": "Cool description for the number"
+      },
+      "ref": "nice_readable_number_reference",
+      "title": "Number Title",
+      "type": "number",
+      "validations": {
+        "max_value": 50,
+        "min_value": 20,
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "description": "Cool description for the opinion scale field",
+        "labels": {
+          "center": "center label",
+          "left": "left label",
+          "right": "right label"
+        },
+        "start_at_one": true,
+        "steps": 9
+      },
+      "ref": "nice_readable_opinion_scale_reference",
+      "title": "Opinion Scale Title",
+      "type": "opinion_scale",
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "allow_multiple_selection": false,
+        "allow_other_choice": true,
+        "choices": [
+          {
+            "label": "Foo 1",
+            "ref": "foo_choice_ref1"
+          },
+          {
+            "label": "Foo 2",
+            "ref": "foo_choice_ref2"
+          }
+        ],
+        "description": "Cool description for the picture choice",
+        "randomize": true,
+        "show_labels": false,
+        "supersized": false
+      },
+      "ref": "nice_readable_picture_choice_reference",
+      "title": "Picture Choice Title",
+      "type": "picture_choice",
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "description": "Cool description for the rating",
+        "shape": "star",
+        "steps": 10
+      },
+      "ref": "nice_readable_rating_reference",
+      "title": "Rating Title",
+      "type": "rating",
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "description": "Cool description for the short text"
+      },
+      "ref": "nice_readable_short_text_reference",
+      "title": "Short Text Title",
+      "type": "short_text",
+      "validations": {
+        "max_length": 20,
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "button_text": "Statement button text",
+        "description": "Cool description for the statement",
+        "hide_marks": true
+      },
+      "ref": "nice_readable_statement_reference",
+      "title": "Statement Title",
+      "type": "statement"
+    },
+    {
+      "properties": {
+        "description": "Cool description for the website"
+      },
+      "ref": "nice_readable_website_reference",
+      "title": "Website Title",
+      "type": "website",
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "description": "Cool description for the Yes/No question"
+      },
+      "ref": "nice_readable_yes_no_reference",
+      "title": "yes or no",
+      "type": "yes_no",
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "button_text": "next",
+        "currency": "EUR",
+        "description": "Cool description for the payment group",
+        "price": {
+          "type": "variable",
+          "value": "price"
+        },
+        "show_button": true
+      },
+      "ref": "nice_readable_payment_reference",
+      "title": "payment",
+      "type": "payment",
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "button_text": "Some text",
+        "description": "Question group description",
+        "fields": [
+          {
+            "properties": {
+              "description": "Cool description for the website"
+            },
+            "ref": "another_nice_readable_website_reference",
+            "title": "website",
+            "type": "website"
+          }
+        ],
+        "show_button": true
+      },
+      "ref": "a_group_field_ref",
+      "title": "group field",
+      "type": "group"
+    },
+    {
+      "properties": {
+        "description": "Matrix description",
+        "fields": [
+          {
+            "properties": {
+              "allow_multiple_selection": true,
+              "allow_other_choice": false,
+              "choices": [
+                {
+                  "label": "matrix choice 1"
+                },
+                {
+                  "label": "matrix choice 2"
+                }
+              ],
+              "description": "Cool description for the multiple choice in the matrix",
+              "vertical_alignment": false
+            },
+            "ref": "nice_readable_multiple_choice_reference_inside_matrix",
+            "title": "multiple choice",
+            "type": "multiple_choice"
+          }
+        ]
+      },
+      "ref": "a_matrix_field_ref",
+      "title": "matrix field",
+      "type": "matrix"
+    },
+    {
+      "properties": {
+        "fields": [
+          {
+            "properties": {},
+            "ref": "nice_readable_short_text_first_name_ref",
+            "subfield_key": "first_name",
+            "title": "First name",
+            "type": "short_text",
+            "validations": {
+              "required": false
+            }
+          },
+          {
+            "properties": {},
+            "ref": "nice_readable_short_text_last_name_ref",
+            "subfield_key": "last_name",
+            "title": "Last name",
+            "type": "short_text",
+            "validations": {
+              "required": false
+            }
+          },
+          {
+            "properties": {
+              "default_country_code": "US"
+            },
+            "ref": "nice_readable_phone_number_ref",
+            "subfield_key": "phone_number",
+            "title": "Phone number",
+            "type": "phone_number",
+            "validations": {
+              "required": false
+            }
+          },
+          {
+            "properties": {},
+            "ref": "nice_readable_email_ref",
+            "subfield_key": "email",
+            "title": "Email",
+            "type": "email",
+            "validations": {
+              "required": false
+            }
+          },
+          {
+            "properties": {},
+            "ref": "nice_readable_short_text_company_ref",
+            "subfield_key": "company",
+            "title": "Company",
+            "type": "short_text",
+            "validations": {
+              "required": false
+            }
+          }
+        ]
+      },
+      "ref": "a_contact_info_field_ref",
+      "title": "Contact info",
+      "type": "contact_info",
+      "validations": {
+        "required": false
+      }
+    }
+  ],
+  "title": "This is an example form",
+  "form_id": "1234"
+}

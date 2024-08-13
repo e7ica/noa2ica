@@ -1,0 +1,47 @@
+{
+  "form_id": "1",
+  "form_name": "Formulario de Control de Carnet de Manipulación de Alimentos",
+  "title": "Control de Carnet de Manipulación de Alimentos",
+  "description": "Formulario para verificar si el personal exhibe carnet de manipulación de alimentos vigente",
+  "fields": [
+    {
+      "field_id": "1",
+      "field_order": 1,
+      "field_name": "carnet_manipulacion_alimentos",
+      "ref": "carnet_manipulacion_alimentos",
+      "title": "Exhibe el personal carnet de manipulación de alimentos vigente?",
+      "type": "yes_no",
+      "properties": {
+        "description": null,
+        "allow_attachments": false
+      },
+      "validations": {
+        "required": true,
+        "rectifiable": true,
+        "enforceable": true,
+        "grace_period_days": 15
+      },
+      "compliance": {
+        "yes": "Cumple",
+        "no": "No Cumple",
+        "actions": {
+          "rectifiable": {
+            "type": "Emplazamiento",
+            "penalty": "Infracción",
+            "grace_period_days": 15
+          },
+          "non_compliance": [
+            {
+              "type": "Infracción",
+              "penalty": "Multa"
+            },
+            {
+              "type": "Clausura",
+              "penalty": "Cierre del establecimiento"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

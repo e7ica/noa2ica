@@ -1,0 +1,119 @@
+  {
+      "answers": [
+        {
+          "status": ["new" | "draft" | "validate" | "with_error" | "submitted"],
+          "result": ["accepted" | "rejected" | "pending"],
+          "errors": [
+            {
+              "code": "required",
+              "field": "field_id",
+              "message": "This field is required"
+            }
+          ],
+          "field": {
+            "id": "hVONkQcnSNRj",
+            "ref": "my_custom_dropdown_reference",
+            "type": "dropdown"
+          },
+          "text": "Job opportunities",
+          "boolean": false,
+          "number": 1,
+          "choice": {
+            "label": "A friend's experience in Sydney"
+          },
+          "choices": {
+            "labels": ["A friend's experience in Sydney", "A friend's experience in Tokyo"],
+            "other": "A friend's experience in Tokyo"
+          },
+          "type": "text"
+        },
+        {
+          "boolean": false,
+          "field": {
+            "id": "RUqkXSeXBXSd",
+            "ref": "my_custom_yes_no_reference",
+            "type": "yes_no"
+          },
+          "type": "boolean"
+        },
+        {
+          "field": {
+            "id": "JwWggjAKtOkA",
+            "ref": "my_custom_short_text_reference",
+            "type": "short_text"
+          },
+          "text": "Lian",
+          "type": "text"
+        },
+        {
+          "field": {
+            "id": "pn48RmPazVdM",
+            "ref": "my_custom_number_reference",
+            "type": "number"
+          },
+          "number": 1,
+          "type": "number"
+        },
+        {
+          "field": {
+            "id": "DlXFaesGBpoF",
+            "ref": "my_custom_long_text_reference",
+            "type": "long_text"
+          },
+          "text": "It's a big, busy city. I moved here for a job, but I like it, so I am planning to stay. I have made good friends here.",
+          "type": "text"
+        },
+        {
+          "date": "2012-03-20T00:00:00Z",
+          "field": {
+            "id": "KoJxDM3c6x8h",
+            "ref": "my_custom_date_reference",
+            "type": "date"
+          },
+          "type": "date"
+        },
+        {
+          "choice": {
+            "label": "A friend's experience in Sydney"
+          },
+          "field": {
+            "id": "ceIXxpbP3t2q",
+            "ref": "my_custom_multiple_choice_reference",
+            "type": "multiple_choice"
+          },
+          "type": "choice"
+        },
+        {
+          "choice": {
+            "label": "Tokyo"
+          },
+          "field": {
+            "id": "k6TP9oLGgHjl",
+            "ref": "my_custom_multiple_choice2_reference",
+            "type": "multiple_choice"
+          },
+          "type": "choice"
+        }
+      ],
+      "calculated": {
+        "score": 2
+      },
+      "hidden": {},
+      "metadata": {
+      },
+      "response_id": "21085286190ffad1248d17c4135ee56f",
+      "submitted_at": "2017-09-14T22:38:22Z",
+      "token": "test21085286190ffad1248d17c4135ee56f",
+      "variables": [
+        {
+          "key": "score",
+          "number": 2,
+          "type": "number"
+        },
+        {
+          "key": "name",
+          "text": "typeform",
+          "type": "text"
+        }
+      ]
+  }

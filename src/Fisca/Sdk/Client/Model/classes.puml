@@ -1,0 +1,109 @@
+@startuml
+
+namespace model  {
+
+    class Inspeccion{
+        id: IdInspeccion
+        protocolo: IdProtocolo
+        estado: EstadoInspeccion
+        controles: ControlValor[]
+    }
+    Inspeccion ..> key.IdInspeccion
+    Inspeccion ..> key.IdProtocolo
+    Inspeccion ..> state.EstadoInspeccion
+    Inspeccion --> "*" ControlValor
+
+    class ControlValor{
+        orden: Orden
+        grupo: Grupo
+        estado: EstadoControl
+        codigo: CodigoControl
+        nombre: String
+        titulo: String
+        tipo: TipoControl
+        opciones: OpctionValor[]
+        diasEmplazamiento: Int
+        modalidadEmplazamiento: Boolean
+        subsanable: Boolean
+        acciones_rechazo: Accion[]
+        acciones_emplazamiento: Accion[]
+        emplazado: Boolean
+        tipoValor: TipoValor
+        comentario: String
+
+    }
+    ControlValor ..> state.EstadoControl
+    ControlValor ..> key.CodigoControl
+    ControlValor ..> tipo.TipoControl
+    ControlValor ..> key.Orden
+    ControlValor ..> key.Grupo
+    ControlValor --> "opciones *" OpctionValor
+    ControlValor --> tipo.ModalidadEmplesamiento
+
+    class OpctionValor{
+        codigo: CodigoOpcion
+        texto: String
+        tipoCumplimiento: TipoCumplimiento
+        tipoConstancia: TipoConstancia
+        seleccionado: Boolean
+        valor: String
+        cumplimiento: Boolean
+    }
+    OpctionValor ..> key.CodigoOpcion
+
+
+}
+
+namespace model.tipo {
+    enum ModalidadEmplesamiento{
+        HABILES,
+        CORRIDOS
+    }
+    enum TipoControl{
+        VARIAS_OPCIONES
+        VERIFICACION_MULTIPLE
+        VERIFICACION_OBLIGATORIA
+    }
+
+    enum TipoCumplimiento {
+        SI
+        NO
+        INDICA
+    }
+    OpctionValor ..> TipoCumplimiento
+
+    enum TipoConstancia {
+        SI
+        NO
+        OPCIONAL
+    }
+    OpctionValor ..> TipoConstancia
+}
+
+namespace model.state {
+    enum EstadoInspeccion{
+        Pendiente
+        EnProceso
+        Finalizada
+    }
+    enum EstadoControl{
+        Aprobado
+        Rechazado
+        Emplazado
+    }
+}
+
+namespace model.key {
+    annotation Orden { }
+    annotation Grupo { }
+    annotation IdInspeccion
+    annotation IdProtocolo
+    annotation CodigoControl
+    annotation CodigoOpcion
+}
+
+
+
+
+
+@enduml

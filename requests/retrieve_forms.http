@@ -1,0 +1,11 @@
+### GET request to example server
+GET http://127.0.0.1:8000/api/forms/2/retrieve
+###
+
+### GET request to example server
+GET http://127.0.0.1:8000//api/inspections/2/form/retrieve
+###
+
+### GET request to example server
+GET http://127.0.0.1:8000/api/inspection/2/responses/last/retrieve
+##

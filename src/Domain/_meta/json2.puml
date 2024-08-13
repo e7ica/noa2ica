@@ -1,0 +1,96 @@
+@startjson
+ {
+    "form_id": "1",
+    "form_name": "inpeccion_de_alimentos",
+    "title": "Inspección de alimentos",
+    "description": "Inspección de alimentos",
+    "fields": [
+      {
+        "field_id": "1",
+        "field_order": 1,
+        "field_name": "dispositivos_anti_inceptos",
+        "ref": "dispositivos_anti_inceptos",
+        "title": "Dispositivos anti-inceptos",
+        "type": "multiple_choice",
+        "properties": {
+          "description": "Cuenta con dispositivos las aberturas \\n y/o cortinas de aire en buen estado",
+          "allow_attachments": true,
+          "allow_multiple_selection": false,
+          "choices": [
+            {
+              "label": "tela mosquitera",
+              "ref": "tela_mosquitera",
+              "description": "tela mosquitera",
+              "compliance": "true"
+            },
+            {
+              "label": "cortina de aire",
+              "ref": "cortina_de_aire",
+              "description": "cortina de aire",
+              "compliance": "true"
+            },
+            {
+                "label": "malla plastica",
+                "ref": "malla_plastica",
+                "description": "malla plastica",
+                "compliance": "true"
+            },
+            {
+               "label": "sin proteccion",
+                "ref": "sin_proteccion",
+                "description": "sin proteccion",
+                "compliance": "false"
+            }
+          ]
+        },
+        "validations": {
+          "required": true,
+          "rectifiable": true,
+          "enforceable": true,
+          "grace_period_days": 30,
+          "penalty_levels": {
+            "infringement": true,
+            "closure": true
+          }
+        }
+      },
+            {
+              "field_id": "2",
+              "field_order": 2,
+              "field_name": "carnet_manipulacion_alimentos",
+              "ref": "carnet_manipulacion_alimentos",
+              "title": "Carnet de Manipulación de Alimentos",
+              "type": "yes_no",
+              "properties": {
+                "description": "Exhibe el personal carnet de manipulación \\nde alimentos vigente?",
+                "allow_attachments": false,
+                "choices": [
+                  {
+                    "label": "Sí",
+                    "ref": "si",
+                    "description": "Cumple",
+                    "compliance": "true"
+                  },
+                  {
+                    "label": "No",
+                    "ref": "no",
+                    "description": "No Cumple",
+                    "compliance": "false"
+                  }
+                ]
+              },
+              "validations": {
+                "required": true,
+                "rectifiable": true,
+                "enforceable": true,
+                "grace_period_days": 15,
+                "penalty_levels": {
+                  "infringement": true,
+                  "closure": true
+                }
+              }
+            }
+
+    ]
+  }
+@endjson

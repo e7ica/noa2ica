@@ -1,0 +1,82 @@
+@startuml
+
+
+
+namespace api {
+    interface FiskaApi {
+        auth(credentials: ApiCredentials): ApiToken
+        getInspeccion(id: IdInspeccion): Inspeccion
+        patchInspeccion(id: IdInspeccion, inspeccion: Inspeccion): Inspeccion
+    }
+    FiskaApi ..> service.InspeccionService
+    FiskaApi ..> auth.ApiCredentials
+    FiscalApi ..> auth.ApiToken
+    FiskaApi <|.. FiskaApiImpl
+
+    class FiskaApiImpl {
+        http: HttpClient
+        url: String
+    }
+    FiskaApiImpl ..> service.InspeccionServiceImpl
+
+
+    namespace service {
+        interface model.Inspeccion {}
+        annotation model.IdInspeccion {}
+
+        GetInspeccionService ..> Inspeccion
+        GetInspeccionService ..> IdInspeccion
+        PatchInspeccionService ..> Inspeccion
+        PatchInspeccionService ..> IdInspeccion
+
+
+        interface InspeccionService {
+        }
+        InspeccionService ..|> GetInspeccionService
+        InspeccionService ..|> PatchInspeccionService
+        InspeccionService <|.. InspeccionServiceImpl
+
+        interface GetInspeccionService {
+            getInspeccion(id: IdInspeccion): Inspeccion
+        }
+        service.PatchInspeccionService ..> .api.exceptions.PatchInspeccionException
+        service.GetInspeccionService ..> .api.exceptions.PatchInspeccionException
+
+        interface PatchInspeccionService {
+            patchInspeccion(id: IdInspeccion, inspeccion: Inspeccion): Inspeccion
+        }
+
+        class InspeccionServiceImpl {
+        }
+        InspeccionServiceImpl ..> .api.parser.InspeccionParser
+        InspeccionServiceImpl ..> .api.formater.InspeccionFormater
+        InspeccionServiceImpl ..> .api.formater.ControlValorFormater
+    }
+    namespace api.formater {
+        interface InspeccionFormater
+        interface ControlValorFormater
+    }
+    namespace api.parser {
+        interface InspeccionParser
+        interface ControlValorParser
+    }
+    namespace exceptions {
+        interface InspeccionException
+        interface GetInspeccionException
+        interface PatchInspeccionException
+        GetInspeccionException ..|> InspeccionException
+        PatchInspeccionException ..|> InspeccionException
+    }
+    namespace auth {
+        annotation ApiToken {
+        }
+        class ApiCredentials {
+            username: String
+            password: String
+        }
+
+    }
+}
+
+
+@enduml

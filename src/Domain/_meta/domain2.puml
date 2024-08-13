@@ -1,0 +1,93 @@
+@startuml
+
+class InspectionForm {
+    - string formId
+    - string title
+    - array fields
+}
+
+abstract class ControlField {
+    - string fieldId
+    - string title
+    - string type
+    - string ref
+    - ?string description
+    - ControlFieldValidations validations
+    --
+    + getProperties()
+}
+
+class ControlFieldValidations {
+    - bool required
+    - bool enforceable
+    - bool rectifiable
+    - ?int gracePeriodDays
+    - ?PenaltyLevels penaltyLevels
+}
+
+class ControlFieldProperties {
+    - ?string description
+    - bool allowAttachments
+}
+
+class DropdownControlFieldProperties extends ControlFieldProperties {
+    - bool alphabeticalOrder
+    - bool randomize
+    - array choices
+}
+
+class MultipleChoiceControlFieldProperties extends ControlFieldProperties {
+    - bool allowMultipleSelection
+    - bool allowOtherChoice
+    - bool randomize
+    - bool verticalAlignment
+    - array choices
+}
+
+class YesNoControlFieldProperties extends ControlFieldProperties {
+    --
+}
+
+class DropdownControlField extends ControlField {
+    - DropdownControlFieldProperties properties
+    --
+    + getProperties(): DropdownControlFieldProperties
+}
+
+class MultipleChoiceControlField extends ControlField {
+    - MultipleChoiceControlFieldProperties properties
+    --
+    + getProperties(): MultipleChoiceControlFieldProperties
+}
+
+class YesNoControlField extends ControlField {
+    - YesNoControlFieldProperties properties
+    --
+    + getProperties(): YesNoControlFieldProperties
+}
+
+class Choice {
+    - string label
+    - string ref
+    - string description
+    - bool compliance
+}
+
+class PenaltyLevels {
+    - bool infringement
+    - bool closure
+}
+
+ControlField <|-- DropdownControlField
+ControlField <|-- MultipleChoiceControlField
+ControlField <|-- YesNoControlField
+ControlFieldProperties <|-- DropdownControlFieldProperties
+ControlFieldProperties <|-- MultipleChoiceControlFieldProperties
+ControlFieldProperties <|-- YesNoControlFieldProperties
+InspectionForm --> ControlField : fields
+DropdownControlFieldProperties --> Choice : choices
+MultipleChoiceControlFieldProperties --> Choice : choices
+ControlField --> ControlFieldValidations : validations
+ControlFieldValidations --> PenaltyLevels : penaltyLevels
+
+@enduml

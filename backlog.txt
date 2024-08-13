@@ -1,0 +1,13 @@
+
+
+### Home Panel and List of Inspecciones ###
+
+[ ] Home Panel Page
+[ ] Ficha de Inspeccion
+
+
+### Inspeccion Form ###
+
+[ ] Inspeccion Form Page
+[ ] Inspeccion Form - First Control
+[ ] Inspeccion Form - Last Control

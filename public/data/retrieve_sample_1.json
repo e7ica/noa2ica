@@ -1,0 +1,52 @@
+{
+  "id": "21085286190ffad1248d17c4135ee56f",
+  "submitted_at": "2023-07-29T22:38:22Z",
+  "inspector": {
+    "id": "1234567890",
+    "name": "John Doe"
+  },
+  "store": {
+    "id": "0987654321",
+    "name": "John's Store"
+  },
+  "answers": [
+    {
+      "field": {
+        "sort": 1,
+        "id": "1",
+        "ref": "dispocitivos_anti_inceptos",
+        "type": "multiple_choice"
+      },
+      "choices": [
+        {
+          "label": "tela mosquitera",
+          "ref": "tela_mosquitera"
+        }
+      ],
+      "type": "choices"
+    },
+    {
+      "field": {
+        "sort": 1,
+        "id": "1",
+        "ref": "dispocitivos_anti_inceptos",
+        "type": "multiple_choice"
+      },
+      "choice": {
+        "label": "cortina de aire",
+        "ref": "cortina_de_aire"
+      },
+      "type": "choice"
+    },
+    {
+      "field": {
+        "sort": 2,
+        "id": "2",
+        "ref": "carnet_manipulacion_alimentos",
+        "type": "yes_no"
+      },
+      "boolean": false,
+      "type": "boolean"
+    }
+  ]
+}

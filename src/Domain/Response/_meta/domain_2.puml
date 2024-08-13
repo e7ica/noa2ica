@@ -1,0 +1,82 @@
+@startuml
+
+class InspectionResponse {
+  - string id
+  - DateTime submitted_at
+  - Inspector inspector
+  - Store store
+  - ControlAnswer[] answers
+  + getId(): string
+  + getSubmittedAt(): DateTime
+  + getInspector(): Inspector
+  + getStore(): Store
+  + getAnswers(): ControlAnswer[]
+}
+
+class Inspector {
+  - string id
+  - string name
+  + getId(): string
+  + getName(): string
+}
+
+class Store {
+  - string id
+  - string name
+  + getId(): string
+  + getName(): string
+}
+
+class ControlAnswer {
+  - AnswerField field
+  - string type
+  - AnswerChoice[] choices
+  - AnswerChoice choice
+  - bool boolean
+  - AnswerAttachment[] attachments
+  + getField(): AnswerField
+  + getType(): string
+  + getChoices(): AnswerChoice[]
+  + getChoice(): AnswerChoice
+  + getBoolean(): bool
+  + getAttachments(): AnswerAttachment[]
+}
+
+class AnswerField {
+  - int sort
+  - string id
+  - string ref
+  - string type
+  + getSort(): int
+  + getId(): string
+  + getRef(): string
+  + getType(): string
+}
+
+class AnswerChoice {
+  - string label
+  - string ref
+  + getLabel(): string
+  + getRef(): string
+}
+
+class AnswerAttachment {
+  - string url
+  - string type
+  - string name
+  - int size
+  + getUrl(): string
+  + getType(): string
+  + getName(): string
+  + getSize(): int
+}
+
+InspectionResponse "1" --> "1" Inspector
+InspectionResponse "1" --> "1" Store
+InspectionResponse "1" --> "*" ControlAnswer
+ControlAnswer "1" --> "1" AnswerField
+ControlAnswer "0..*" --> "1" AnswerChoice : choices
+ControlAnswer "0..1" --> "1" AnswerChoice : choice
+ControlAnswer "0..*" --> "1" AnswerAttachment : attachments
+
+@enduml

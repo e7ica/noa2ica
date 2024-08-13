@@ -1,0 +1,94 @@
+{
+  "fields": [
+    {
+      "properties": {
+        "allow_attachments": false,
+        "alphabetical_order": false,
+        "choices": [
+          {
+            "label": "Foo"
+          },
+          {
+            "label": "Bar"
+          }
+        ],
+        "description": "Cool description for the dropdown",
+        "randomize": false
+      },
+      "ref": "nice_readable_dropdown_reference",
+      "title": "Dropdown Title",
+      "type": "dropdown",
+      "validations": {
+        "required": false,
+        "enforceable": true,
+        "grace_period_days": 30
+      }
+    },
+    {
+      "properties": {
+        "allow_attachments": false,
+        "allow_multiple_selection": false,
+        "allow_other_choice": true,
+        "choices": [
+          {
+            "label": "Foo",
+            "ref": "foo_choice_ref"
+          },
+          {
+            "label": "Bar",
+            "ref": "bar_choice_ref"
+          }
+        ],
+        "description": "Cool description for the multiple choice",
+        "randomize": true,
+        "vertical_alignment": false
+      },
+      "ref": "nice_readable_multiple_choice_reference",
+      "title": "Multiple Choice Title",
+      "type": "multiple_choice",
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "allow_attachments": true,
+        "allow_multiple_selection": false,
+        "choices": [
+          {
+            "label": "Foo",
+            "ref": "foo_choice_ref"
+          },
+          {
+            "label": "Bar",
+            "ref": "bar_choice_ref"
+          }
+        ],
+        "description": "Description for the ranking",
+        "randomize": true
+      },
+      "ref": "nice_readable_ranking_reference",
+      "title": "Ranking Title",
+      "type": "ranking",
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "properties": {
+        "allow_attachments": true,
+        "description": "Cool description for the Yes/No question"
+      },
+      "ref": "nice_readable_yes_no_reference",
+      "title": "yes or no",
+      "type": "yes_no",
+      "validations": {
+        "required": false,
+        "enforceable": true,
+        "grace_period_days": 15
+      }
+    }
+  ],
+  "title": "This is an example form",
+  "form_id": "1234"
+}

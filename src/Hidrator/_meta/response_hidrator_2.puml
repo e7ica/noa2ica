@@ -1,0 +1,93 @@
+@startuml
+
+actor User
+participant "ResponseHydrator" as RH
+participant "LoggerInterface" as Logger
+participant "InspectionResponse" as IR
+participant "Inspector" as Insp
+participant "Store" as Store
+participant "ControlAnswer" as CA
+participant "AnswerField" as AF
+participant "AnswerChoice" as AC
+participant "AnswerAttachment" as AA
+participant "File System" as FS
+
+User -> RH: hydrate()
+activate RH
+
+RH -> FS: file_get_contents(jsonFilePath)
+FS --> RH: jsonData
+
+RH -> RH: json_decode(jsonData, true)
+RH -> RH: createInspectionResponse(data)
+activate RH
+
+RH -> Insp: new Inspector(data['inspector']['id'], data['inspector']['name'])
+activate Insp
+deactivate Insp
+
+RH -> Store: new Store(data['store']['id'], data['store']['name'])
+activate Store
+deactivate Store
+
+RH -> RH: createAnswers(data['answers'])
+activate RH
+
+loop for each answerData in data['answers']
+
+  RH -> AF: new AnswerField(answerData['field']['sort'], answerData['field']['id'], answerData['field']['ref'], answerData['field']['type'])
+  activate AF
+  deactivate AF
+
+  alt choices exist
+    RH -> RH: createChoices(answerData['choices'])
+    activate RH
+
+    loop for each choiceData in answerData['choices']
+      RH -> AC: new AnswerChoice(choiceData['label'], choiceData['ref'])
+      activate AC
+      deactivate AC
+    end
+
+    deactivate RH
+  end
+
+  alt single choice exists
+    RH -> RH: createChoice(answerData['choice'])
+    activate RH
+
+    RH -> AC: new AnswerChoice(answerData['choice']['label'], answerData['choice']['ref'])
+    activate AC
+    deactivate AC
+
+    deactivate RH
+  end
+
+  alt attachments exist
+    RH -> RH: createAttachments(answerData['attachments'])
+    activate RH
+
+    loop for each attachmentData in answerData['attachments']
+      RH -> AA: new AnswerAttachment(attachmentData['url'] ?? baseUrl + '/' + attachmentData['filename'], attachmentData['type'], attachmentData['name'], attachmentData['size'] ?? 0)
+      activate AA
+      deactivate AA
+    end
+
+    deactivate RH
+  end
+
+  RH -> CA: new ControlAnswer(AF, answerData['type'], choices, choice, answerData['boolean'] ?? null, attachments)
+  activate CA
+  deactivate CA
+end
+
+deactivate RH
+
+RH -> IR: new InspectionResponse(data['id'], new DateTime(), Insp, Store, answers)
+activate IR
+deactivate IR
+
+RH --> User: IR
+deactivate RH
+
+@enduml

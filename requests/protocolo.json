@@ -1,0 +1,24 @@
+{
+  "codigo": "strin",
+  "nombre": "string",
+  "descripcion": "string",
+  "caracteristicas": "string",
+  "idPerfilResponsable": 0,
+  "idTipoTurno": 0,
+  "tipoDestinatario": "I",
+  "estado": "D",
+  "controles": [
+    {
+      "nombre": "string",
+      "descripcion": "string",
+      "orden": 0,
+      "diasEmplazamiento": 0,
+      "subsanable": "string",
+      "noCumple": "string",
+      "notas": "string",
+      "estado": "D",
+      "protocolo": "string",
+      "controlTipo": "https://example.com/"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+@startuml
+
+actor User
+participant "ResponseHydrator" as RH
+participant "File System" as FS
+participant "InspectionResponse" as IR
+participant "Inspector" as Insp
+participant "Store" as Store
+participant "ControlAnswer" as CA
+participant "AnswerField" as AF
+participant "AnswerChoice" as AC
+participant "AnswerAttachment" as AA
+
+User -> RH: hydrate()
+activate RH
+
+RH -> FS: Read JSON data from file
+FS --> RH: JSON data
+
+RH -> RH: Decode JSON data
+RH -> RH: Create Inspector and Store objects
+activate Insp
+deactivate Insp
+activate Store
+deactivate Store
+
+loop for each answer in JSON data
+  RH -> RH: Create AnswerField object
+  activate AF
+  deactivate AF
+
+  alt if choices exist
+    loop for each choice
+      RH -> RH: Create AnswerChoice object
+      activate AC
+      deactivate AC
+    end
+  end
+
+  alt if single choice exists
+    RH -> RH: Create AnswerChoice object
+    activate AC
+    deactivate AC
+  end
+
+  alt if attachments exist
+    loop for each attachment
+      RH -> RH: Create AnswerAttachment object
+      activate AA
+      deactivate AA
+    end
+  end
+
+  RH -> RH: Create ControlAnswer object
+  activate CA
+  deactivate CA
+end
+
+RH -> IR: Create InspectionResponse object with Inspector, Store, and answers
+activate IR
+deactivate IR
+
+RH --> User: Return InspectionResponse object
+deactivate RH
+
+@enduml
