@@ -24,6 +24,7 @@ class InspectionController extends AbstractController
                 'id' => 1,
                 'ref' => 'carnet_manipulacion_alimentos',
                 'type' => 'yes_no',
+                'status' => 'Aprobado',
                 'label' => '¿Exhibe el personal carnet de manipulación de alimentos vigente?',
                 'options' => [
                     ['label' => 'Sí', 'value' => 'true'],
@@ -34,6 +35,7 @@ class InspectionController extends AbstractController
                 'id' => 2,
                 'ref' => 'dispocitivos_anti_inceptos',
                 'type' => 'multiple_choice',
+                'status' => 'Rechazado',
                 'label' => '¿Qué dispositivos anti-insectos están presentes?',
                 'options' => [
                     ['label' => 'Tela mosquitera', 'value' => 'tela_mosquitera'],
@@ -45,6 +47,7 @@ class InspectionController extends AbstractController
                 'id' => 3,
                 'ref' => 'dispocitivos_incendios',
                 'type' => 'multiple_choice',
+                'status' => 'Pendiente',
                 'label' => '¿Qué dispositivos contra incendios están presentes?',
                 'options' => [
                     ['label' => 'Extintor', 'value' => 'extintor'],
@@ -63,7 +66,7 @@ class InspectionController extends AbstractController
             'time' => '09:00 - 11:30',
             'number' => '#00000015',
             'initials' => 'JP',
-            'status' => 'Retrasada',
+            'status' => 'Aprobado',
             'inspector' => 'Juan Pérez',
             'date' => '2021-10-15',
             'observations' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'

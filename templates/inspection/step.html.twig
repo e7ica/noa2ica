@@ -43,7 +43,7 @@
 {% block body %}
 
 
-<main class="p-2 bg-blue-200 h-[100vh]">
+    <main class="p-2 bg-blue-200 h-[100vh] relative">
 
     <div class="container mt-3 mb-3 bg-green-500 ">
         <div class="alert alert-info" role="alert">
@@ -69,7 +69,7 @@
         </div>
     </div>
 
-    <div class="container mt-3 mb-3 bg-blue-500   ">
+    <div class="container mt-3 mb-3 bg-blue-500  hidden ">
         <div class="alert alert-info" role="alert">
             <div class="mt-2 grid grid-cols-3">
                 <div class="flex justify-start items-center flex-grow-1 flex-lg-grow-1" style="min-width: 200px">
@@ -141,6 +141,12 @@
             </div>
         </form>
     </div>
-
+        {%  if question.status != 'Pendiente' %}
+        <div class="absolute bottom-16 right-4">
+            <div class="flex items-center justify-center w-20 h-20 border-4 border-gray-700 rounded-full {{ question.status == 'Aprobado' ? 'bg-green-500' : 'bg-red-500' }}">
+                <i class="fas text-4xl font-bold {{ question.status == 'Aprobado' ? 'fa-check' : 'fa-times' }} text-white "></i>
+            </div>
+        </div>
+        {%  endif %}
     </main>
 {% endblock %}
