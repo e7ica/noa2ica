@@ -8,9 +8,8 @@
 
 ### Inspeccion Form ###
 
-[ ] Inspeccion Form Page
-[ ] Inspeccion Form - First Control
-[ ] Inspeccion Form - Last Control
+[x] Inspeccion Form - Step Page
+[x] Inspection Form - Complete Page
 
 
 ### Fisca SDK Api Client ###
