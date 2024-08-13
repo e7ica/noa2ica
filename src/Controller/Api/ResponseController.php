@@ -23,7 +23,7 @@ class ResponseController extends AbstractController
     }
 
 
-    #[Route('/api/inspection/{inspection_id}/responses/last/retrieve', name: 'app_responses_retrieve_last', methods: ['GET'])]
+    #[Route('/Api/inspection/{inspection_id}/responses/last/retrieve', name: 'app_responses_retrieve_last', methods: ['GET'])]
     public function retrieveLastResponse(int $inspection_id): Response
     {
         $requestId = $this->makeRequestId();

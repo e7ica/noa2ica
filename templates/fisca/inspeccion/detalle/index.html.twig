@@ -1,0 +1,165 @@
+{% extends 'fisca/home/layout.html.twig' %}
+
+
+{% block title %}Inicio - Inspector Municipal{% endblock %}
+
+{%  block custom_styles %}
+    <style>
+        .card-header {
+            background-color: white;
+            color: black;
+            font-weight: bold;
+        }
+        .accordion-button::after {
+            content: '';
+        }
+        .accordion-button {
+            background-color: white;
+            color: black;
+        }
+        .accordion-button.collapsed .fas {
+            transform: rotate(0deg);
+        }
+        .accordion-button .fas {
+            transform: rotate(180deg);
+            transition: transform 0.2s;
+        }
+    </style>
+{%  endblock %}
+
+{% block content %}
+
+    <main>
+
+        <div class="container mt-3 mb-3">
+            <div class="alert alert-info" role="alert">
+                <div class="mt-2 grid grid-cols-2">
+                    <div class="flex flex-1 justify-start items-end">
+                        <h2 class="w-100 text-xl card-title fw-bold">{{ inspection.title }}</h2>
+                    </div>
+                    <div class="flex justify-end">
+                    <button class="flex btn flex justify-end position-relative" style="width: 60px; top: 0px;">
+                        <i class=" text-3xl bold {% if inspection.type == 'inspeccion' %}bi bi-folder2-open{% else %}bi bi-pencil-square{% endif %}"></i>
+                    </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 justify-start align-items-start">
+                    <h3 class="text-md card-title fw-bold justify-content-start items-start" style="color: #555555">{{ inspection.business }}</h3>
+                    <p class="card-text flex justify-end items-start">
+                        <span class="text-md fw-bold" style="color: black; margin-left: 10px;">{{ inspection.number }}</span>
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="container mt-3 mb-3">
+            <div class="alert alert-info" role="alert">
+                <div class="mt-2 grid grid-cols-3">
+                    <div class="flex justify-start items-center flex-grow-1 flex-lg-grow-1" style="min-width: 200px">
+                        <i class="text-3xl fw-bold {% if inspection.type == 'inspeccion' %}bi bi-folder2-open{% else %}bi bi-pencil-square{% endif %}"></i>
+                        <p class="ms-2 card-text" style="width: 200px;">
+                            <span class="text-warning ">{{ inspection.time }}</span>
+                        </p>
+                    </div>
+                    <div class="flex justify-start items-start">
+                    </div>
+                    <div class="flex justify-end items-center">
+                        <span class="badge bg-primary rounded-circle" style="width: 30px; height: 30px; padding: 6px; line-height: 1;">{{ inspection.initials }}</span>
+                        <span class="badge bg-danger ml-2" style="width: 100px; height: 30px; padding: 6px; line-height: 1;">{{ inspection.status }}</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 justify-start align-items-start">
+                    <h4 class="text-md card-title justify-content-start items-start" style="width: 200px;" >{{ inspection.address}}</h4>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container mt-0">
+            <hr class="my-2 mt-4 mb-2">
+            <h6 class="w-auto  text-center text-black-50 fw-semibold">CUIT 30-12345678-7</h6>
+
+            <div class="container mt-3 text-md">
+                <div class="accordion-section">
+                    <div class="accordion-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn fw-bold text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="fa fa-caret-right" style="left: -10px"></i>
+                                Datos Contacto
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseOne" class="accordion-body show" aria-labelledby="headingOne">
+                        Teléfono principal: 11-4054-5485<br>
+                        Email comercial: ellobo@hotmail.com
+                    </div>
+                </div>
+
+                <div class="accordion-section">
+                    <div class="accordion-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-block text-left fw-bold" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <i class="fa fa-caret-right" style="left: -10px"></i>
+                                Apoderados
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="accordion-body show" aria-labelledby="headingTwo">
+                        DNI 20244897 Perez, Maria Eugenia<br>
+                        DNI 24175432 Martinez, Juan Antonio
+                    </div>
+                </div>
+
+                <div class="accordion-section">
+                    <div class="accordion-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn fw-bold text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <i class="fa fa-caret-right" style="left: -10px"></i>
+                                Inspecciones Vinculadas
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="accordion-body show" aria-labelledby="headingThree">
+                        11/12/2023 #0000054 JP Suspendida<br>
+                        23/02/2024 #00001374 BR Emplazada
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container mt-3 mb-0">
+            <hr class="my-2 mt-4 mb-2">
+            <div class="d-flex justify-content-between">
+                <!-- ir al la ruta symfony route fisca_control_start with inspection_id  -->
+                <a class="btn btn-primary fw-bold px-4"
+                        href="{{ path('fisca_control_start', {'inspeccion_id': inspection.id}) }}"
+                >
+                    Iniciar</a>
+                <button class="btn btn-link fw-bold align-items-center" onclick="mostrarMasOpciones()" style="text-decoration: none">
+                    Más Opciones
+                   <i class="ml-1 pt-1 fas fa-chevron-down float-end fw-bold "></i>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+
+{% endblock %}
+
+{% block custom_scripts %}
+    <script>
+        $(document).ready(function() {
+            $('.accordion-header button').on('click', function() {
+                const target = $(this).data('target');
+                $(target).toggleClass('show');
+                $(this).parent().toggleClass('collapsed');
+            });
+        });
+    </script>
+{% endblock %}

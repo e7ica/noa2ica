@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Fisca\Sdk\Client\api;
+namespace App\Fisca\Sdk\Client\Api;
 
 use App\Fisca\Sdk\Client\Model\Key\IdInspeccion;
 use App\Fisca\Sdk\Client\Model\Inspeccion;
@@ -8,7 +8,7 @@ use App\Fisca\Sdk\Client\Model\Inspeccion;
 trait InspeccionApi
 {
 
-    // api path for inspeccion
+    // Api path for inspeccion
     private $INSPECCION = '/inspecciones';
 
     public function inspeccionUri(IdInspeccion $id = null)

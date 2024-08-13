@@ -2,7 +2,7 @@
 
 namespace App\Controller\Panel;
 
-class PanelController
+class HomeController
 {
 
 }

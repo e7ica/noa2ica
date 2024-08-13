@@ -17,7 +17,7 @@ class AttachmentController extends AbstractController
     }
 
     // attach file to answer multipart/form-data
-    #[Route('/api/attachment', name: 'app_attachment', methods: ['POST'])]
+    #[Route('/Api/attachment', name: 'app_attachment', methods: ['POST'])]
     public function attach_file(): Response
     {
         $this->logger->info('File attached');

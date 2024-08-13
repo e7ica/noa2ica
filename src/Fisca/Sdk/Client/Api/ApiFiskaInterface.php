@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Fisca\Sdk\Client\api;
+namespace App\Fisca\Sdk\Client\Api;
 
 interface ApiFiskaInterface
 {

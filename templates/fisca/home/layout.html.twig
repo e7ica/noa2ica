@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Fisca | Inspector App</title>
+    <!-- Agregar enlaces a CSS aquí -->
+    <!-- Incluir CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" >
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+
+
+
+
+    <style>
+        .welcome-message {
+            background-color: #007bff; /* Color de fondo azul */
+            color: #fff; /* Texto blanco */
+            padding: 10px 20px; /* Relleno interno */
+            border-radius: 5px; /* Bordes redondeados */
+            font-size: 18px; /* Tamaño de fuente */
+            text-align: center; /* Alineación centrada */
+        }
+    </style>
+
+    {% block custom_styles %}
+    {% endblock %}
+
+</head>
+<body style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+
+<noscript>
+    <strong>Lamentamos informarte que Fisca App no funciona correctamente sin JavaScript habilitado. Por favor, actívalo para continuar.</strong>
+</noscript>
+
+
+<header>
+    {% include 'fisca/home/partials/_navigation.html.twig' %}
+</header>
+
+{% block content %}
+
+{% endblock %}
+
+<!-- Agregar enlaces a scripts JS aquí -->
+
+<!-- Incluir archivos JS de Bootstrap y jQuery al final del cuerpo -->
+<script src="https://cdn.tailwindcss.com"></script>
+{%  block custom_scripts  %}
+{%  endblock %}
+</body>
+</html>

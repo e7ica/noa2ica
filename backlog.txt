@@ -2,8 +2,8 @@
 
 ### Home Panel and List of Inspecciones ###
 
-[ ] Home Panel Page
-[ ] Ficha de Inspeccion
+[x] Home Panel Page - Seamless
+[x] Ficha de Inspeccion - Seamless
 
 
 ### Inspeccion Form ###
@@ -11,3 +11,8 @@
 [ ] Inspeccion Form Page
 [ ] Inspeccion Form - First Control
 [ ] Inspeccion Form - Last Control
+
+
+### Fisca SDK Api Client ###
+[x] Setup SDK v0.1 - Definicion y Schema
+[x] Setup SDK v0.1 - Domain, Parser and Serializers

@@ -1,0 +1,9 @@
+<ul>
+    {% for inspection in inspections %}
+        <li>
+            <strong>{{ inspection.title }}</strong>
+            <p>Dirección: {{ inspection.address }}</p>
+            <p>{{ inspection.date ? 'Fecha: ' ~ inspection.date : 'Hora: ' ~ inspection.time }}</p>
+        </li>
+    {% endfor %}
+</ul>

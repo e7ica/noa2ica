@@ -1,0 +1,40 @@
+{% extends 'fisca/home/layout.html.twig' %}
+
+
+{% block title %}Inicio - Inspector Municipal{% endblock %}
+
+{% block content %}
+
+    <main>
+
+        <div class="container mt-3 mb-3">
+            <!-- Saludo personalizado -->
+            <div class="alert alert-info" role="alert">
+                ¡Hola de nuevo! <br/>Lista de inspecciones para hoy.
+            </div>
+        </div>
+
+
+        <div class="container mt-5">
+            <!-- Lista de Inspecciones del Día -->
+            <div class="grid grid-cols-2">
+                <!-- Columna 1: Inspecciones del Día -->
+                <div>
+                    <h4 class="text-xl mt-4 mb-4">Tareas del Día</h4>
+                </div>
+                <!-- Columna 2: Badge "Completadas" -->
+                <div class="flex justify-end items-center">
+                    <span class="badge bg-secondary">Pendientes</span>
+                </div>
+            </div>
+
+
+            {% for inspection in inspections %}
+                {% include  "fisca/home/_inspection_item.twig.html" with {inspection: inspection} %}
+            {% endfor %}
+
+        </div>
+
+    </main>
+
+{% endblock %}

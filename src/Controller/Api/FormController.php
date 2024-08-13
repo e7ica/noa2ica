@@ -23,7 +23,7 @@ class FormController extends AbstractController
     { }
 
 
-    #[Route('/api/inspections/{inspectionId}/form/retrieve', name: 'app_forms_retrieve', methods: ['GET'])]
+    #[Route('/Api/inspections/{inspectionId}/form/retrieve', name: 'app_forms_retrieve', methods: ['GET'])]
     public function retrieveForm(string $inspectionId): Response
     {
         $requestId = $this->makeRequestId();

@@ -16,7 +16,7 @@ class RetrieveResponseController extends AbstractController
     {
     }
 
-    #[Route('/api/retrieve/response', name: 'app_retrieve_response')]
+    #[Route('/Api/retrieve/response', name: 'app_retrieve_response')]
     public function index(): Response
     {
         return $this->render('retrieve_response/index.html.twig', [
