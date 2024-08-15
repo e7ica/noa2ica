@@ -15,3 +15,8 @@
 ### Fisca SDK Api Client ###
 [x] Setup SDK v0.1 - Definicion y Schema
 [x] Setup SDK v0.1 - Domain, Parser and Serializers
+
+
+### 06 de Agosto 2024 ###
+[ ] Modal de Inspeccion - Confirmacion de Emplazamiento
+[ ] Modal de Inspeccion - Confirmacion de Sansion
