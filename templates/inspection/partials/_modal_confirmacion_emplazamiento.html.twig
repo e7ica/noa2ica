@@ -1,0 +1,106 @@
+<style type="text/css">
+    /* Contenedor de la nota */
+    .note-container {
+        position: relative;
+    }
+
+    /* Nota */
+    .note {
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        position: absolute; /* Mantiene el espacio reservado */
+        width: 100%; /* Asegura que la nota ocupe el ancho completo del contenedor */
+    }
+
+    /* Nota oculta por deslizamiento */
+    .note.swiped {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+</style>
+
+<!-- Modal de Confirmación de Emplazamiento -->
+<div id="confirmacionEmplazamientoModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-96 my-4  md:w-[550px]">
+        <h2 class="text-lg font-semibold mb-4 flex items-center justify-between">
+            <span>⚠️</span>
+            ¿Confirmar emplazamiento?
+            <span>📅</span>
+        </h2>
+
+        <!-- Detalles del emplazamiento -->
+        <div class="flex-1 overflow-y-auto overflow-x-hidden">
+
+
+            <div class="space-y-4">
+
+                <!-- Fecha límite -->
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-calendar-alt text-blue-500"></i>
+                    <p class="text-sm text-gray-600">Fecha límite para resolver:
+                        <span class="text-blue-600 font-semibold">10 de Julio</span>
+                    </p>
+                </div>
+
+                <!-- Período de gracia -->
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-info-circle text-blue-500"></i>
+                    <p class="text-sm text-gray-600">Período de gracia:
+                        <span class="text-red-500 font-semibold">15 días</span>
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="note-container">
+
+                <!-- Nota aclaratoria -->
+                <div id="note" class="note flex items-center mt-4 space-x-0 px-4 py-4 border border-yellow-300 bg-yellow-50 rounded-lg text-sm">
+                    <p class="text-sm text-gray-700 italic">
+                        El comercio tiene <span class="text-red-500 font-semibold">15 días</span> para resolver la situación antes de que se aplique la sanción.
+                    </p>
+                    <i class="fas fa-info-circle text-yellow-500 relative"></i>
+                </div>
+            </div>
+
+            <!-- Nota aclaratoria con lista de instrucciones -->
+            <div class="mt-4 px-4 py-4 border border-red-300 bg-red-50 rounded-lg text-sm flex flex-col max-h-[90vw] sm:max-h-64 overflow-y-scroll overflow-x-hidden    ">
+                <p class="text-sm text-gray-700 font-semibold mb-2">Instrucciones:</p>
+                <ul class="list-disc pl-2 text-gray-700 space-y-1">
+                    <li>El pago de la multa debe realizarse dentro de los próximos <span class="text-red-500 font-semibold">15 días</span>.</li>
+                    <li>La multa puede ser pagada en línea a través del portal municipal o en cualquier sucursal bancaria.</li>
+                    <li>Una vez pagada, se debe enviar el comprobante de pago a la dirección de correo indicada.</li>
+                    <li>Si no se cumple con el pago dentro del plazo, se aplicarán medidas adicionales como el cierre temporal del comercio.</li>
+                    <li>El pago de la multa debe realizarse dentro de los próximos <span class="text-red-500 font-semibold">15 días</span>.</li>
+                    <li>La multa puede ser pagada en línea a través del portal municipal o en cualquier sucursal bancaria.</li>
+                    <li>Una vez pagada, se debe enviar el comprobante de pago a la dirección de correo indicada.</li>
+                    <li>Si no se cumple con el pago dentro del plazo, se aplicarán medidas adicionales como el cierre temporal del comercio.</li>
+                    <li>El pago de la multa debe realizarse dentro de los próximos <span class="text-red-500 font-semibold">15 días</span>.</li>
+                    <li>La multa puede ser pagada en línea a través del portal municipal o en cualquier sucursal bancaria.</li>
+                    <li>Una vez pagada, se debe enviar el comprobante de pago a la dirección de correo indicada.</li>
+                    <li>Si no se cumple con el pago dentro del plazo, se aplicarán medidas adicionales como el cierre temporal del comercio.</li>
+                    <li>El pago de la multa debe realizarse dentro de los próximos <span class="text-red-500 font-semibold">15 días</span>.</li>
+                    <li>La multa puede ser pagada en línea a través del portal municipal o en cualquier sucursal bancaria.</li>
+                    <li>Una vez pagada, se debe enviar el comprobante de pago a la dirección de correo indicada.</li>
+                    <li>Si no se cumple con el pago dentro del plazo, se aplicarán medidas adicionales como el cierre temporal del comercio.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Botones de confirmación -->
+        <div class="flex flex-col justify-end mt-4 space-y-4">
+            <!-- Botón para confirmar el emplazamiento -->
+            <button id="confirmarEmplazamientoBtn" class="bg-blue-500 px-6 py-3 hover:bg-blue-600 text-white text-lg font-semibold rounded-full shadow-md flex items-center justify-center transition duration-300 ease-in-out">
+                <i class="fas fa-check-circle mr-2"></i>
+                Confirmar Emplazamiento
+            </button>
+
+            <!-- Botón para volver atrás -->
+            <button id="volverAtrasEmplazamientoBtn" class="px-6 py-3 text-gray-500 hover:text-gray-600 text-lg font-semibold rounded-full flex items-center justify-center transition duration-300 ease-in-out">
+                <i class="fas fa-arrow-left mr-2"></i>
+                No, Volver Atrás
+            </button>
+        </div>
+    </div>
+</div>
