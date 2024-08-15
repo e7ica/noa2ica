@@ -26,7 +26,7 @@ class InspectionController extends AbstractController
                 'label' => '¿Exhibe el personal carnet de manipulación de alimentos vigente?',
                 'can_attach' => true,
                 'can_select_others' => false,
-                'can_summon' => true,
+                'can_summon' => false,
                 'options' => [
                     ['label' => 'Sí', 'value' => 'true'],
                     ['label' => 'No', 'value' => 'false'],

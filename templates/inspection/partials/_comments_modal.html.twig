@@ -1,0 +1,55 @@
+<!-- Modal para commentar alguna observacion  -->
+<div id="commentModal" class="flex hidden  flex-column items-end fixed inset-0 z-50 items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-96">
+        <h2 class="text-lg font-semibold mb-4">¿Quieres agregar algún comentario?</h2>
+
+        <!-- Contenedor del campo de texto con ícono -->
+        <div class="relative flex flex-col">
+            <!-- Ícono de lápiz en posición relativa -->
+            <i class="fas fa-pencil-alt absolute right-3 top-3 text-blue-500"></i>
+
+            <!-- Campo de texto estilizado -->
+            <textarea id="commentInput" class="pl-10 p-3 border-2 border-dashed border-gray-300 rounded-lg h-32 focus:outline-none focus:border-blue-500 resize-none" placeholder="Por favor, especifique"></textarea>
+        </div>
+
+        <div class="flex flex-column justify-center mt-4">
+            <button id="commentContinuarBtn" class="px-6 py-3 bg-green-500 hover:bg-green-600 text-white text-lg font-semibold rounded-full shadow-md transition duration-300 ease-in-out">
+                <i class="fas fa-arrow-right mr-2"></i>
+                Yes, Continuar
+            </button>
+            <button id="commentCancelarBtn" class="px-6 py-3 text-gray-500 hover:text-gray-600 text-lg font-semibold flex items-center justify-center transition duration-300 ease-in-out">
+                <i class="fas fa-arrow-left mr-2"></i>
+                No, Volver Atrás
+            </button>
+        </div>
+    </div>
+</div>
+
+<script type="module">
+    function handleCommentContinue(
+        comment
+    ) {
+        console.log('Comentario:', comment);
+        document.querySelector('form').submit();
+    }
+
+    function handleCommentCancel() {
+        // hide the modal
+        console.log('No se agregó ningún comentario.');
+        document.querySelector('form').submit();
+    }
+
+    document.getElementById('commentContinuarBtn').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('commentModal').classList.add('hidden');
+        const comment = document.getElementById('commentInput').value;
+        handleModalContinueClick('commentModal', () => {
+            handleCommentContinue(comment);
+        });
+    });
+    document.getElementById('commentCancelarBtn').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('commentModal').classList.add('hidden');
+    });
+
+</script>

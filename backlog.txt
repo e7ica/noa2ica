@@ -18,5 +18,11 @@
 
 
 ### 06 de Agosto 2024 ###
-[ ] Modal de Inspeccion - Confirmacion de Emplazamiento
-[ ] Modal de Inspeccion - Confirmacion de Sansion
+[x] Modal de Inspeccion - Confirmacion de Emplazamiento
+[x] Modal de Inspeccion - Confirmacion de Sansion
+
+
+
+### 07 de Agosto 2024 ###
+[x] Toolbar Floating - Attachment, Comments
+[x] Modal de Inspecciones - Add Comment Modal

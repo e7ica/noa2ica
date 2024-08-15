@@ -1,4 +1,9 @@
+
+{% include '/inspection/partials/ui/_status_floating_badge.html.twig' %}
+{% include '/inspection/partials/ui/_toolbar_floating_buttons.html.twig' %}
+
 <div class="max-w-4xl mt-6 mx-auto p-6 bg-white rounded-lg shadow-lg">
+
     <h1 class="text-xl font-semibold text-gray-700">{{ question.label }}</h1>
 
     <form
@@ -11,28 +16,30 @@
             )
             }}">
 
-        {% if question.status != 'Pendiente' %}
-            <div class="absolute s-8 top-[-140px] right-[-35px] md:top-[-100px] md:right-[-40px]">
-                <div class="flex items-center justify-center w-20 h-20 md:s-12 border-4 md:border-8 border-gray-700 rounded-full {{ question.status == 'Aprobado' ? 'bg-green-500' : 'bg-red-500' }}">
-            <span class="text-4xl font-bold {{ question.status == 'Aprobado' ? 'text-white' : 'text-white' }}">
-                {{ question.status == 'Aprobado' ? '👍' : '👎' }}
-            </span>
-                </div>
-            </div>
-        {% endif %}
 
+        {% include '/inspection/partials/_comments_modal.html.twig' %}
 
         {#  if question.can_attach #}
             {% include '/inspection/partials/_comprobante_modal.html.twig' %}
         {# endif #}
         {#  if question.can_select_others #}
-            {% include './inspection/partials/_otros_modal.html.twig' %}
+            {% include '/inspection/partials/_otros_modal.html.twig' %}
         {# endif #}
-        {# if question.can_summon #}
-            {% include './inspection/partials/_summons_modal.html.twig' %}
-        {# endif #}
-        {% include './inspection/partials/_infractions_and_closure_modal.html.twig' %}
-        {% include './inspection/partials/_continue_modal.html.twig' %}
+
+        {#  if question.can_summon #}
+            {% include '/inspection/partials/_modal_ask_emplazamiento_o_sansion.html.twig' %}
+            {% include '/inspection/partials/_modal_confirmacion_emplazamiento.html.twig' %}
+        {#  elseif #}
+
+        {%  if question.can_summon %}
+            {% include '/inspection/partials/_modal_confirmacion_sansion.html.twig' with { 'back': true } %}
+        {%  else  %}
+            {% include '/inspection/partials/_modal_confirmacion_sansion.html.twig' with { 'back': false } %}
+        {% endif %}
+
+
+        {% include '/inspection/partials/_infractions_and_closure_modal.html.twig' %}
+        {% include '/inspection/partials/_continue_modal.html.twig' %}
 
         <div class="space-y-4">
             {% if question.type == 'yes_no' %}
@@ -72,11 +79,37 @@
 <script type="module">
     // Configuración inicial
     function setupListeners() {
-        document.getElementById('nextBtn').addEventListener('click', handleNextBtnClick);
-        document.getElementById('otrosContinuarBtn').addEventListener('click', () => handleModalContinueClick('otrosModal', handleOtrosContinuar));
-        document.getElementById('uploadWrapper').addEventListener('click', handleUploadWrapperClick);
-        document.getElementById('fileInput').addEventListener('change', handleFileInputChange);
-        document.getElementById('continuarBtn').addEventListener('click', () => handleModalContinueClick('comprobanteModal', handleComprobanteContinue));
+        document.getElementById('nextBtn').addEventListener('click', (e) => { e.preventDefault();
+            handleNextBtnClick();
+        });
+        document.getElementById('otrosContinuarBtn').addEventListener('click', (e) => { e.preventDefault();
+            handleModalContinueClick('otrosModal', handleOtrosContinuar);
+        });
+        document.getElementById('uploadWrapper').addEventListener('click', (e)  => { e.preventDefault();
+            handleUploadWrapperClick();
+        });
+        document.getElementById('fileInput').addEventListener('change', (e) => { e.preventDefault();
+            handleFileInputChange();
+        });
+        document.getElementById('continuarBtn').addEventListener('click', (e) => { e.preventDefault();
+            handleModalContinueClick('comprobanteModal', handleComprobanteContinue);
+        });
+        document.getElementById('confirmarSancionBtn').addEventListener('click', (e) => { e.preventDefault();
+            handleSansionConfirmation();
+        });
+        document.getElementById('confirmarEmplazamientoBtn').addEventListener('click', (e) => { e.preventDefault();
+            handleEmplazamientoConfirmation();
+        });
+    }
+
+    // Handle the confirmation of a sanction action and emplacement action //
+
+    function handleSansionConfirmation() {
+        document.querySelector('form').submit();
+    }
+
+    function handleEmplazamientoConfirmation() {
+        document.querySelector('form').submit();
     }
 
     // Manejar el clic en el botón "Siguiente"
@@ -87,11 +120,9 @@
         const otrosOption = "otros"; // Reemplaza con el valor específico de "Otros"
 
         if (canSelectOthers && selectedOption && selectedOption.value === otrosOption) {
-            event.preventDefault();
             toggleModalVisibility('otrosModal', true);
         } else {
             if (canAttachFile) {
-                event.preventDefault();
                 toggleModalVisibility('comprobanteModal', true);
             } else {
                 document.querySelector('form').submit();
