@@ -26,3 +26,27 @@
 ### 07 de Agosto 2024 ###
 [x] Toolbar Floating - Attachment, Comments
 [x] Modal de Inspecciones - Add Comment Modal
+
+
+### 19 de Agosto 2024 ###
+
+--- Formulario de Control ---
+[x] Formulario de Control - Seccion de Emplazaiento - Add Emplazamiento / or Sancionar
+[*] Hidratar via Twig el estado anterior del control
+[ ] Controles de Tipo SiNo, OneOption, AllOptions
+
+--- Resumen de Inspeccion ---
+[x] Resumen de Inspeccion - Banner de Resultado Actual
+[ ] Resumen de Inspeccion - Filtar Controles por Estado
+[ ] Pruebas de Stress +200 Controles en una Inspeccion.
+
+--- Sdk Fisca ---
+[ ] Api Fisca - Get | Add filled flag, este o no finializado.
+
+
+### 20 de Agosto 2024 ###
+
+[x] Desabilitar el COntinuar sin eleccion en Controles pendientes.
+[ ] Mostrar datos de la opction otros ante la carga.
+[ ] Fix en el text area de especificacion.
+[ ] Mostrar amarillo el badge al emplazar.

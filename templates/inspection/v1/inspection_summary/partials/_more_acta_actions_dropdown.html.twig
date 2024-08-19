@@ -1,0 +1,45 @@
+<div class="dropdown dropdown-top dropdown-end ">
+    <div tabindex="0" role="button" class="btn-link m-1 md:text-lg md:w-48 text-end no-underline font-semibold">📃 Acta</div>
+    <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 md:w-64 p-2 shadow">
+        <li>
+            <a id="comment-btn" class="md:text-lg" data-action-section="js-comments-section">
+                <span class="text-xl font-bold ">
+                🖨️
+                </span>
+                Imprimir
+            </a>
+        </li>
+        <li>
+            <a id="attach-btn" class="md:text-lg" data-action-section="js-attachments-section">
+                <span class="text-xl font-bold ">
+                📎
+                </span>
+                Descargar
+            </a>
+        </li>
+        <li>
+            <a id="attach-btn" class="md:text-lg" data-action-section="js-attachments-section">
+                <span class="text-xl font-bold ">
+                📧
+                </span>
+                Enviar
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script type="module">
+    const attachBtn = document.getElementById('attach-btn');
+    attachBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const attachmentsSectionEl = document.querySelector('.js-attachments-section')
+        attachmentsSectionEl.classList.remove('hidden');
+    });
+
+    const commentBtn = document.getElementById('comment-btn');
+    commentBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const commentsSectionEl = document.querySelector('.js-comments-section');
+        commentsSectionEl.classList.remove('hidden');
+    });
+</script>

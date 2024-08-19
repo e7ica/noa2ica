@@ -1,0 +1,119 @@
+
+
+{% set controles = [
+
+    {nombre: 'Control de Equipos', estado: 'aprobado', comentarios: 'Todo en orden.',
+        opciones: [
+        "Matafuergos",
+        "Botiquín",
+        "Extintores"
+    ]
+    },
+    {nombre: 'Control de Seguridad', estado: 'emplazado', comentarios: 'Faltan revisiones.',
+        opciones: [
+        "Señalización",
+        "Salidas de emergencia",
+    ]},
+
+    {nombre: 'Control de Documentos', estado: 'rechazado', comentarios: 'Documentación incompleta.', opciones: [
+        "Licencia de funcionamiento",
+        "Permiso de bomberos",
+    ]},
+] %}
+{% set controles2 = [
+    {nombre: 'Que Equipos de Seguridad ?', estado: 'aprobado', comentarios: 'Todo en orden.',
+        opciones: [
+        "Matafuergos",
+        "Botiquín",
+        "Extintores"
+    ]
+    },
+    {nombre: 'Como presenta la Senalizacion ?', estado: 'pendiente', comentarios: 'Faltan revisiones.',
+        opciones: [
+        "Señalización",
+        "Salidas de emergencia",
+    ]},
+] %}
+
+
+<div class="bg-white w-full mb-16">
+
+    {# for group in controlesByGroup #}
+
+    <div class="summary-container p-4 bg-gray-100 rounded-lg shadow-md">
+        <h4 class="text-md font-bold mb-4 bg-gray-50 w-full text-center underline">Control de Documentacion</h4>
+
+        <div class="controls-summary grid grid-cols-1 md:grid-cols-2 gap-4">
+            {% for control in controles %}
+                <div class="control-card bg-white p-4 rounded-lg shadow-sm">
+                    <h3 class="text-lg font-semibold mb-2">{{ control.nombre }}</h3>
+                    <p class="text-sm text-gray-600 mb-2">Estado: {{ control.estado }}</p>
+
+                    {% if control.comentarios %}
+                        <p class="text-sm text-gray-600 mb-4">Comentarios: {{ control.comentarios }}</p>
+                    {% endif %}
+
+                    {% if control.opciones is not empty %}
+                        <ul class="list-disc list-inside mb-4">
+                            {% for opcion in control.opciones %}
+                                <li class="text-sm text-gray-700">{{ opcion }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                    <div class="estado mt-2">
+                        {% if control.estado == 'emplazado' %}
+                            <span class="text-yellow-600">⚠️ Emplazado</span>
+                            <span class="bg-yellow-50 text-yellow-600 m-l-2 font-semibold">📅 3  días</span>
+                        {% elseif control.estado == 'aprobado' %}
+                            <span class="text-green-600">✔️ Aprobado</span>
+                        {% elseif control.estado == 'rechazado' %}
+                            <span class="text-red-600">❌ Rechazado</span>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+
+
+    <div class="m-t-8 summary-container p-4 bg-gray-100 rounded-lg shadow-md">
+        <h4 class="text-md font-bold mb-4 bg-gray-50 w-full text-center underline">Control de Equipos</h4>
+
+        <div class="controls-summary grid grid-cols-1 md:grid-cols-2 gap-4">
+            {% for control in controles2 %}
+                <div class="control-card bg-white p-4 rounded-lg shadow-sm">
+                    <h3 class="text-lg font-semibold mb-2">{{ control.nombre }}</h3>
+                    <p class="text-sm text-gray-600 mb-2">Estado: {{ control.estado }}</p>
+
+                    {% if control.comentarios %}
+                        <p class="text-sm text-gray-600 mb-4">Comentarios: {{ control.comentarios }}</p>
+                    {% endif %}
+
+                    {% if control.opciones is not empty %}
+                        <ul class="list-disc list-inside mb-4">
+                            {% for opcion in control.opciones %}
+                                <li class="text-sm text-gray-700">{{ opcion }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                    <div class="estado mt-2">
+                        {% if control.estado == 'pendiente' %}
+                            <span class="text-yellow-600">⚠️ Emplazado</span>
+                            <span class="bg-yellow-50 text-yellow-600 m-l-2 font-semibold">📅 3  días</span>
+                        {% elseif control.estado == 'aprobado' %}
+                            <span class="text-green-600">✔️ Aprobado</span>
+                        {% elseif control.estado == 'rechazado' %}
+                            <span class="text-red-600">❌ Rechazado</span>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</div>

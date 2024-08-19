@@ -1,0 +1,25 @@
+<div class="
+flex row w-full
+items-center justify-between
+border-indigo-200 border-t-2
+p-2
+">
+    {% block form_submit %}
+        <div class="row">
+            {% if not question.first %}
+                <a id="prev-btn" type="submit" class="js-prev btn btn-ghost md:text-lg"
+                        href="{{ path('inspection_form_step', {'inspection_id': inspection_id, 'step': step - 1}) }}"
+                >Anterior</a>
+            {% endif %}
+            <button id="next-btn" type="submit" class="js-next btn btn-primary md:text-lg"
+                    {% if question.isCompleted %}
+                        disabled
+                    {% endif  %}>Siguiente</button>
+        </div>
+    {% endblock %}
+    {% block more_actions %}
+        <div class="row">
+            {% include '/inspection/v1/control_form/partials/_more_actions_dropdown.html.twig' %}
+        </div>
+    {% endblock %}
+</div>

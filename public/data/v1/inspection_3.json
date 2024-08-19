@@ -1,0 +1,44 @@
+{
+  "id": 3,
+  "title": "Inspección de Calidad",
+  "type": "inspeccion",
+  "business": "Panadería La Espiga",
+  "address": "Calle Sur #123",
+  "time": "08:30 - 10:00",
+  "number": "#00000017",
+  "initials": "LS",
+  "status": "Pausada",
+  "inspector": "Lucía Sánchez",
+  "date": "2023-08-17",
+  "observations": "Inspección pausada por motivos ajenos al negocio.",
+  "questions": [
+    {
+      "id": 1,
+      "ref": "control_calidad_pan",
+      "type": "multiple_choice",
+      "status": "Pendiente",
+      "label": "¿El pan cumple con los estándares de calidad?",
+      "can_attach": true,
+      "can_select_others": false,
+      "can_emplacement": true,
+      "group": "Calidad",
+      "options": [
+        { "label": "Sí", "value": "true", "other": false, "compliance": true },
+        { "label": "No", "value": "false", "other": false, "compliance": false }
+      ],
+      "summon": {
+        "can_emplacement": true,
+        "emplacement": {
+          "days": "7",
+          "actions": ["Revisión", "Corrección"]
+        },
+        "sanction": {
+          "actions": ["Multa", "Suspensión"]
+        }
+      },
+      "comment": "",
+      "other_value": "",
+      "other_compliance": true
+    }
+  ]
+}

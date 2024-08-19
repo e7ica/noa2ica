@@ -1,0 +1,18 @@
+<div id="status_badge_aprobado"
+     class="flex items-center justify-center w-20 h-20 md:s-12 border-4 md:border-8 border-gray-700 rounded-full bg-green-500
+        {{ question.status == 'aprobado' ? '' : 'hidden' }} ">
+    <span class="text-4xl font-bold text-white">👍</span>
+</div>
+
+<div id="status_badge_rechazado"
+     class="flex items-center justify-center w-20 h-20 md:s-12 border-4 md:border-8 border-gray-700 rounded-full bg-red-500
+        {{ question.status == 'rechazado' ?  '': 'hidden' }} ">
+    <span class="text-4xl font-bold text-white">👎</span>
+</div>
+
+
+<div id="status_badge_emplazado"
+     class="flex items-center justify-center w-20 h-20 md:s-12 border-4 md:border-8 border-gray-700 rounded-full bg-yellow-200
+        {{ question.status == 'rechazado' ?  '': 'hidden' }} ">
+    <span class="text-4xl font-bold text-white">⚠️</span>
+</div>

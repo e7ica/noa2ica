@@ -1,0 +1,115 @@
+<div class="js-summon-section hidden flex-row py-4 border-t-2 border-gray-200 w-full items-center justify-start">
+
+    {% if question.summon.canEmplacement %}
+        <!-- Columna Izquierda: Checkbox Subsanable -->
+
+        <div class="flex flex-row items-start w-36 items-center pl-4
+        bg-red-50 py-2 rounded
+        ">
+            <input type="checkbox"
+                   id="subsanable"
+                   name="subsanable"
+                   value="false"
+                   class="form-checkbox h-5 w-5 text-blue-600"
+            >
+            <label for="subsanable" class="
+                        ml-3 text-sm text-red-600 font-bold"
+            >Emplazar</label>
+        </div>
+
+        <!-- Separador Vertical -->
+        <div class="flex border-l-2 border-solid border-gray-200 h-24 m-2"></div>
+
+        <!-- Columna Derecha: Emplazamiento e Información -->
+        <div class="">
+
+            {% block emplazamiento_info %}
+                <div class="js-emplazement-info hidden flex flex-col">
+                    <!-- Fila de Emplazamiento -->
+                    <div class="flex items-start mb-4">
+                        <span  class="ml-2 text-sm text-gray-600">Emplazamiento</span>
+                        <span class="ml-2 flex bg-yellow-50 px-1 items-center text-sm text-gray-600">
+                        🗓️ <span class="text-red-500 font-bold px-1 ">{{ "days" }}</span>  días
+                    </span>
+                    </div>
+
+                    <!-- Lista de Bullets Informativos -->
+                    <ul class="flex flex-col space-y-2" style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                        <li class="ml-0 text-sm text-gray-600"><span class="ml-2">Infracción</span></li>
+                        <li class="ml-0 text-sm text-gray-600"><span class="ml-2">Multa</span></li>
+                    </ul>
+                </div>
+            {% endblock %} {# emplazamiento_info #}
+
+
+
+            {% block sancion_info %}
+                <div class="js-sancion-info">
+                    <!-- Lista de Bullets Informativos -->
+                    <ul class="flex flex-col space-y-2" style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                        <li class="ml-0 text-sm text-gray-600"><span class="ml-2">Infracción</span></li>
+                        <li class="ml-0 text-sm text-gray-600"><span class="ml-2">Multa</span></li>
+                    </ul>
+                </div>
+            {% endblock %} {# emplazamiento_info #}
+
+        </div>
+
+    {% else %}
+
+        <div class="flex items-center mb-2">
+            <!-- Lista de Bullets Informativos -->
+            <ul class="flex flex-col space-y-2" style="list-style-type: disc; padding-left: 20px; margin: 0;">
+                <li class="ml-4 text-sm text-gray-600"><span class="ml-2">Infracción</span></li>
+                <li class="ml-4 text-sm text-gray-600"><span class="ml-2">Multa</span></li>
+                <!-- Agrega más ítems si es necesario -->
+            </ul>
+        </div>
+
+    {% endif %}
+
+</div>
+
+<script type="module">
+    // si el checkbox subsanable esta seleccionado, mostrar la informacion de emplazamiento y ocultar la de sancion
+    // y viceversa
+    const summonSection = document.querySelector('.js-summon-section');
+    const subsanableCheckbox = document.querySelector('#subsanable');
+    const emplazementInfo = document.querySelector('.js-emplazement-info');
+    const sancionInfo = document.querySelector('.js-sancion-info');
+
+    const badgeAprobado = document.getElementById('status_badge_aprobado');
+    const badgeRechazado = document.getElementById('status_badge_rechazado');
+    const badgeEmplazado = document.getElementById('status_badge_emplazado');
+
+
+    subsanableCheckbox.addEventListener('change', () => {
+        if (subsanableCheckbox.checked) {
+            emplazementInfo.classList.add('flex');
+            emplazementInfo.classList.remove('hidden');
+            sancionInfo.classList.remove('flex');
+            sancionInfo.classList.add('hidden');
+
+            badgeAprobado.classList.add('hidden');
+            badgeAprobado.classList.remove('flex');
+            badgeRechazado.classList.add('hidden');
+            badgeRechazado.classList.remove('flex');
+            badgeEmplazado.classList.add('flex');
+            badgeEmplazado.classList.remove('hidden');
+
+
+
+        } else {
+            emplazementInfo.classList.remove('flex');
+            emplazementInfo.classList.add('hidden');
+            sancionInfo.classList.add('flex');
+            sancionInfo.classList.remove('hidden');
+
+            badgeRechazado.classList.remove('hidden');
+            badgeRechazado.classList.add('flex');
+            badgeEmplazado.classList.add('hidden');
+            badgeEmplazado.classList.remove('flex');
+
+        }
+    });
+</script>

@@ -1,0 +1,74 @@
+{
+  "id": 1,
+  "title": "Inspección de Higiene",
+  "type": "inspeccion",
+  "business": "Carnicería El Lobo",
+  "address": "Avenida Secundaria #456",
+  "time": "09:00 - 11:30",
+  "number": "#00000015",
+  "initials": "JP",
+  "status": "Abierta",
+  "inspector": "Juan Pérez",
+  "date": "2023-08-19",
+  "observations": "Todo en orden, pero se observan algunas oportunidades de mejora.",
+  "questions": [
+    {
+      "id": 1,
+      "ref": "carnet_manipulacion_alimentos",
+      "type": "multiple_choice",
+      "status": "Aprobado",
+      "label": "¿Exhibe el personal carnet de manipulación de alimentos vigente?",
+      "can_attach": true,
+      "can_select_others": false,
+      "can_emplacement": true,
+      "group": "Higiene",
+      "options": [
+        { "label": "Sí", "value": "true", "other": false, "compliance": true },
+        { "label": "No", "value": "false", "other": false, "compliance": false }
+      ],
+      "summon": {
+        "can_emplacement": true,
+        "emplacement": {
+          "days": "15",
+          "actions": ["Infracción", "Amonestación"]
+        },
+        "sanction": {
+          "actions": ["Clausura", "Multa", "Suspensión de actividades"]
+        }
+      },
+      "comment": "Carnets en regla.",
+      "other_value": "",
+      "other_compliance": true
+    },
+    {
+      "id": 2,
+      "ref": "dispocitivos_anti_inceptos",
+      "type": "multiple_choice",
+      "status": "Rechazado",
+      "label": "¿Qué dispositivos anti-insectos están presentes?",
+      "can_attach": false,
+      "can_select_others": true,
+      "can_emplacement": true,
+      "group": "Higiene Ambiental",
+      "options": [
+        { "label": "Tela mosquitera", "value": "tela_mosquitera", "other": false, "compliance": true },
+        { "label": "Trampa para insectos", "value": "trampa_insectos", "other": false, "compliance": true },
+        { "label": "Repelente eléctrico", "value": "repelente_electrico", "other": false, "compliance": false },
+        { "label": "Otros", "value": "otros", "other": true, "compliance": true }
+      ],
+      "summon": {
+        "can_emplacement": false,
+        "emplacement": {
+          "days": "15",
+          "actions": ["Infracción", "Amonestación"]
+        },
+        "sanction": {
+          "actions": ["Clausura", "Multa", "Suspensión de actividades"]
+        }
+      },
+      "comment": "Faltan dispositivos adecuados.",
+      "other_value": "Repelente eléctrico adicional",
+      "other_compliance": false
+    }
+  ]
+}

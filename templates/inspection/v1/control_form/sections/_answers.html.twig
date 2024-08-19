@@ -1,0 +1,352 @@
+<style type="text/css">
+    .highlight-warning .js-option-icon::before {
+        content: '⚠️'; /* Emoji de advertencia */
+        margin-right: 8px;
+    }
+
+    .highlight-warning {
+        border: 2px solid red;
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+
+    .highlight-warning {
+        background-color: #fdd;
+    }
+
+
+    @keyframes highlight-blink {
+        0% { background-color: #fdd; }
+        50% { background-color: transparent; }
+        100% { background-color: #fdd; }
+    }
+
+    .highlight-warning {
+        animation: highlight-blink 1s infinite;
+    }
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%; /* Position above the tooltip */
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+
+</style>
+
+<div id="answers-section" class="w-full flex flex-col space-y-2">
+
+    <div class="js-options-list w-full flex flex-col space-y-4" data-control-type="{{ question.type }}" >
+
+        {% if question.type == 'yes_no' %}
+
+            {% for option in question.options %}
+
+                <div class="flex items-center">
+
+                    <input type="radio" id="{{ question.ref }}_{{ loop.index }}" name="{{ question.ref }}" value="{{ option.value }}" class="form-radio h-5 w-5 text-blue-600">
+                    <label for="{{ question.ref }}_{{ loop.index }}" class="ml-3 text-sm text-gray-600">{{ option.label }}</label>
+
+                </div>
+
+            {% endfor %}
+
+        {% elseif question.type == 'multiple_choice' %}
+
+            {% for option in question.options %}
+                <div class="js-option-item flex flex-col items-start mr-8">
+
+                    <div class="flex flex-row">
+                        <input type="checkbox"
+                               data-option-compliance="{{ option.compliance }}"
+                               data-option-value="{{  option.value }}"
+                               data-option-other="{{ option.other }}"
+                               id="{{ question.ref }}_{{ loop.index }}"
+                               name="{{ question.ref }}"
+                               value="{{ option.value }}"
+                               class="form-checkbox h-5 w-5 text-blue-600"
+                               {% if option.selected %} checked {% endif %}
+                        >
+                        <label for="{{ question.ref }}_{{ loop.index }}" class="ml-3 text-sm text-gray-600">
+                            <span class="js-option-icon"></span>
+                            {{ option.label }}
+                            {% if not option.compliance %}
+                                <span class="tooltip">
+                                    <span class="tooltiptext">Este ítem no cumple con los requisitos</span>
+                                </span>
+                            {% endif %}
+                        </label>
+                        {% if option.other %}
+                            <textarea name="other-value"
+                                    class="js-option-value
+                                           form-input
+                                           ml-4 p-0 form-input border-b-2 w-38"
+                                    data-option-other="{{ question.otherValue }}">{{  question.otherValue | trim}}</textarea>
+                        {% endif %}
+                    </div>
+
+                    {% if option.other %}
+                        <div class="js-option-compliance
+                                    {% if not (option.other and option.selected) %}
+                                    hidden
+                                   {% endif %}
+                                    flex ml-4 w-full">
+                            <div class="form-control w-60">
+                                <label class="label cursor-pointer flex row items-end justify-end">
+                                    <span class="label-text mr-2">Cumple ?</span>
+                                    <input name="other-compliance"
+                                           type="checkbox"
+                                           class="toggle toggle-accent"
+                                           {%  if question.otherCompliance %}
+                                             checked
+                                             {%  endif %}
+                                    />
+                                </label>
+                            </div>
+                        </div>
+                    {%  endif %}
+
+                </div>
+            {% endfor %}
+
+        {% endif %}
+    </div>
+</div>
+
+<script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Lógica para manejar la visibilidad del campo "Otros" y su checkbox de cumplimiento
+        function handleOtherOptionVisibility() {
+            const optionsList = document.querySelectorAll('.js-option-item');
+
+            optionsList.forEach(optionItem => {
+                const checkbox = optionItem.querySelector('input[type="checkbox"]');
+                const otherTextarea = optionItem.querySelector('textarea');
+                const complianceSection = optionItem.querySelector('.js-option-compliance');
+
+                // Mostrar/ocultar textarea y complianceSection según el estado del checkbox
+                checkbox.addEventListener('change', () => {
+                    if (checkbox.checked && otherTextarea) {
+                        otherTextarea.style.display = 'block';
+                        complianceSection.style.display = 'flex';
+                    } else {
+                        if (otherTextarea) {
+                            otherTextarea.style.display = 'none';
+                            complianceSection.style.display = 'none';
+                        }
+                    }
+                });
+
+                // Inicializar el estado de cada item
+                if (checkbox.checked && otherTextarea) {
+                    otherTextarea.style.display = 'block';
+                    complianceSection.style.display = 'flex';
+                } else if (otherTextarea) {
+                    otherTextarea.style.display = 'none';
+                    complianceSection.style.display = 'none';
+                }
+            });
+
+            // Recortar espacios en los textareas al perder el foco
+            document.querySelectorAll('textarea').forEach(textarea => {
+                textarea.addEventListener('blur', () => {
+                    textarea.value = textarea.value.trim();
+                });
+            });
+        }
+
+        // Lógica para manejar la visibilidad de la sección de emplazamiento
+        function handleSummonSectionVisibility() {
+            const optionsList = document.querySelectorAll('.js-option-item');
+            const summonSection = document.querySelector('.js-summon-section');
+
+            function updateSummonSectionVisibility() {
+                let showSummonSection = false;
+
+                optionsList.forEach(optionItem => {
+                    const checkbox = optionItem.querySelector('input[type="checkbox"]');
+                    const compliance = checkbox.getAttribute('data-option-compliance') === '1';
+
+                    if (checkbox.checked && !compliance) {
+                        showSummonSection = true;
+                    }
+                });
+
+                // with classList
+                if (showSummonSection) {
+                    summonSection.classList.add('flex');
+                    summonSection.classList.remove('hidden');
+                } else {
+                    summonSection.classList.add('hidden');
+                    summonSection.classList.remove('flex');
+                }
+            }
+
+            // Añadir listeners a los checkboxes
+            optionsList.forEach(optionItem => {
+                const checkbox = optionItem.querySelector('input[type="checkbox"]');
+
+                checkbox.addEventListener('change', () => {
+                    updateSummonSectionVisibility();
+                });
+            });
+
+            // Llamar a la función para asegurar la visibilidad correcta al cargar la página
+            updateSummonSectionVisibility();
+        }
+
+
+        // Manejar los cambios en el toggle de cumplimiento "other-compliance"
+        function handleOtherComplianceToggle() {
+            const summonSection = document.querySelector('.js-summon-section');
+
+            function updateSummonSectionForToggle() {
+                const optionsList = document.querySelectorAll('.js-option-item');
+                let showSummonSection = false;
+
+                optionsList.forEach(optionItem => {
+                    const complianceToggle = optionItem.querySelector('.js-option-compliance input[type="checkbox"]');
+
+                    if (complianceToggle && !complianceToggle.checked) {
+                        showSummonSection = true;
+                    }
+                });
+
+                // with classList
+                if (showSummonSection) {
+                    summonSection.classList.add('flex');
+                    summonSection.classList.remove('hidden');
+                } else {
+                    summonSection.classList.add('hidden');
+                    summonSection.classList.remove('flex');
+                }
+            }
+
+            // Añadir listeners a los toggles de cumplimiento
+            document.querySelectorAll('.js-option-compliance input[type="checkbox"]').forEach(toggle => {
+                toggle.addEventListener('change', updateSummonSectionForToggle);
+            });
+
+            // Inicializar la visibilidad correcta
+            updateSummonSectionForToggle();
+        }
+
+        function handleNonComplianceHighlight() {
+            const optionsList = document.querySelectorAll('.js-option-item');
+
+            optionsList.forEach(optionItem => {
+                const checkbox = optionItem.querySelector('input[type="checkbox"]');
+                const compliance = checkbox.getAttribute('data-option-compliance') === '1';
+                const icon = optionItem.querySelector('.js-option-icon');
+
+                checkbox.addEventListener('change', () => {
+                    if (checkbox.checked && !compliance) {
+                        optionItem.classList.add('highlight-warning');
+                    } else {
+                        optionItem.classList.remove('highlight-warning');
+                    }
+                });
+
+                // Inicializar el estado de cada item
+                if (checkbox.checked && !compliance) {
+                    optionItem.classList.add('highlight-warning');
+                } else {
+                    optionItem.classList.remove('highlight-warning');
+                }
+            });
+        }
+
+
+        function handleBadgeToggle() {
+            const optionsList = document.querySelectorAll('.js-option-item');
+            const badgeAprobado = document.getElementById('status_badge_aprobado');
+            const badgeRechazado = document.getElementById('status_badge_rechazado');
+            const badgeEmplazado = document.getElementById('status_badge_emplazado');
+
+            const nextButton = document.getElementById('next-btn');
+
+            function updateBadgeVisibility() {
+                let hasNonCompliance = false;
+                let hasChecked = false;
+
+                optionsList.forEach(optionItem => {
+                    const checkbox = optionItem.querySelector('input[type="checkbox"]');
+                    const compliance = checkbox.getAttribute('data-option-compliance') === '1';
+
+                    if (checkbox.checked) {
+                        hasChecked = true;
+                        if (!compliance) {
+                            hasNonCompliance = true;
+                        }
+
+                        // Verificar si la opción "Otros" está marcada como "No cumple"
+                        const complianceToggle = optionItem.querySelector('.js-option-compliance input[type="checkbox"]');
+                        if (complianceToggle && !complianceToggle.checked) {
+                            hasNonCompliance = true;
+                        }
+                    }
+                });
+
+                if (hasChecked) {
+                    nextButton.removeAttribute('disabled');
+                    if (hasNonCompliance) {
+                        badgeAprobado.classList.add('hidden'); badgeAprobado.classList.remove('flex');
+                        badgeRechazado.classList.remove('hidden'); badgeRechazado.classList.add('flex');
+                    } else {
+                        badgeAprobado.classList.add('flex'); badgeAprobado.classList.remove('hidden');
+                        badgeRechazado.classList.remove('flex'); badgeRechazado.classList.add('hidden');
+                    }
+                } else {
+                    nextButton.setAttribute('disabled', 'disabled');
+                    badgeAprobado.classList.add('hidden'); badgeAprobado.classList.remove('flex');
+                    badgeRechazado.classList.add('hidden'); badgeRechazado.classList.remove('flex');
+                }
+            }
+
+            // Añadir listeners a los checkboxes
+            optionsList.forEach(optionItem => {
+                const checkbox = optionItem.querySelector('input[type="checkbox"]');
+                checkbox.addEventListener('change', () => updateBadgeVisibility());
+            });
+
+            // Añadir listeners a los toggles de cumplimiento "Otros"
+            document.querySelectorAll('.js-option-compliance input[type="checkbox"]').forEach(toggle => {
+                toggle.addEventListener('change', () => updateBadgeVisibility());
+            });
+
+            // Inicializar la visibilidad correcta al cargar la página
+            updateBadgeVisibility();
+        }
+
+
+
+        // Inicializar las lógicas separadas
+        handleOtherOptionVisibility();
+        handleSummonSectionVisibility();
+        handleOtherComplianceToggle();
+        handleNonComplianceHighlight();
+        handleBadgeToggle();
+
+    });
+</script>

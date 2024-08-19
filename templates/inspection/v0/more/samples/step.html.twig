@@ -1,0 +1,152 @@
+{# templates/inspection/control_form.html.twig #}
+
+{% extends '/templates/common.html.twig' %}
+
+{% block title %}
+    {{ question.label }}
+{%  endblock %}
+
+{%  block custom_styles %}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+    </style>
+
+    <style>
+        .card-header {
+            background-color: white;
+            color: black;
+            font-weight: bold;
+        }
+        .accordion-button::after {
+            content: '';
+        }
+        .accordion-button {
+            background-color: white;
+            color: black;
+        }
+        .accordion-button.collapsed .fas {
+            transform: rotate(0deg);
+        }
+        .accordion-button .fas {
+            transform: rotate(180deg);
+            transition: transform 0.2s;
+        }
+    </style>
+{%  endblock %}
+
+
+{% block body %}
+
+
+    <main class="p-2 bg-blue-200 h-[100vh] relative">
+
+    <div class="container mt-3 mb-3 bg-green-500 ">
+        <div class="alert alert-info" role="alert">
+            <div class="mt-2 grid grid-cols-2">
+                <div class="flex flex-1 justify-start items-end">
+                    <h2 class="w-100 text-xl card-title fw-bold">{{ inspection.title }}</h2>
+                </div>
+                <div class="flex justify-end">
+                    <button class="flex btn flex justify-end position-relative" style="width: 60px; top: 0px;">
+                        <i class=" text-3xl bold {% if inspection.type == 'inspeccion' %}bi bi-folder2-open{% else %}bi bi-pencil-square{% endif %}"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 justify-start align-items-start">
+                <h3 class="text-md card-title fw-bold justify-content-start items-start" style="color: #555555">{{ inspection.business }}</h3>
+                <p class="card-text flex justify-end items-start">
+                    <span class="text-md fw-bold" style="color: black; margin-left: 10px;">{{ inspection.number }}</span>
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="container mt-3 mb-3 bg-blue-500  hidden ">
+        <div class="alert alert-info" role="alert">
+            <div class="mt-2 grid grid-cols-3">
+                <div class="flex justify-start items-center flex-grow-1 flex-lg-grow-1" style="min-width: 200px">
+                    <i class="text-3xl fw-bold {% if inspection.type == 'inspeccion' %}bi bi-folder2-open{% else %}bi bi-pencil-square{% endif %}"></i>
+                    <p class="ms-2 card-text" style="width: 200px;">
+                        <span class="text-warning ">{{ inspection.time }}</span>
+                    </p>
+                </div>
+                <div class="flex justify-start items-start">
+                </div>
+                <div class="flex justify-end items-center">
+                    <span class="badge bg-primary rounded-circle" style="width: 30px; height: 30px; padding: 6px; line-height: 1;">{{ inspection.initials }}</span>
+                    <span class="badge bg-danger ml-2" style="width: 100px; height: 30px; padding: 6px; line-height: 1;">{{ inspection.status }}</span>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 justify-start align-items-start">
+                <h4 class="text-md card-title justify-content-start items-start" style="width: 200px;" >{{ inspection.address}}</h4>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <div class="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+        <h1 class="text-xl font-semibold text-gray-700">{{ question.label }}</h1>
+
+        <form
+                class="mt-6"
+                method="post"
+                action="{{
+                        path('inspection_form_step', {
+                            'inspection_id': inspection_id,
+                            'step': step}
+                        )
+        }}">
+            <div class="space-y-4">
+                {% if question.type == 'yes_no' %}
+                    {% for option in question.options %}
+                        <div class="flex items-center">
+                            <input type="radio" id="{{ question.ref }}_{{ loop.index }}" name="{{ question.ref }}" value="{{ option.value }}" class="form-radio h-5 w-5 text-blue-600">
+                            <label for="{{ question.ref }}_{{ loop.index }}" class="ml-3 text-sm text-gray-600">{{ option.label }}</label>
+                        </div>
+                    {% endfor %}
+
+                {% elseif question.type == 'multiple_choice' %}
+                    {% for option in question.options %}
+                        <div class="flex items-center">
+                            <input type="checkbox" id="{{ question.ref }}_{{ loop.index }}" name="{{ question.ref }}[]" value="{{ option.value }}" class="form-checkbox h-5 w-5 text-blue-600">
+                            <label for="{{ question.ref }}_{{ loop.index }}" class="ml-3 text-sm text-gray-600">{{ option.label }}</label>
+                        </div>
+                    {% endfor %}
+
+                {% endif %}
+            </div>
+
+            <div class="mt-6 flex justify-between">
+                {% if step > 0 %}
+                    <a href="{{ path('inspection_form_step', {'inspection_id': inspection_id,  'step': step - 1}) }}" class="inline-flex items-center px-4 py-2 bg-gray-300 hover:bg-gray-400 text-gray-800 text-sm font-medium rounded-md">
+                        Anterior
+                    </a>
+                {% endif %}
+
+                <button type="submit" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md">
+                    Siguiente
+                </button>
+            </div>
+        </form>
+    </div>
+        {%  if question.status != 'Pendiente' %}
+        <div class="absolute bottom-20 right-6 md:bottom-32 md:right-24">
+            <div class="flex items-center justify-center w-20 h-20 md:w-32 md:h-32 border-4 md:border-8 border-gray-700 rounded-full {{ question.status == 'Aprobado' ? 'bg-green-500' : 'bg-red-500' }}">
+                <i class="fas text-4xl font-bold {{ question.status == 'Aprobado' ? 'fa-check' : 'fa-times' }} text-white "></i>
+            </div>
+        </div>
+        {%  endif %}
+    </main>
+{% endblock %}

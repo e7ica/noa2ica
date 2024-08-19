@@ -1,0 +1,25 @@
+{% extends '/templates/common.html.twig' %}
+
+{% block title %}
+    {{ question.label }}
+{% endblock %}
+
+{% block custom_styles %}
+    {% include '/templates/inspection/blocks/custom_styles.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <main class="md:w-128 px-2 py-4 bg-blue-200 h-[100vh] relative overflow-hidden">
+        {% block inspection_section %}
+            {% include '/templates/inspection/blocks/inspection_section.html.twig' %}
+        {% endblock %}
+
+        {% block details_section %}
+            {% include '/templates/inspection/blocks/details_section.html.twig' %}
+        {% endblock %}
+
+        {% block form_and_modals %}
+            {% include '/templates/inspection/blocks/form_and_modals.html.twig' %}
+        {% endblock %}
+    </main>
+{% endblock %}
