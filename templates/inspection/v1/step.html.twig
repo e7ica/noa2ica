@@ -1,0 +1,93 @@
+{% extends '/inspection/v1/base.html.twig' %}
+
+
+{%  block body %}
+
+    {%  block page %}
+        <div class="w-full bg-gray h-[100vh]">
+
+            {%  block page_header %}
+                <header class="bg-white mb-4 rounded-b-2xl md:rounded-b-2xl
+                                rounded-t-xl md:roundend-t-2xl
+                                mt-0
+                              ">
+
+                    {% block inspection_header %} {% include '/inspection/v1/blocks/headers/_inspection_header.html.twig' %} {%  endblock %}
+                    {% block group_banner %}
+                        <div class="p-2 w-full
+                                    items-center justify-center content-center ">
+                            {%  include '/inspection/v1/blocks/headers/_group_banner.html.twig' %}
+                        </div>
+                    {%  endblock %}
+
+                </header>
+            {% endblock %} {# page_header #}
+
+            {% block page_content %}
+                <main class="p-2 bg-white mb-4
+                rounded-t-2xl md:roundend-t-2xl
+                rounded-b-2xl md:roundend-b-2xl
+">
+
+                    {% block question_form %}
+                        <form  method="post"
+                               action="{{
+                               path('inspection_form_step', {
+                                   'inspection_id': inspection_id,
+                                   'step': step}
+                               )
+                               }}"
+                               class="flex flex-col items-start"
+                        >
+
+                            {% block form_header %}
+                                <div class="relative flex row w-full h-20">
+                                    {% block question_ask %}
+                                        {%  include '/inspection/v1/forms/blocks/_question_ask.html.twig' %}
+                                    {% endblock %}
+                                    {%  block status_badge %}
+                                        <div class="absolute right-2 top-2">
+                                            {%  include '/inspection/v1/forms/blocks/_status_badge.html.twig' %}
+                                        </div>
+                                    {%  endblock %}
+                                </div>
+                            {%  endblock %} {# form_header #}
+
+                            {% block form_content %}
+
+                                {% block answers_section %}
+                                    <div class="w-full mx-4 my-8">
+                                        {% include '/inspection/v1/forms/sections/_answers.html.twig' %}
+                                    </div>
+                                {% endblock %} {# answer_section #}
+
+                                {% block comments_section %}
+                                    {% include '/inspection/v1/forms/sections/_comments.html.twig' %}
+                                {% endblock %} {#  comments_section #}
+
+                                {% block attachments_section %}
+                                    {% include '/inspection/v1/forms/sections/_attachments.html.twig' %}
+                                {% endblock %} {#  attachments_sections #}
+
+                                {% block sancion_or_emplazamiento_section %}
+                                    {% include '/inspection/v1/forms/sections/_sancion_emplazamiento.html.twig' %}
+                                {% endblock %} {#  sancion_or_emplazamiento_section #}
+
+                            {%  endblock %} {#  form_content #}
+
+                            {%  block form_actions %}
+                                {% include '/inspection/v1/forms/blocks/_form_actions.html.twig' %}
+                            {%  endblock %} {# form_actions #}
+
+                        </form>
+                    {% endblock %} {# question_form  #}
+
+                </main>
+            {% endblock %} {# page_content #}
+
+        </div>
+    {% endblock %} {#  page #}
+
+{%  endblock %} {# body #}
+
+

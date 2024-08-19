@@ -1,0 +1,84 @@
+<div id="attachmentsSection"  class="js-attachments-section
+    hidden
+    bg-white rounded-lg  p-4 w-96 md:w-full">
+    <h2 class="hidden text-lg font-semibold mb-4">¿Desea adjuntar un comprobante?</h2>
+
+    <!-- Componente de subida de archivo con ícono de clip -->
+    <div id="uploadWrapper" class="
+        z-9999
+            relative flex justify-center items-center
+            border-2 border-dashed border-gray-300 rounded-lg
+            h-20 md:h-28 md:w-full cursor-pointer bg-gray-100 hover:bg-gray-200
+            transition duration-300 ease-in-out">
+
+        <i id="uploadIcon" class="fas fa-paperclip text-gray-500 text-4xl"></i>
+
+        <input type="file"  id="fileInput" name="attachment" class="hidden" />
+
+    </div>
+
+</div>
+
+<script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Elementos del DOM
+        const attachmentsSection = document.getElementById('attachmentsSection');
+        const uploadWrapper = document.getElementById('uploadWrapper');
+        const fileInput = document.getElementById('fileInput');
+        const uploadIcon = document.getElementById('uploadIcon');
+        const title = attachmentsSection.querySelector('h2');
+
+        // Mostrar la sección de adjuntos si es necesario
+        function showAttachmentsSection() {
+            attachmentsSection.classList.remove('hidden');
+            title.classList.remove('hidden');
+        }
+
+        // Manejar el clic en el área de arrastrar y soltar
+        uploadWrapper.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Manejar el cambio en el input de archivos
+        fileInput.addEventListener('change', () => {
+            const file = fileInput.files[0];
+            if (file) {
+                handleFileUpload(file);
+            }
+        });
+
+        // Función para manejar la carga del archivo
+        function handleFileUpload(file) {
+            // Aquí puedes manejar la carga del archivo al servidor o simplemente mostrar una vista previa del archivo cargado
+            uploadWrapper.classList.add('bg-green-100');
+            uploadIcon.classList.remove('text-gray-500');
+            uploadIcon.classList.add('text-green-500');
+
+            // Crear un elemento para mostrar el nombre del archivo cargado
+            const fileNameElement = document.createElement('span');
+            fileNameElement.textContent = `Archivo cargado: ${file.name}`;
+            fileNameElement.classList.add('ml-2', 'text-sm', 'text-gray-600');
+
+            // Verificar si ya hay un nombre de archivo mostrado y reemplazarlo
+            const existingFileNameElement = uploadWrapper.querySelector('span');
+            if (existingFileNameElement) {
+                existingFileNameElement.remove();
+            }
+
+            uploadWrapper.appendChild(fileNameElement);
+
+            // Aquí podrías enviar el archivo al servidor usando fetch, Axios, etc.
+            // Ejemplo:
+            // const formData = new FormData();
+            // formData.append('attachment', file);
+            // fetch('/upload', { method: 'POST', body: formData })
+            //    .then(response => response.json())
+            //    .then(data => console.log(data))
+            //    .catch(error => console.error(error));
+        }
+
+        // Si la lógica de tu aplicación lo requiere, puedes mostrar la sección de adjuntos de manera condicional
+        // showAttachmentsSection();
+    });
+</script>

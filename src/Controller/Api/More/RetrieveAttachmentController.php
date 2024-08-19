@@ -16,7 +16,7 @@ class RetrieveAttachmentController extends AbstractController
     }
 
 
-    #[Route('/retrieve/attachment', name: 'app_retrieve_attachment')]
+    #[Route('/retrieve/attachments', name: 'app_retrieve_attachment')]
     public function index(): Response
     {
         return $this->render('retrieve_attachment/index.html.twig', [

@@ -17,20 +17,76 @@ class InspectionController extends AbstractController
     ])]
     public function formStep(Request $request, SessionInterface $session, int $inspection_id, int $step = 0): Response
     {
+
+        # 'type' => 'yes_no',
         $questions = [
             [
-                'id' => 1,
+                'id' => 0,
                 'ref' => 'carnet_manipulacion_alimentos',
-                'type' => 'yes_no',
+                'type' => 'multiple_choice',
                 'status' => 'Aprobado',
                 'label' => '¿Exhibe el personal carnet de manipulación de alimentos vigente?',
                 'can_attach' => true,
                 'can_select_others' => false,
-                'can_summon' => false,
+                'can_emplacement' => true,
+                'group' => 'Higiene',
                 'options' => [
-                    ['label' => 'Sí', 'value' => 'true'],
-                    ['label' => 'No', 'value' => 'false'],
+                    ['label' => 'Sí', 'value' => 'true', 'other' => false, 'compliance' => true],
+                    ['label' => 'No', 'value' => 'false', 'other' => false, 'compliance' => false],
                 ],
+                'summon' => [
+                    'can_emplacement' => true,
+                    'emplacement' => [
+                        'days' => '15',
+                        'actions' => [
+                            'Infraccion',
+                            'Amonestación',
+                        ],
+                    ],
+                    'sanction' => [
+                        'actions' => [
+                            'Clausura',
+                            'Multa',
+                            'Suspensión de actividades',
+                        ],
+                    ],
+                ],
+                'comment' => '',
+                'other_value' => '', 'other_compliance' => true,
+            ],
+            [
+                'id' => 1,
+                'ref' => 'carnet_manipulacion_alimentos',
+                'type' => 'multiple_choice',
+                'status' => 'Aprobado',
+                'label' => '¿Exhibe el personal carnet de manipulación de alimentos vigente?',
+                'can_attach' => true,
+                'can_select_others' => false,
+                'can_emplacement' => true,
+                'group' => 'Higiene',
+                'options' => [
+                    ['label' => 'Sí', 'value' => 'true', 'other' => false, 'compliance' => true],
+                    ['label' => 'No', 'value' => 'false', 'other' => false, 'compliance' => false],
+                ],
+                'summon' => [
+                    'can_emplacement' => true,
+                    'emplacement' => [
+                        'days' => '15',
+                        'actions' => [
+                            'Infraccion',
+                            'Amonestación',
+                        ],
+                    ],
+                    'sanction' => [
+                        'actions' => [
+                            'Clausura',
+                            'Multa',
+                            'Suspensión de actividades',
+                        ],
+                    ],
+                ],
+                'comment' => '',
+                'other_value' => '', 'other_compliance' => true,
             ],
             [
                 'id' => 2,
@@ -40,28 +96,69 @@ class InspectionController extends AbstractController
                 'label' => '¿Qué dispositivos anti-insectos están presentes?',
                 'can_attach' => false,
                 'can_select_others' => true,
-                'can_summon' => true,
+                'can_emplacement' => true,
+                'group' => 'Higiene Ambiental',
                 'options' => [
-                    ['label' => 'Tela mosquitera', 'value' => 'tela_mosquitera'],
-                    ['label' => 'Trampa para insectos', 'value' => 'trampa_insectos'],
-                    ['label' => 'Repelente eléctrico', 'value' => 'repelente_electrico'],
-                    ['label' => 'Otros', 'value' => 'otros'],
+                    ['label' => 'Tela mosquitera', 'value' => 'tela_mosquitera', 'other' => false, 'compliance' => true],
+                    ['label' => 'Trampa para insectos', 'value' => 'trampa_insectos', 'other' => false,  'compliance' => true],
+                    ['label' => 'Repelente eléctrico', 'value' => 'repelente_electrico', 'other' => false, 'compliance' => false ],
+                    ['label' => 'Otros', 'value' => 'otros', 'other' => true, 'compliance' => true],
                 ],
+                'summon' => [
+                    'can_emplacement' => false,
+                    'emplacement' => [
+                        'days' => '15',
+                        'actions' => [
+                            'Infraccion',
+                            'Amonestación',
+                        ],
+                    ],
+                    'sanction' => [
+                        'actions' => [
+                            'Clausura',
+                            'Multa',
+                            'Suspensión de actividades',
+                        ],
+                    ],
+                ],
+                'comment' => '',
+                'other_value' => '', 'other_compliance' => true,
             ],
             [
                 'id' => 3,
                 'ref' => 'dispocitivos_incendios',
                 'type' => 'multiple_choice',
-                'status' => 'Pendiente',
+                'status' => 'pendiente',
                 'label' => '¿Qué dispositivos contra incendios están presentes?',
                 'can_attach' => false,
                 'can_select_others' => false,
-                'can_summon' => true,
+                'can_emplacement' => true,
+                'group' => 'Seguridad y Salud',
                 'options' => [
-                    ['label' => 'Extintor', 'value' => 'extintor'],
-                    ['label' => 'Manguera', 'value' => 'manguera'],
-                    ['label' => 'Alarma de incendios', 'value' => 'alarma_incendios'],
+                    ['label' => 'Extintor', 'value' => 'extintor', 'other' => false, 'compliance' => true],
+                    ['label' => 'Manguera', 'value' => 'manguera', 'other' => false, 'compliance' => true],
+                    ['label' => 'Alarma de incendios', 'value' => 'alarma_incendios', 'other' => false, 'compliance' => false],
+                    ['label' => 'Otros', 'value' => 'otros', 'other' => true, 'compliance' => true],
                 ],
+                'summon' => [
+                    'can_emplacement' => true,
+                    'emplacement' => [
+                        'days' => '15',
+                        'actions' => [
+                            'Infraccion',
+                            'Amonestación',
+                        ],
+                    ],
+                    'sanction' => [
+                        'actions' => [
+                            'Clausura',
+                            'Multa',
+                            'Suspensión de actividades',
+                        ],
+                    ],
+                ],
+                'comment' => '',
+                'other_value' => '', 'other_compliance' => true,
             ],
         ];
 
@@ -100,7 +197,7 @@ class InspectionController extends AbstractController
             }
         }
 
-        return $this->render('inspection/step5.html.twig', [
+        return $this->render('inspection/v1/step.html.twig', [
             'inspection_id' => $inspection_id,
             'inspection' => $inspeccion,
             'question' => $questions[$step],
