@@ -31,7 +31,7 @@
             {% include '/inspection/partials/_modal_confirmacion_emplazamiento.html.twig' %}
         {#  elseif #}
 
-        {%  if question.can_summon %}
+        {%  if question.can_emplacement %}
             {% include '/inspection/partials/_modal_confirmacion_sansion.html.twig' with { 'back': true } %}
         {%  else  %}
             {% include '/inspection/partials/_modal_confirmacion_sansion.html.twig' with { 'back': false } %}

@@ -82,7 +82,7 @@ class ResponseHydrator
             # a public base url  get of symfony config
             $attachments = isset($answerData['attachments'])
                 ? array_map(function($attachmentData) {
-                    $this->logger->info('Creating attachment...', ['attachment' => $attachmentData]);
+                    $this->logger->info('Creating attachments...', ['attachments' => $attachmentData]);
 
                     return new AnswerAttachment(
                         $attachmentData['url'] ?? $this->basdeUrl . '/'.  $attachmentData['filename'],
