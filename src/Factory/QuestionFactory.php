@@ -2,7 +2,7 @@
 
 namespace App\Factory;
 
-use App\DTO\Question;
+use App\DTO\FormView\Question;
 
 class QuestionFactory
 {

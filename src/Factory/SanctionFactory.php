@@ -2,7 +2,7 @@
 
 namespace App\Factory;
 
-use App\DTO\Sanction;
+use App\DTO\FormView\Sanction;
 
 class SanctionFactory
 {

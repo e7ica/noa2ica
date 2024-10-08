@@ -59,20 +59,60 @@
     <div class="js-options-list w-full flex flex-col space-y-4" data-control-type="{{ question.type }}" >
 
         {% if question.type == 'yes_no' %}
-
+            <div class="flex flex-row space-x-4">
+                {% for option in question.options %}
+                    <div class="js-option-item flex items-center">
+                        <input type="radio"
+                               data-option-compliance="{{ option.compliance }}"
+                               data-option-value="{{ option.value }}"
+                               id="{{ question.ref }}_{{ loop.index }}"
+                               name="{{ question.ref }}"
+                               value="{{ option.value }}"
+                               class="form-radio h-5 w-5 text-blue-600"
+                               {% if option.selected %} checked {% endif %}
+                        >
+                        <label for="{{ question.ref }}_{{ loop.index }}" class="ml-2 text-sm text-gray-600">
+                            <span class="js-option-icon"></span>
+                            {{ option.label }}
+                            {% if not option.compliance %}
+                                <span class="tooltip">
+                                    <span class="tooltiptext">Este ítem no cumple con los requisitos</span>
+                                </span>
+                            {% endif %}
+                        </label>
+                    </div>
+                {% endfor %}
+            </div>
+        {% elseif question.type == 'single_choice' %}
             {% for option in question.options %}
-
-                <div class="flex items-center">
-
-                    <input type="radio" id="{{ question.ref }}_{{ loop.index }}" name="{{ question.ref }}" value="{{ option.value }}" class="form-radio h-5 w-5 text-blue-600">
-                    <label for="{{ question.ref }}_{{ loop.index }}" class="ml-3 text-sm text-gray-600">{{ option.label }}</label>
-
+                <div class="js-option-item flex items-center">
+                    <input type="radio"
+                           data-option-compliance="{{ option.compliance }}"
+                           data-option-value="{{ option.value }}"
+                           data-option-other="{{ option.other }}"
+                           id="{{ question.ref }}_{{ loop.index }}"
+                           name="{{ question.ref }}"
+                           value="{{ option.value }}"
+                           class="form-radio h-5 w-5 text-blue-600"
+                           {% if option.selected %} checked {% endif %}
+                    >
+                    <label for="{{ question.ref }}_{{ loop.index }}" class="ml-2 text-sm text-gray-600">
+                        <span class="js-option-icon"></span>
+                        {{ option.label }}
+                        {% if not option.compliance %}
+                            <span class="tooltip">
+                                <span class="tooltiptext">Este ítem no cumple con los requisitos</span>
+                            </span>
+                        {% endif %}
+                    </label>
+                    {% if option.other %}
+                        <textarea name="other-value"
+                                  class="js-option-value form-input ml-4 p-0 form-input border-b-2 w-38"
+                                  data-option-other="{{ question.otherValue }}">{{ question.otherValue | trim }}</textarea>
+                    {% endif %}
                 </div>
-
             {% endfor %}
-
         {% elseif question.type == 'multiple_choice' %}
-
             {% for option in question.options %}
                 <div class="js-option-item flex flex-col items-start mr-8">
 
@@ -128,7 +168,6 @@
 
                 </div>
             {% endfor %}
-
         {% endif %}
     </div>
 </div>

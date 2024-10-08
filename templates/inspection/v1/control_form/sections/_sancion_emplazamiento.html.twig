@@ -1,4 +1,8 @@
-<div class="js-summon-section hidden flex-row py-4 border-t-2 border-gray-200 w-full items-center justify-start">
+<div class="js-summon-section
+{% if not question.isAproved  %}
+hidden
+{% endif  %}
+flex-row py-4 border-t-2 border-gray-200 w-full items-center justify-start">
 
     {% if question.summon.canEmplacement %}
         <!-- Columna Izquierda: Checkbox Subsanable -->
@@ -29,7 +33,7 @@
                     <div class="flex items-start mb-4">
                         <span  class="ml-2 text-sm text-gray-600">Emplazamiento</span>
                         <span class="ml-2 flex bg-yellow-50 px-1 items-center text-sm text-gray-600">
-                        🗓️ <span class="text-red-500 font-bold px-1 ">{{ "days" }}</span>  días
+                        🗓️ <span class="text-red-500 font-bold px-1 ">{{ question.summon.emplacement.days }}</span>  días
                     </span>
                     </div>
 

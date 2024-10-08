@@ -26,7 +26,7 @@ class InspectionFixture
                 $data = json_decode(file_get_contents($path), true);
 
                 $inspection = new Inspection();
-                // Aquí hidratas el objeto Inspection con los datos del JSON
+                // Aquí hidratas el objeto InspectionForm con los datos del JSON
                 $inspection->setTitle($data['title']);
                 $inspection->setType($data['type']);
                 // Continúa asignando todos los campos...

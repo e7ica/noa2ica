@@ -1,4 +1,4 @@
-<div class="dropdown dropdown-top dropdown-end ">
+<div class="dropdown dropdown-top dropdown-end  ">
     <div tabindex="0" role="button" class="btn-link m-1 md:text-lg md:w-48 text-end no-underline font-semibold">📃 Acta</div>
     <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 md:w-64 p-2 shadow">
         <li>
@@ -30,10 +30,16 @@
 
 <script type="module">
     const attachBtn = document.getElementById('attach-btn');
+
     attachBtn.addEventListener('click', (e) => {
         e.preventDefault();
         const attachmentsSectionEl = document.querySelector('.js-attachments-section')
         attachmentsSectionEl.classList.remove('hidden');
+        // si existe oculto la seccion js-attachmentsList-section
+        const attachmentsListSectionEl = document.querySelector('.js-attachmentsList-section');
+        if (attachmentsListSectionEl) {
+            attachmentsListSectionEl.classList.add('hidden');
+        }
     });
 
     const commentBtn = document.getElementById('comment-btn');

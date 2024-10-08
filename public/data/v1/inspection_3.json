@@ -16,7 +16,7 @@
       "id": 1,
       "ref": "control_calidad_pan",
       "type": "multiple_choice",
-      "status": "Pendiente",
+      "status": "pendiente",
       "label": "¿El pan cumple con los estándares de calidad?",
       "can_attach": true,
       "can_select_others": false,

@@ -34,7 +34,7 @@ readonly class FormHydrator
 
     private function createInspectionForm(array $data): InspectionForm
     {
-        $this->logger->info('Creating InspectionForm...');
+        $this->logger->info('Creating FormView...');
 
         $formData = $data[0]; // Asumimos que hay un solo formulario
 
@@ -114,7 +114,7 @@ readonly class FormHydrator
             }
         }, $formData['fields']);
 
-        $this->logger->info('InspectionForm created');
+        $this->logger->info('FormView created');
 
         return new InspectionForm(
             $formData['form_id'],

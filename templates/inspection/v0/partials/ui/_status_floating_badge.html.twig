@@ -1,9 +1,0 @@
-{% if question.status != 'Pendiente' %}
-    <div class="absolute s-8 top-[-140px] right-[-35px] md:top-[-100px] md:right-[-40px]">
-        <div class="flex items-center justify-center w-20 h-20 md:s-12 border-4 md:border-8 border-gray-700 rounded-full {{ question.status == 'Aprobado' ? 'bg-green-500' : 'bg-red-500' }}">
-            <span class="text-4xl font-bold {{ question.status == 'Aprobado' ? 'text-white' : 'text-white' }}">
-                {{ question.status == 'Aprobado' ? '👍' : '👎' }}
-            </span>
-        </div>
-    </div>
-{% endif %}

@@ -2,7 +2,7 @@
 
 namespace App\Factory;
 
-use App\DTO\Option;
+use App\DTO\FormView\Option;
 
 class OptionFactory
 {

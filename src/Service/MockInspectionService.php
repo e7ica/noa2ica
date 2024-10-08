@@ -2,13 +2,12 @@
 
 namespace App\Service;
 
-use App\DTO\Emplacement;
-use App\DTO\Inspection;
-use App\DTO\Option;
-use App\DTO\Question;
-use App\DTO\Sanction;
-use App\DTO\Summon;
-use Monolog\Logger;
+use App\DTO\FormView\Emplacement;
+use App\DTO\FormView\InspectionForm;
+use App\DTO\FormView\Option;
+use App\DTO\FormView\Question;
+use App\DTO\FormView\Sanction;
+use App\DTO\FormView\Summon;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Filesystem\Filesystem;
 
@@ -38,8 +37,8 @@ class MockInspectionService implements InspectionServiceInterface
             if ($filesystem->exists($file)) {
                 $data = json_decode(file_get_contents($file), true);
 
-                // Hidratar objeto Inspection
-                $inspection = new Inspection(
+                // Hidratar objeto InspectionForm
+                $inspection = new InspectionForm(
                     $data['id'],
                     $data['title'],
                     $data['type'],
@@ -140,7 +139,7 @@ class MockInspectionService implements InspectionServiceInterface
         return $this->inspections;
     }
 
-    public function getInspectionById(int $id): ?Inspection
+    public function getInspectionById(int $id): ?InspectionForm
     {
         foreach ($this->inspections as $inspection) {
             if ($inspection->id === $id) {

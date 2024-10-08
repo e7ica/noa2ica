@@ -16,7 +16,7 @@
       "id": 1,
       "ref": "extintores",
       "type": "multiple_choice",
-      "status": "Aprobado",
+      "status": "aprobado",
       "label": "¿Están los extintores en buen estado y accesibles?",
       "can_attach": true,
       "can_select_others": false,

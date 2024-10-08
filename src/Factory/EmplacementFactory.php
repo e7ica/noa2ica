@@ -2,7 +2,7 @@
 
 namespace App\Factory;
 
-use App\DTO\Emplacement;
+use App\DTO\FormView\Emplacement;
 
 class EmplacementFactory
 {

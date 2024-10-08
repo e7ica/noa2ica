@@ -50,3 +50,7 @@
 [ ] Mostrar datos de la opction otros ante la carga.
 [ ] Fix en el text area de especificacion.
 [ ] Mostrar amarillo el badge al emplazar.
+
+
+## 21 de Agosto    ###
+[ ] Hidratar el Attachments y las Observaciones en el paso ya completo.

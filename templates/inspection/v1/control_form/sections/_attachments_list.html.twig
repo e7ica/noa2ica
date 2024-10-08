@@ -1,0 +1,38 @@
+{#  constante twigh con el base_path  #}
+{% set base_path = app.request.scheme ~ '://' ~ app.request.httpHost ~ app.request.basePath %}
+
+{% if question.attachment is not empty %}
+<div id="attachmentsListSection" class="js-attachmentsList-section bg-white rounded-lg p-4 w-96 md:w-full">
+
+    {# Visualización cuando hay un archivo adjunto #}
+        <div id="attachmentsListWrapper">
+            <h2 class="text-lg font-semibold mb-4">Archivo adjunto:</h2>
+            <div class="flex justify-between items-center mb-4 p-3 border-2 border-green-400 bg-green-50 rounded-lg">
+                <div class="flex items-center">
+                    <i class="fas fa-file-alt text-green-600 text-2xl mr-2"></i>
+                    <span class="text-sm text-gray-800 font-semibold">{{ question.attachementName }}</span>
+                </div>
+                <div class="flex items-center">
+                    <a href="{{ question.attachment }}" class="text-sm text-blue-600 underline mr-4">Ver archivo</a>
+                    <button id="changeFileButton" class="text-sm text-white bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded-lg">Cambiar archivo</button>
+                </div>
+            </div>
+        </div>
+
+</div>
+{% endif %}
+
+
+<script type="module">
+    const changeFileButton = document.getElementById('changeFileButton');
+    changeFileButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const attachmentsSectionEl = document.querySelector('.js-attachments-section')
+        attachmentsSectionEl.classList.remove('hidden');
+        const attachmentsListSectionEl = document.querySelector('.js-attachmentsList-section');
+        if (attachmentsListSectionEl) {
+            attachmentsListSectionEl.classList.add('hidden');
+        }
+    });
+
+</script>

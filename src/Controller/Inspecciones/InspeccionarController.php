@@ -3,7 +3,6 @@
 
 namespace App\Controller\Inspecciones;
 
-use App\DTO\Question;
 use App\Service\InspectionServiceInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,19 +10,83 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class InspeccionarController extends AbstractController
 {
     private InspectionServiceInterface $inspectionService;
     private LoggerInterface $logger;
 
+    private SluggerInterface $slugger;
+
     public function __construct(
         InspectionServiceInterface $inspectionService,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        SluggerInterface $slugger
     ) {
         $this->inspectionService = $inspectionService;
         $this->logger = $logger;
+        $this->slugger = $slugger;
     }
+
+
+
+
+    #[Route('/v0/inspection/{inspection_id}/form/step/{step}', name: 'inspection_form_step_v0', requirements: [
+        'inspection_id' => '\d+',
+        'step' => '\d+'
+    ])]
+    public function formStepV0(Request $request, SessionInterface $session, int $inspection_id, int $step = 0): Response
+    {
+        $this->logger->info('InspeccionarController:formStep', [
+            'inspection_id' => $inspection_id,
+            'step' => $step
+        ]);
+
+
+        $inspection = $this->inspectionService->getInspectionById($inspection_id);
+        $questions = $inspection->questions;
+        $question = $questions[$step];
+        $this->logger->info('InspeccionarController:formStep', [
+            'inspection_id' => $inspection_id,
+            'step' => $step,
+            'inspection' => $inspection->toArray(),
+            'question' => $question->toArray()
+        ]);
+
+
+        $totalSteps = count($inspection->questions);
+        $formResponse = $session->get('form_response', []);
+
+        if ($request->isMethod('POST')) {
+            $formResponse[$step] = $request->request->all();
+            $session->set('form_response', $formResponse);
+
+            $nextStep = $step + 1;
+            if ($nextStep < $totalSteps) {
+                return $this->redirectToRoute('inspection_form_step_v0', [
+                    'inspection_id' => $inspection_id,
+                    'step' => $nextStep
+                ]);
+            } else {
+                return $this->redirectToRoute('inspection_form_complete', [
+                    'inspection_id' => $inspection_id
+                ]);
+            }
+        }
+
+        return $this->render('inspection/v1/control_form.html.twig', [
+            'inspection_id' => $inspection_id,
+            'inspection' => $inspection,
+            'question' => $questions[$step],
+            'step' => $step,
+            'totalSteps' => $totalSteps,
+            'formResponse' => $formResponse
+        ]);
+    }
+
+
+
 
 
     #[Route('/inspection/{inspection_id}/form/step/{step}', name: 'inspection_form_step', requirements: [
@@ -36,6 +99,7 @@ class InspeccionarController extends AbstractController
             'inspection_id' => $inspection_id,
             'step' => $step
         ]);
+
 
         $inspection = $this->inspectionService->getInspectionById($inspection_id);
         $questions = $inspection->questions;
@@ -290,7 +354,7 @@ class InspeccionarController extends AbstractController
             'number' => '#00000015',
             'initials' => 'JP',
             'status' => 'emplazada',
-            'closed' => true,
+            'closed' => false,
             'acta' => [
                 'status' => 'pendiente',
                 'link' => 'https://www.google.com',

@@ -16,15 +16,15 @@
       "id": 1,
       "ref": "carnet_manipulacion_alimentos",
       "type": "multiple_choice",
-      "status": "Aprobado",
+      "status": "aprobado",
       "label": "¿Exhibe el personal carnet de manipulación de alimentos vigente?",
       "can_attach": true,
       "can_select_others": false,
       "can_emplacement": true,
       "group": "Higiene",
       "options": [
-        { "label": "Sí", "value": "true", "other": false, "compliance": true },
-        { "label": "No", "value": "false", "other": false, "compliance": false }
+        { "label": "Sí", "value": "true", "other": false, "compliance": true, "selected": true},
+        { "label": "No", "value": "false", "other": true, "compliance": true, "selected": true}
       ],
       "summon": {
         "can_emplacement": true,
@@ -37,7 +37,7 @@
         }
       },
       "comment": "Carnets en regla.",
-      "other_value": "",
+      "other_value": "No tiene mata de insectos.",
       "other_compliance": true
     },
     {

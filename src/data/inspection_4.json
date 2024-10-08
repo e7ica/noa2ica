@@ -71,66 +71,6 @@
       "other_value": "Repelente eléctrico adicional",
       "other_compliance": false,
       "attachment": null
-    },
-    {
-      "id": 3,
-      "ref": "refrigeracion_adecuada",
-      "type": "yes_no",
-      "status": "pendiente",
-      "label": "¿Los alimentos están refrigerados a la temperatura adecuada?",
-      "can_attach": true,
-      "can_select_others": false,
-      "can_emplacement": true,
-      "group": "Conservación de Alimentos",
-      "options": [
-        { "label": "Sí", "value": "true", "other": false, "compliance": true, "selected": null },
-        { "label": "No", "value": "false", "other": false, "compliance": false, "selected": null }
-      ],
-      "summon": {
-        "can_emplacement": true,
-        "emplacement": {
-          "days": "1",
-          "actions": ["Corrección Inmediata"]
-        },
-        "sanction": {
-          "actions": ["Multa", "Decomiso de Alimentos"]
-        }
-      },
-      "comment": "",
-      "other_value": "",
-      "other_compliance": true,
-      "attachment": ""
-    },
-    {
-      "id": 4,
-      "ref": "frecuencia_limpieza",
-      "type": "single_choice",
-      "status": "pendiente",
-      "label": "¿Con qué frecuencia se realiza la limpieza profunda del local?",
-      "can_attach": false,
-      "can_select_others": true,
-      "can_emplacement": false,
-      "group": "Higiene General",
-      "options": [
-        { "label": "Diariamente", "value": "daily", "other": false, "compliance": true, "selected": null },
-        { "label": "Semanalmente", "value": "weekly", "other": false, "compliance": true, "selected": null },
-        { "label": "Mensualmente", "value": "monthly", "other": false, "compliance": false, "selected": null },
-        { "label": "Otro", "value": "other", "other": true, "compliance": true, "selected": null }
-      ],
-      "summon": {
-        "can_emplacement": false,
-        "emplacement": {
-          "days": "7",
-          "actions": ["Advertencia"]
-        },
-        "sanction": {
-          "actions": ["Multa"]
-        }
-      },
-      "comment": "",
-      "other_value": "",
-      "other_compliance": true,
-      "attachment": null
     }
   ]
 }

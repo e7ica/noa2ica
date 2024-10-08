@@ -2,14 +2,14 @@
 
 namespace App\Factory;
 
-use App\DTO\Inspection;
+use App\DTO\FormView\InspectionForm;
 
 class InspectionFactory
 {
-    public static function fromArray(array $data): Inspection
+    public static function fromArray(array $data): InspectionForm
     {
         try {
-            return new Inspection(
+            return new InspectionForm(
                 id: (int)$data['id'],
                 title: $data['title'],
                 type: $data['type'],
@@ -24,7 +24,7 @@ class InspectionFactory
                 observations: $data['observations']
             );
         } catch (\Exception $e) {
-            throw new \Exception('Error creating Inspection object: ' . $e->getMessage());
+            throw new \Exception('Error creating InspectionForm object: ' . $e->getMessage());
         }
     }
 }

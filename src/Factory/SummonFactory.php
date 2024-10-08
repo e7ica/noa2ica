@@ -2,7 +2,7 @@
 
 namespace App\Factory;
 
-use App\DTO\Summon;
+use App\DTO\FormView\Summon;
 
 class SummonFactory
 {
