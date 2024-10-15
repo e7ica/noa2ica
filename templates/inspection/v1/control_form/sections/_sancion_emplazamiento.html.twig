@@ -87,33 +87,34 @@ flex-row py-4 border-t-2 border-gray-200 w-full items-center justify-start">
     const badgeEmplazado = document.getElementById('status_badge_emplazado');
 
 
-    subsanableCheckbox.addEventListener('change', () => {
-        if (subsanableCheckbox.checked) {
-            emplazementInfo.classList.add('flex');
-            emplazementInfo.classList.remove('hidden');
-            sancionInfo.classList.remove('flex');
-            sancionInfo.classList.add('hidden');
+    if (subsanableCheckbox) {
+        subsanableCheckbox.addEventListener('change', () => {
+            if (subsanableCheckbox.checked) {
+                emplazementInfo.classList.add('flex');
+                emplazementInfo.classList.remove('hidden');
+                sancionInfo.classList.remove('flex');
+                sancionInfo.classList.add('hidden');
 
-            badgeAprobado.classList.add('hidden');
-            badgeAprobado.classList.remove('flex');
-            badgeRechazado.classList.add('hidden');
-            badgeRechazado.classList.remove('flex');
-            badgeEmplazado.classList.add('flex');
-            badgeEmplazado.classList.remove('hidden');
+                badgeAprobado.classList.add('hidden');
+                badgeAprobado.classList.remove('flex');
+                badgeRechazado.classList.add('hidden');
+                badgeRechazado.classList.remove('flex');
+                badgeEmplazado.classList.add('flex');
+                badgeEmplazado.classList.remove('hidden');
 
 
+            } else {
+                emplazementInfo.classList.remove('flex');
+                emplazementInfo.classList.add('hidden');
+                sancionInfo.classList.add('flex');
+                sancionInfo.classList.remove('hidden');
 
-        } else {
-            emplazementInfo.classList.remove('flex');
-            emplazementInfo.classList.add('hidden');
-            sancionInfo.classList.add('flex');
-            sancionInfo.classList.remove('hidden');
+                badgeRechazado.classList.remove('hidden');
+                badgeRechazado.classList.add('flex');
+                badgeEmplazado.classList.add('hidden');
+                badgeEmplazado.classList.remove('flex');
 
-            badgeRechazado.classList.remove('hidden');
-            badgeRechazado.classList.add('flex');
-            badgeEmplazado.classList.add('hidden');
-            badgeEmplazado.classList.remove('flex');
-
-        }
-    });
+            }
+        });
+    }
 </script>

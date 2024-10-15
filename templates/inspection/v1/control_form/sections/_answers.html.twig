@@ -181,29 +181,57 @@
 
             optionsList.forEach(optionItem => {
                 const checkbox = optionItem.querySelector('input[type="checkbox"]');
+                const radiobox = optionItem.querySelector('input[type="radio"]');
                 const otherTextarea = optionItem.querySelector('textarea');
                 const complianceSection = optionItem.querySelector('.js-option-compliance');
 
-                // Mostrar/ocultar textarea y complianceSection según el estado del checkbox
-                checkbox.addEventListener('change', () => {
+                if (checkbox) {
+                    checkbox.addEventListener('change', () => {
+                        console.log(" checkbox changed !");
+                        if (checkbox.checked && otherTextarea) {
+                            otherTextarea.style.display = 'block';
+                            complianceSection.style.display = 'flex';
+                        } else {
+                            if (otherTextarea) {
+                                otherTextarea.style.display = 'none';
+                                complianceSection.style.display = 'none';
+                            }
+                        }
+                    });
+
+                    // Inicializar el estado de cada item
                     if (checkbox.checked && otherTextarea) {
                         otherTextarea.style.display = 'block';
                         complianceSection.style.display = 'flex';
-                    } else {
-                        if (otherTextarea) {
-                            otherTextarea.style.display = 'none';
-                            complianceSection.style.display = 'none';
-                        }
+                    } else if (otherTextarea) {
+                        otherTextarea.style.display = 'none';
+                        complianceSection.style.display = 'none';
                     }
-                });
+                }
 
-                // Inicializar el estado de cada item
-                if (checkbox.checked && otherTextarea) {
-                    otherTextarea.style.display = 'block';
-                    complianceSection.style.display = 'flex';
-                } else if (otherTextarea) {
-                    otherTextarea.style.display = 'none';
-                    complianceSection.style.display = 'none';
+
+                // if radiobox exists
+                if (radiobox) {
+                    radiobox.addEventListener('change', () => {
+                        console.log(" radiobox changed !");
+                        if (radiobox.checked && otherTextarea) {
+                            otherTextarea.style.display = 'block';
+                            complianceSection.style.display = 'flex';
+                        } else {
+                            if (otherTextarea) {
+                                otherTextarea.style.display = 'none';
+                                complianceSection.style.display = 'none';
+                            }
+                        }
+                    });
+
+                    if (radiobox.checked && otherTextarea) {
+                        otherTextarea.style.display = 'block';
+                        complianceSection.style.display = 'flex';
+                    } else if (otherTextarea) {
+                        if(otherTextarea) otherTextarea.style.display = 'none';
+                        if(complianceSection) complianceSection.style.display = 'none';
+                    }
                 }
             });
 
@@ -223,33 +251,58 @@
             function updateSummonSectionVisibility() {
                 let showSummonSection = false;
 
+                if (optionsList) {
+                    optionsList.forEach(optionItem => {
+                        const checkbox = optionItem.querySelector('input[type="checkbox"]');
+                        const radiobox = optionItem.querySelector('input[Type="radio"]');
+                        let compliance = true;
+
+                        if (checkbox) {
+                            compliance = checkbox.getAttribute('data-option-compliance') === '1';
+
+                            if (checkbox.checked && !compliance) {
+                                showSummonSection = true;
+                            }
+                        }
+
+                        if (radiobox) {
+                            console.log("radiobox checked: ", radiobox.checked);
+                            compliance = radiobox.getAttribute('data-option-compliance') === '1';
+
+                            if (radiobox.checked && !compliance) {
+                                showSummonSection = true;
+                            }
+                        }
+                    });
+
+                    // with classList
+                    if (showSummonSection) {
+                        summonSection.classList.add('flex');
+                        summonSection.classList.remove('hidden');
+                    } else {
+                        summonSection.classList.add('hidden');
+                        summonSection.classList.remove('flex');
+                    }
+                }
+
+                // Añadir listeners a los checkboxes
                 optionsList.forEach(optionItem => {
                     const checkbox = optionItem.querySelector('input[type="checkbox"]');
-                    const compliance = checkbox.getAttribute('data-option-compliance') === '1';
+                    const radiobox = optionItem.querySelector('input[type="radio"]');
 
-                    if (checkbox.checked && !compliance) {
-                        showSummonSection = true;
+                    if (checkbox) {
+                        checkbox.addEventListener('change', () => {
+                            updateSummonSectionVisibility();
+                        });
+                    }
+
+                    if (radiobox) {
+                        radiobox.addEventListener('change', () => {
+                            updateSummonSectionVisibility();
+                        });
                     }
                 });
-
-                // with classList
-                if (showSummonSection) {
-                    summonSection.classList.add('flex');
-                    summonSection.classList.remove('hidden');
-                } else {
-                    summonSection.classList.add('hidden');
-                    summonSection.classList.remove('flex');
-                }
             }
-
-            // Añadir listeners a los checkboxes
-            optionsList.forEach(optionItem => {
-                const checkbox = optionItem.querySelector('input[type="checkbox"]');
-
-                checkbox.addEventListener('change', () => {
-                    updateSummonSectionVisibility();
-                });
-            });
 
             // Llamar a la función para asegurar la visibilidad correcta al cargar la página
             updateSummonSectionVisibility();
@@ -296,23 +349,49 @@
 
             optionsList.forEach(optionItem => {
                 const checkbox = optionItem.querySelector('input[type="checkbox"]');
-                const compliance = checkbox.getAttribute('data-option-compliance') === '1';
+                const radiobox = optionItem.querySelector('input[type="radio"]');
                 const icon = optionItem.querySelector('.js-option-icon');
+                let compliance = false;
 
-                checkbox.addEventListener('change', () => {
+                if (checkbox) {
+                    compliance = checkbox.getAttribute('data-option-compliance') === '1';
+
+                    checkbox.addEventListener('change', () => {
+                        if (checkbox.checked && !compliance) {
+                            optionItem.classList.add('highlight-warning');
+                        } else {
+                            optionItem.classList.remove('highlight-warning');
+                        }
+                    });
+
+                    // Inicializar el estado de cada item
                     if (checkbox.checked && !compliance) {
                         optionItem.classList.add('highlight-warning');
                     } else {
                         optionItem.classList.remove('highlight-warning');
                     }
-                });
-
-                // Inicializar el estado de cada item
-                if (checkbox.checked && !compliance) {
-                    optionItem.classList.add('highlight-warning');
-                } else {
-                    optionItem.classList.remove('highlight-warning');
                 }
+
+                if (radiobox) {
+
+                    compliance = radiobox.getAttribute('data-option-compliance') === '1';
+
+                    radiobox.addEventListener('change', () => {
+                        if (radiobox.checked && !compliance) {
+                            optionItem.classList.add('highlight-warning');
+                        } else {
+                            optionItem.classList.remove('highlight-warning');
+                        }
+                    });
+
+                    // Inicializar el estado de cada item
+                    if (radiobox.checked && !compliance) {
+                        optionItem.classList.add('highlight-warning');
+                    } else {
+                        optionItem.classList.remove('highlight-warning');
+                    }
+                }
+
             });
         }
 
@@ -330,21 +409,42 @@
                 let hasChecked = false;
 
                 optionsList.forEach(optionItem => {
+
                     const checkbox = optionItem.querySelector('input[type="checkbox"]');
-                    const compliance = checkbox.getAttribute('data-option-compliance') === '1';
+                    const radiobox = optionItem.querySelector('input[type="radio"]');
 
-                    if (checkbox.checked) {
-                        hasChecked = true;
-                        if (!compliance) {
-                            hasNonCompliance = true;
-                        }
+                    if (checkbox) {
+                        const compliance = checkbox.getAttribute('data-option-compliance') === '1';
+                        if (checkbox.checked) {
+                            hasChecked = true;
+                            if (!compliance) {
+                                hasNonCompliance = true;
+                            }
 
-                        // Verificar si la opción "Otros" está marcada como "No cumple"
-                        const complianceToggle = optionItem.querySelector('.js-option-compliance input[type="checkbox"]');
-                        if (complianceToggle && !complianceToggle.checked) {
-                            hasNonCompliance = true;
+                            // Verificar si la opción "Otros" está marcada como "No cumple"
+                            const complianceToggle = optionItem.querySelector('.js-option-compliance input[type="checkbox"]');
+                            if (complianceToggle && !complianceToggle.checked) {
+                                hasNonCompliance = true;
+                            }
                         }
                     }
+
+                    if (radiobox) {
+                        const compliance = radiobox.getAttribute('data-option-compliance') === '1';
+                        if (radiobox.checked) {
+                            hasChecked = true;
+                            if (!compliance) {
+                                hasNonCompliance = true;
+                            }
+
+                            // Verificar si la opción "Otros" está marcada como "No cumple"
+                            const complianceToggle = optionItem.querySelector('.js-option-compliance input[type="radio"]');
+                            if (complianceToggle && !complianceToggle.checked) {
+                                hasNonCompliance = true;
+                            }
+                        }
+                    }
+
                 });
 
                 if (hasChecked) {
@@ -366,11 +466,20 @@
             // Añadir listeners a los checkboxes
             optionsList.forEach(optionItem => {
                 const checkbox = optionItem.querySelector('input[type="checkbox"]');
-                checkbox.addEventListener('change', () => updateBadgeVisibility());
+                if (checkbox) {
+                    checkbox.addEventListener('change', () => updateBadgeVisibility());
+                }
+                const radiobox = optionItem.querySelector('input[type="radio"]');
+                if (radiobox) {
+                    radiobox.addEventListener('change', () => updateBadgeVisibility());
+                }
             });
 
             // Añadir listeners a los toggles de cumplimiento "Otros"
             document.querySelectorAll('.js-option-compliance input[type="checkbox"]').forEach(toggle => {
+                toggle.addEventListener('change', () => updateBadgeVisibility());
+            });
+            document.querySelectorAll('.js-option-compliance input[type="radio"]').forEach(toggle => {
                 toggle.addEventListener('change', () => updateBadgeVisibility());
             });
 

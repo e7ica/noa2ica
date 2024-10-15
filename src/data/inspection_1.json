@@ -24,7 +24,7 @@
       "group": "Higiene",
       "options": [
         { "label": "Sí", "value": "true", "other": false, "compliance": true, "selected": null},
-        { "label": "No", "value": "false", "other": true, "compliance": true, "selected": null}
+        { "label": "No", "value": "false", "other": true, "compliance": false, "selected": null}
       ],
       "summon": {
         "can_emplacement": true,
@@ -58,7 +58,7 @@
         { "label": "Otros", "value": "otros", "other": true, "compliance": true }
       ],
       "summon": {
-        "can_emplacement": false,
+        "can_emplacement": true,
         "emplacement": {
           "days": "15",
           "actions": ["Infracción", "Amonestación"]
@@ -99,7 +99,7 @@
       "comment": "",
       "other_value": "",
       "other_compliance": true,
-      "attachment": ""
+      "attachment": null
     },
     {
       "id": 4,
@@ -118,7 +118,7 @@
         { "label": "Otro", "value": "other", "other": true, "compliance": true, "selected": null }
       ],
       "summon": {
-        "can_emplacement": false,
+        "can_emplacement": true,
         "emplacement": {
           "days": "7",
           "actions": ["Advertencia"]

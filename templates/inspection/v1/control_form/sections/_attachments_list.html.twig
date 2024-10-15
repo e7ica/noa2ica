@@ -25,14 +25,16 @@
 
 <script type="module">
     const changeFileButton = document.getElementById('changeFileButton');
-    changeFileButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        const attachmentsSectionEl = document.querySelector('.js-attachments-section')
-        attachmentsSectionEl.classList.remove('hidden');
-        const attachmentsListSectionEl = document.querySelector('.js-attachmentsList-section');
-        if (attachmentsListSectionEl) {
-            attachmentsListSectionEl.classList.add('hidden');
-        }
-    });
+    if(changeFileButton) {
+        changeFileButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            const attachmentsSectionEl = document.querySelector('.js-attachments-section')
+            attachmentsSectionEl.classList.remove('hidden');
+            const attachmentsListSectionEl = document.querySelector('.js-attachmentsList-section');
+            if (attachmentsListSectionEl) {
+                attachmentsListSectionEl.classList.add('hidden');
+            }
+        });
+    }
 
 </script>
