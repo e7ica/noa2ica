@@ -24,6 +24,22 @@
             transform: rotate(180deg);
             transition: transform 0.2s;
         }
+
+        /* Estilos para el dropdown */
+        @media (max-width: 768px) {
+            .dropdown .dropdown-menu {
+                bottom: 100%;
+                top: auto !important;
+                margin-bottom: 5px;
+            }
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            right: 0;
+            min-width: 200px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
     </style>
 {%  endblock %}
 
@@ -133,15 +149,35 @@
         <div class="container mt-3 mb-0">
             <hr class="my-2 mt-4 mb-2">
             <div class="d-flex justify-content-between">
-                <!-- ir al la ruta symfony route fisca_control_start with inspection_id  -->
                 <a class="btn btn-primary fw-bold px-4"
                         href="{{ path('inspection_form_step', {'inspection_id': inspection.id}) }}"
                 >
                     Iniciar</a>
-                <button class="btn btn-link fw-bold align-items-center" onclick="mostrarMasOpciones()" style="text-decoration: none">
-                    Más Opciones
-                   <i class="ml-1 pt-1 fas fa-chevron-down float-end fw-bold "></i>
-                </button>
+                <div class="dropdown position-relative">
+                    <button class="btn btn-link fw-bold align-items-center" onclick="toggleDropdown()" style="text-decoration: none">
+                        Más Opciones
+                        <i class="ml-1 pt-1 fas fa-chevron-down float-end fw-bold"></i>
+                    </button>
+                    <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
+                        <a class="dropdown-item" href="/contribuyentes/1/historial">
+                            <i class="bi bi-person me-2"></i>Ficha del contribuyente
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                            <i class="bi bi-printer me-2"></i>Imprimir
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="bi bi-file-pdf me-2"></i>Exportar PDF
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="bi bi-share me-2"></i>Compartir
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#">
+                            <i class="bi bi-x-circle me-2"></i>Cancelar inspección
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -159,5 +195,24 @@
                 $(this).parent().toggleClass('collapsed');
             });
         });
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownMenu');
+            if (dropdown.style.display === 'none') {
+                dropdown.style.display = 'block';
+            } else {
+                dropdown.style.display = 'none';
+            }
+        }
+
+        // Close dropdown when clicking outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.btn-link')) {
+                const dropdown = document.getElementById('dropdownMenu');
+                if (dropdown.style.display === 'block') {
+                    dropdown.style.display = 'none';
+                }
+            }
+        }
     </script>
 {% endblock %}
