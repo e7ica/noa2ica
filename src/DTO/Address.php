@@ -16,4 +16,9 @@ class Address
         ];
     }
 
+    public function __toString(): string
+    {
+        return $this->street;
+    }
+
 }

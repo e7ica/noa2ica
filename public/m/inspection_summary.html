@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inspección</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!--link href="/xdebug.css" rel="stylesheet" type="text/css" /-->
+</head>
+<body class="bg-gray-100 flex items-center justify-center">
+<div class="container content-center
+ md:max-w-[920px]
+">
+    
+            <div class="w-full bg-gray h-[100vh]">
+
+                            <header class="bg-white mb-4 rounded-b-2xl md:rounded-b-2xl
+                                rounded-t-xl md:roundend-t-2xl
+                                mt-0
+                              ">
+                     <div class="
+container flex flex-row
+items-center justify-around
+mx-0 mt-0 mb-0
+bg-blue-100 text-blue-900 px-6 py-4 rounded
+">
+    <div class="flex flex-col w-full h-auto items-start md:p-8">
+        <h2 class=" flex-auto flex text-xl font-bold md:text-2xl">
+            Inspección de Higiene
+        </h2>
+        <h3 class="flex-auto flex text-md font-bold text-gray-600
+                   md:text-xl">
+            Carniceria El Lobo
+        </h3>
+    </div>
+    <div class="relative flex flex-col w-14 h-14 items-end justify-end justify-start md:p-8">
+        <button class="flex justify-end w-14 h-14 items-center mb-0 mt-0" aria-label="Open or Edit">
+            <i class="text-3xl font-bold bi bi-pencil-square mb-0 md:text-4xl"></i>
+        </button>
+        <p class="absolute top-8 mt-1 text-md font-bold text-black ml-2
+                  md:text-xl">
+            #00001
+        </p>
+    </div>
+</div>                                             <div class="p-2 w-full
+                                    items-center justify-center content-center ">
+                            <div class="flex items-center justify-between content-center bg-blue-100 p-2 rounded">
+   <h3 class="border-b-2 font-bold border-gray-200 px-8 w-full text-center
+              md:text-xl text-md">
+      Resumen de Inspección
+   </h3>
+   <span class="
+        inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+                    bg-yellow-100 text-yellow-800
+            ">
+      Emplazada
+   </span>
+</div>                        </div>
+                    
+                </header>
+             
+                            <main class="p-2 bg-white mb-4
+                rounded-t-2xl md:roundend-t-2xl
+                rounded-b-2xl md:roundend-b-2xl
+                ">
+
+                                        
+
+
+
+<div class="bg-white w-full mb-16">
+
+    
+    <div class="summary-container p-4 bg-gray-100 rounded-lg shadow-md">
+        <h4 class="text-md font-bold mb-4 bg-gray-50 w-full text-center underline">Control de Documentacion</h4>
+
+        <div class="controls-summary grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="control-card bg-white p-4 rounded-lg shadow-sm">
+                    <h3 class="text-lg font-semibold mb-2">Control de Equipos</h3>
+                    <p class="text-sm text-gray-600 mb-2">Estado: aprobado</p>
+
+                                            <p class="text-sm text-gray-600 mb-4">Comentarios: Todo en orden.</p>
+                    
+                                            <ul class="list-disc list-inside mb-4">
+                                                            <li class="text-sm text-gray-700">Matafuergos</li>
+                                                            <li class="text-sm text-gray-700">Botiquín</li>
+                                                            <li class="text-sm text-gray-700">Extintores</li>
+                                                    </ul>
+                    
+                    <div class="estado mt-2">
+                                                    <span class="text-green-600">✔️ Aprobado</span>
+                                            </div>
+                </div>
+                            <div class="control-card bg-white p-4 rounded-lg shadow-sm">
+                    <h3 class="text-lg font-semibold mb-2">Control de Seguridad</h3>
+                    <p class="text-sm text-gray-600 mb-2">Estado: emplazado</p>
+
+                                            <p class="text-sm text-gray-600 mb-4">Comentarios: Faltan revisiones.</p>
+                    
+                                            <ul class="list-disc list-inside mb-4">
+                                                            <li class="text-sm text-gray-700">Señalización</li>
+                                                            <li class="text-sm text-gray-700">Salidas de emergencia</li>
+                                                    </ul>
+                    
+                    <div class="estado mt-2">
+                                                    <span class="text-yellow-600">⚠️ Emplazado</span>
+                            <span class="bg-yellow-50 text-yellow-600 m-l-2 font-semibold">📅 3  días</span>
+                                            </div>
+                </div>
+                            <div class="control-card bg-white p-4 rounded-lg shadow-sm">
+                    <h3 class="text-lg font-semibold mb-2">Control de Documentos</h3>
+                    <p class="text-sm text-gray-600 mb-2">Estado: rechazado</p>
+
+                                            <p class="text-sm text-gray-600 mb-4">Comentarios: Documentación incompleta.</p>
+                    
+                                            <ul class="list-disc list-inside mb-4">
+                                                            <li class="text-sm text-gray-700">Licencia de funcionamiento</li>
+                                                            <li class="text-sm text-gray-700">Permiso de bomberos</li>
+                                                    </ul>
+                    
+                    <div class="estado mt-2">
+                                                    <span class="text-red-600">❌ Rechazado</span>
+                                            </div>
+                </div>
+                    </div>
+
+    </div>
+
+
+
+    <div class="m-t-8 summary-container p-4 bg-gray-100 rounded-lg shadow-md">
+        <h4 class="text-md font-bold mb-4 bg-gray-50 w-full text-center underline">Control de Equipos</h4>
+
+        <div class="controls-summary grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="control-card bg-white p-4 rounded-lg shadow-sm">
+                    <h3 class="text-lg font-semibold mb-2">Que Equipos de Seguridad ?</h3>
+                    <p class="text-sm text-gray-600 mb-2">Estado: aprobado</p>
+
+                                            <p class="text-sm text-gray-600 mb-4">Comentarios: Todo en orden.</p>
+                    
+                                            <ul class="list-disc list-inside mb-4">
+                                                            <li class="text-sm text-gray-700">Matafuergos</li>
+                                                            <li class="text-sm text-gray-700">Botiquín</li>
+                                                            <li class="text-sm text-gray-700">Extintores</li>
+                                                    </ul>
+                    
+                    <div class="estado mt-2">
+                                                    <span class="text-green-600">✔️ Aprobado</span>
+                                            </div>
+                </div>
+                            <div class="control-card bg-white p-4 rounded-lg shadow-sm">
+                    <h3 class="text-lg font-semibold mb-2">Como presenta la Senalizacion ?</h3>
+                    <p class="text-sm text-gray-600 mb-2">Estado: pendiente</p>
+
+                                            <p class="text-sm text-gray-600 mb-4">Comentarios: Faltan revisiones.</p>
+                    
+                                            <ul class="list-disc list-inside mb-4">
+                                                            <li class="text-sm text-gray-700">Señalización</li>
+                                                            <li class="text-sm text-gray-700">Salidas de emergencia</li>
+                                                    </ul>
+                    
+                    <div class="estado mt-2">
+                                                    <span class="text-yellow-600">⚠️ Emplazado</span>
+                            <span class="bg-yellow-50 text-yellow-600 m-l-2 font-semibold">📅 3  días</span>
+                                            </div>
+                </div>
+                    </div>
+
+    </div>
+
+</div>
+                </main>
+             
+                            <div class="fixed bottom-0 w-full md:max-w-[920px] bg-white p-2">
+                    <div class="
+flex row w-full
+items-center justify-between
+border-indigo-200 border-t-2
+p-2
+">
+            <div class="row">
+            <a id="prev-btn" type="submit" class="btn btn-ghost md:text-lg"
+               href="/inspection/1/form/step/1"
+            >Volver</a>
+                            <button id="next-btn" type="submit" class="btn btn-primary md:text-lg">Finalizar</button>
+                    </div>
+                <div class="row ">
+                    </div>
+    </div>                </div>
+             
+        </div>
+     
+</div>
+</body>
+</html>

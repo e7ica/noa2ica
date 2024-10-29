@@ -1,0 +1,54 @@
+<div class="mb-4">
+    <div class="flex justify-between mb-2">
+        <button @click="toggleFilters" class="btn btn-sm btn-outline">
+            <i class="fas fa-filter mr-2"></i> Filtros
+        </button>
+        <select x-model="currentPeriod" @change="filterInspections()"
+                class="select select-bordered select-sm w-full max-w-xs">
+            <option value="week">Esta semana</option>
+            <option value="month">Este mes</option>
+            <option value="sixMonths">Últimos 6 meses</option>
+            <option value="all">Todas</option>
+        </select>
+    </div>
+    <div x-show="showFilters" class="mt-2">
+        <input type="text" x-model="searchTerm" @input="filterInspections()"
+               placeholder="Buscar por contribuyente..."
+               class="input input-bordered input-sm w-full mb-2">
+        <div class="flex flex-wrap gap-2">
+            <button
+                    @click="filterByStatus('all')"
+                    :class="{
+            'bg-gray-700 text-white border-2 border-gray-700': currentStatus === 'all',
+            'bg-gray-100 text-gray-700 hover:bg-gray-200': currentStatus !== 'all'
+        }"
+                    class="btn btn-sm">Todas
+            </button>
+            <button
+                    @click="filterByStatus('approved')"
+                    :class="{
+            'bg-green-700 text-white border-2 border-green-700': currentStatus === 'approved',
+            'bg-green-100 text-green-700 hover:bg-green-200': currentStatus !== 'approved'
+        }"
+                    class="btn btn-sm">Aprobadas
+            </button>
+            <button
+                    @click="filterByStatus('summoned')"
+                    :class="{
+            'bg-yellow-700 text-white border-2 border-yellow-700': currentStatus === 'summoned',
+            'bg-yellow-100 text-yellow-700 hover:bg-yellow-200': currentStatus !== 'summoned'
+        }"
+                    class="btn btn-sm">Emplazadas
+            </button>
+            <button
+                    @click="filterByStatus('rejected')"
+                    :class="{
+            'bg-red-700 text-white border-2 border-red-700': currentStatus === 'rejected',
+            'bg-red-100 text-red-700 hover:bg-red-200': currentStatus !== 'rejected'
+        }"
+                    class="btn btn-sm">Rechazadas
+            </button>
+        </div>
+    </div>
+</div>
+

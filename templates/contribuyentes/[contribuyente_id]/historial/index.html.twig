@@ -1,0 +1,42 @@
+{% extends '/inspection/v1/base.html.twig' %}
+
+
+{%  block body %}
+
+    {%  block page %}
+        <div class="w-full bg-gray h-[100vh]">
+
+            {%  block page_header %}
+                <header class="bg-white mb-4 rounded-b-2xl md:rounded-b-2xl
+                                rounded-t-xl md:roundend-t-2xl
+                                mt-0
+                              ">
+                    {% block business_header %} {% include '/inspecciones/historial/[contribuyente_id]/sections/_header.html.twig' %} {%  endblock %}
+                </header>
+            {% endblock %} {# page_header #}
+
+            {% block page_content %}
+            <main class="p-2 bg-white mb-4 rounded-t-2xl md:roundend-t-2xl rounded-b-2xl md:roundend-b-2xl">
+                <div class="bg-white w-full mb-16">
+                    <div class="history-container p-4 bg-gray-100 rounded-lg shadow-md">
+                        <h4 class="text-md font-bold mb-4 bg-gray-50 w-full text-center underline">Inspecciones Realizadas</h4>
+
+
+                    </div>
+                    {# listado de resultado #}
+                    {% block history_list %} {% include '/inspecciones/historial/[contribuyente_id]/sections/_history_list.html.twig' %} {%  endblock %}
+                </div>
+
+            </main>
+            {% endblock %} {# page_content #}
+
+            {% block page_bottom %}
+                <div class="fixed bottom-0 w-full md:max-w-[920px] bg-white p-2">
+                    {% include '/inspecciones/historial/[contribuyente_id]/components/_more_actions_dropdown.html.twig' %}
+                </div>
+            {% endblock %} {# page_bottom #}
+
+        </div>
+    {% endblock %} {#  page #}
+
+{%  endblock %} {# body #}

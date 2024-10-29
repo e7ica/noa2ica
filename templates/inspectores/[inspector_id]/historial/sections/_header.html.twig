@@ -1,0 +1,20 @@
+<div class="
+container flex flex-col
+items-center justify-around
+mx-0 mt-0 mb-0
+bg-blue-100 text-blue-900 px-6 py-4 rounded
+">
+    <div class="flex flex-col w-full h-auto items-start md:p-8">
+        <h2 class="flex-auto flex text-xl font-bold md:text-2xl">
+            Mis Inspecciones Realizadas
+        </h2>
+        <h3 class="flex-auto flex text-md font-bold text-gray-600 md:text-xl">
+            Inspector: {{ inspector.name }}
+        </h3>
+    </div>
+
+    {% block summary_stats %}
+        {% include '/inspectores/[inspector_id]/historial/components/_summary_stats.html.twig' %}
+    {%  endblock %}
+
+</div>

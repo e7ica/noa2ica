@@ -1,0 +1,58 @@
+[
+  {
+    "id": 11,
+    "title": "Inspección de Higiene",
+    "type": "inspeccion",
+    "business": "Carnicería El Lobo",
+    "address": "Avenida Secundaria #456",
+    "time": "09:00 - 11:30",
+    "number": "#00000015",
+    "initials": "JP",
+    "status": "Abierta",
+    "inspector": "Juan Pérez",
+    "date": "2023-08-19",
+    "observations": "Todo en orden, pero se observan algunas oportunidades de mejora."
+  },
+  {
+    "id": 12,
+    "title": "Inspección de Seguridad",
+    "type": "inspeccion",
+    "business": "Supermercado Los Andes",
+    "address": "Calle Principal #789",
+    "time": "10:00 - 12:30",
+    "number": "#00000016",
+    "initials": "RM",
+    "status": "Finalizada",
+    "inspector": "Raúl Martínez",
+    "date": "2023-08-18",
+    "observations": "Algunas áreas requieren más atención en la seguridad."
+  },
+  {
+    "id": 13,
+    "title": "Inspección de Calidad",
+    "type": "inspeccion",
+    "business": "Panadería La Espiga",
+    "address": "Calle Sur #123",
+    "time": "08:30 - 10:00",
+    "number": "#00000017",
+    "initials": "LS",
+    "status": "Pausada",
+    "inspector": "Lucía Sánchez",
+    "date": "2023-08-17",
+    "observations": "Inspección pausada por motivos ajenos al negocio."
+  },
+  {
+    "id": 14,
+    "title": "Inspección de Higiene",
+    "type": "inspeccion",
+    "business": "Carnicería El Lobo",
+    "address": "Avenida Secundaria #456",
+    "time": "09:00 - 11:30",
+    "number": "#00000015",
+    "initials": "JP",
+    "status": "Abierta",
+    "inspector": "Juan Pérez",
+    "date": "2023-08-19",
+    "observations": "Todo en orden, pero se observan algunas oportunidades de mejora."
+  }
+]

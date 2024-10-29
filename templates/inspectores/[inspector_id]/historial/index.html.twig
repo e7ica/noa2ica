@@ -1,0 +1,178 @@
+{% extends '/inspection/v1/base.html.twig' %}
+
+{% block body %}
+
+    {% block page %}
+        <div class="w-full bg-gray h-[100vh]" x-data="inspectionData()">
+
+            {% block page_header %}
+                <header class="bg-white mb-4 rounded-b-2xl md:rounded-b-2xl
+                                rounded-t-xl md:roundend-t-2xl
+                                mt-0
+                              ">
+                    {% block business_header %} {% include '/inspectores/[inspector_id]/historial/sections/_header.html.twig' %} {% endblock %}
+                </header>
+            {% endblock %} {# page_header #}
+
+            {% block page_content %}
+                <main class="p-2 bg-white mb-4 rounded-t-2xl md:roundend-t-2xl rounded-b-2xl md:roundend-b-2xl">
+
+                    <div class="bg-white w-full mb-16">
+                        <div class="history-container p-4 bg-gray-100 rounded-lg shadow-md">
+                            <!-- Filtros -->
+                            {% block filters_bar %} {% include '/inspectores/[inspector_id]/historial/sections/_filters_bar.html.twig' %} {% endblock %}
+
+                            <h4 class="text-md font-bold mb-4 bg-gray-50 w-full text-center underline">Inspecciones
+                                Realizadas</h4>
+                            {# listado de resultado #}
+                            {% block history_list %} {% include '/inspectores/[inspector_id]/historial/sections/_history_list.html.twig' %} {% endblock %}
+                        </div>
+                    </div>
+
+                </main>
+            {% endblock %} {# page_content #}
+
+            {% block page_bottom %}
+                <div class="fixed bottom-0 w-full md:max-w-[920px] bg-white p-2">
+                    {% include '/inspectores/[inspector_id]/historial/sections/_bottom_bar.html.twig' %}
+                </div>
+            {% endblock %} {# page_bottom #}
+
+        </div>
+    {% endblock %} {#  page #}
+
+    <script>
+        function inspectionData() {
+            return {
+                inspections: [],
+                filteredInspections: [],
+                currentPeriod: 'week',
+                currentStatus: 'all',
+                searchTerm: '',
+                showFilters: false,
+                hasMoreInspections: true,
+                currentPage: 1,
+                loading: false,
+                searchTimeout: null,
+                observer: null,
+
+                async init() {
+                    await this.fetchInspections();
+                    this.setupInfiniteScroll();
+                },
+
+                setupInfiniteScroll() {
+                    const options = {
+                        root: null,
+                        rootMargin: '0px',
+                        threshold: 0.1
+                    };
+
+                    this.observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting && this.hasMoreInspections && !this.loading) {
+                                this.loadMoreInspections();
+                            }
+                        });
+                    }, options);
+
+                    const trigger = document.querySelector('#infinite-scroll-trigger');
+                    if (trigger) {
+                        this.observer.observe(trigger);
+                    }
+                },
+
+                toggleFilters() {
+                    this.showFilters = !this.showFilters;
+                },
+
+                async filterInspections() {
+                    if (this.searchTimeout) {
+                        clearTimeout(this.searchTimeout);
+                    }
+
+                    if (this.searchTerm && this.searchTerm.length >= 3) {
+                        this.searchTimeout = setTimeout(async () => {
+                            await this.fetchInspections();
+                        }, 300);
+                    } else if (!this.searchTerm) {
+                        await this.fetchInspections();
+                    }
+                },
+
+                async fetchInspections() {
+                    this.loading = true;
+                    this.currentPage = 1;
+                    
+                    try {
+                        let url = `/api/inspections?page=${this.currentPage}&period=${this.currentPeriod}&status=${this.currentStatus}`;
+                        
+                        if (this.searchTerm && this.searchTerm.length >= 3) {
+                            url += `&search=${encodeURIComponent(this.searchTerm)}`;
+                        }
+
+                        const response = await fetch(url, {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        });
+
+                        if (!response.ok) throw new Error('Error al cargar inspecciones');
+
+                        const data = await response.json();
+                        this.inspections = data.inspections;
+                        this.hasMoreInspections = data.hasMore;
+                        this.filteredInspections = this.inspections;
+                    } catch (error) {
+                        console.error('Error:', error);
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+
+                filterByStatus(status) {
+                    this.currentStatus = status;
+                    this.filterInspections();
+                },
+
+                async loadMoreInspections() {
+                    if (this.loading) return;
+                    
+                    this.loading = true;
+                    this.currentPage++;
+                    
+                    try {
+                        let url = `/api/inspections?page=${this.currentPage}&period=${this.currentPeriod}&status=${this.currentStatus}`;
+                        
+                        if (this.searchTerm && this.searchTerm.length >= 3) {
+                            url += `&search=${encodeURIComponent(this.searchTerm)}`;
+                        }
+
+                        const response = await fetch(url, {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        });
+
+                        if (!response.ok) throw new Error('Error al cargar más inspecciones');
+
+                        const data = await response.json();
+                        this.inspections = [...this.inspections, ...data.inspections];
+                        this.hasMoreInspections = data.hasMore;
+                        this.filteredInspections = this.inspections;
+                    } catch (error) {
+                        console.error('Error:', error);
+                        this.currentPage--;
+                    } finally {
+                        this.loading = false;
+                    }
+                }
+            }
+        }
+    </script>
+
+{% endblock %} {# body #}
+
+

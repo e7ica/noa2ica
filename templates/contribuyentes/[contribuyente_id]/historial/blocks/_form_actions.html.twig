@@ -1,0 +1,16 @@
+<div class="
+flex row w-full
+items-center justify-between
+border-indigo-200 border-t-2
+p-2
+">
+    {% block form_submit %}
+        <div class="row">
+        </div>
+    {% endblock %}
+    {% block more_actions %}
+        <div class="row">
+            {% include '/templates/inspection/v1/control_form/partials/_more_actions_dropdown.html.twig' %}
+        </div>
+    {% endblock %}
+</div>

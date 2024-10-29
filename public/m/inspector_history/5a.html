@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Inspecciones Realizadas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center">
+<div class="container content-center md:max-w-[920px]" x-data="inspectionData()">
+    <div class="w-full bg-gray h-[100vh]">
+        <header class="bg-white mb-4 rounded-b-2xl md:rounded-b-2xl rounded-t-xl md:roundend-t-2xl mt-0">
+            <div class="container flex flex-col items-center justify-around mx-0 mt-0 mb-0 bg-blue-100 text-blue-900 px-6 py-4 rounded">
+                <div class="flex flex-col w-full h-auto items-start md:p-8">
+                    <h2 class="flex-auto flex text-xl font-bold md:text-2xl">
+                        Mis Inspecciones Realizadas
+                    </h2>
+                    <h3 class="flex-auto flex text-md font-bold text-gray-600 md:text-xl">
+                        Inspector: Juan Pérez
+                    </h3>
+                </div>
+                <!-- Resumen de inspecciones del inspector -->
+                <div class="w-full mt-4 grid grid-cols-2 md:grid-cols-4 gap-2">
+                    <div class="bg-white p-2 rounded-lg shadow text-center">
+                        <p class="text-sm font-bold">Total</p>
+                        <p class="text-lg font-bold" x-text="inspections.length"></p>
+                    </div>
+                    <div class="bg-green-100 p-2 rounded-lg shadow text-center">
+                        <p class="text-sm font-bold text-green-800">Aprobadas</p>
+                        <p class="text-lg font-bold text-green-800" x-text="inspections.filter(i => i.status === 'approved').length"></p>
+                    </div>
+                    <div class="bg-yellow-100 p-2 rounded-lg shadow text-center">
+                        <p class="text-sm font-bold text-yellow-800">Emplazadas</p>
+                        <p class="text-lg font-bold text-yellow-800" x-text="inspections.filter(i => i.status === 'summoned').length"></p>
+                    </div>
+                    <div class="bg-red-100 p-2 rounded-lg shadow text-center">
+                        <p class="text-sm font-bold text-red-800">Rechazadas</p>
+                        <p class="text-lg font-bold text-red-800" x-text="inspections.filter(i => i.status === 'rejected').length"></p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="p-2 bg-white mb-4 rounded-t-2xl md:roundend-t-2xl rounded-b-2xl md:roundend-b-2xl">
+            <div class="bg-white w-full mb-16">
+                <div class="history-container p-4 bg-gray-100 rounded-lg shadow-md">
+                    <!-- Filtros -->
+                    <div class="mb-4">
+                        <div class="flex justify-between mb-2">
+                            <button @click="toggleFilters" class="btn btn-sm btn-outline">
+                                <i class="fas fa-filter mr-2"></i> Filtros
+                            </button>
+                            <select x-model="currentPeriod" @change="filterInspections()" class="select select-bordered select-sm w-full max-w-xs">
+                                <option value="week">Esta semana</option>
+                                <option value="month">Este mes</option>
+                                <option value="sixMonths">Últimos 6 meses</option>
+                                <option value="all">Todas</option>
+                            </select>
+                        </div>
+                        <div x-show="showFilters" class="mt-2">
+                            <input type="text" x-model="searchTerm" @input="filterInspections()" placeholder="Buscar por contribuyente..." class="input input-bordered input-sm w-full mb-2">
+                            <div class="flex flex-wrap gap-2">
+                                <button @click="filterByStatus('all')" :class="{'btn-active': currentStatus === 'all'}" class="btn btn-sm">Todas</button>
+                                <button @click="filterByStatus('approved')" :class="{'btn-active': currentStatus === 'approved'}" class="btn btn-sm btn-success">Aprobadas</button>
+                                <button @click="filterByStatus('summoned')" :class="{'btn-active': currentStatus === 'summoned'}" class="btn btn-sm btn-warning">Emplazadas</button>
+                                <button @click="filterByStatus('rejected')" :class="{'btn-active': currentStatus === 'rejected'}" class="btn btn-sm btn-error">Rechazadas</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lista de inspecciones -->
+
+                    <h4 class="text-md font-bold mb-4 bg-gray-50 w-full text-center underline">Inspecciones Realizadas</h4>
+
+                    <div class="inspections-list grid grid-cols-1 gap-4">
+                        <!-- Inspección Emplazada -->
+                        <div class="inspection-card bg-white p-4 rounded-lg shadow-sm border-l-4 border-yellow-400">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-lg font-semibold">#00001 - 15/03/2024</h3>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
+                                    Emplazada
+                                </span>
+                            </div>
+                            <p class="text-sm text-gray-700 font-semibold mb-2">Categoría: Higiene y Sanidad</p>
+                            <p class="text-sm text-gray-700 mb-2">Negocio: Carnicería El Lobo</p>
+                            <p class="text-sm text-gray-600 mb-4">Comentarios: Se encontraron algunas irregularidades menores en la limpieza de equipos.</p>
+                            <a href="/inspection/1/summary" class="text-blue-600 hover:text-blue-800">Ver detalles</a>
+                        </div>
+
+                        <!-- Inspección Aprobada -->
+                        <div class="inspection-card bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-400">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-lg font-semibold">#00002 - 22/03/2024</h3>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                    Aprobada
+                                </span>
+                            </div>
+                            <p class="text-sm text-gray-700 font-semibold mb-2">Categoría: Seguridad Alimentaria</p>
+                            <p class="text-sm text-gray-700 mb-2">Negocio: Restaurante La Buena Mesa</p>
+                            <p class="text-sm text-gray-600 mb-4">Comentarios: Cumple con todos los estándares de seguridad alimentaria.</p>
+                            <a href="/inspection/2/summary" class="text-blue-600 hover:text-blue-800">Ver detalles</a>
+                        </div>
+
+                        <!-- Inspección Rechazada -->
+                        <div class="inspection-card bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-400">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-lg font-semibold">#00003 - 05/04/2024</h3>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">
+                                    Rechazada
+                                </span>
+                            </div>
+                            <p class="text-sm text-gray-700 font-semibold mb-2">Categoría: Cumplimiento Normativo</p>
+                            <p class="text-sm text-gray-700 mb-2">Negocio: Supermercado El Ahorro</p>
+                            <p class="text-sm text-gray-600 mb-4">Comentarios: Se encontraron graves incumplimientos de normativas de almacenamiento.</p>
+                            <a href="/inspection/3/summary" class="text-blue-600 hover:text-blue-800">Ver detalles</a>
+                        </div>
+                    </div>
+
+
+                    <!-- Botón "Cargar más" -->
+                    <div class="mt-6 text-center" x-show="hasMoreInspections">
+                        <button
+                                @click="loadMoreInspections()"
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        >Cargar más</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="fixed bottom-0 w-full md:max-w-[920px] bg-white p-2">
+            <div class="flex row w-full items-center justify-between border-indigo-200 border-t-2 p-2">
+                <div class="row">
+                    <a id="back-btn" type="button" class="btn btn-ghost md:text-lg" href="/dashboard">Volver al Dashboard</a>
+                </div>
+                <div class="row">
+                    <a id="new-inspection-btn" type="button" class="btn btn-primary md:text-lg" href="/inspection/new">Nueva Inspección</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function inspectionData() {
+        return {
+            inspections: [], // Aquí cargarías tus inspecciones desde una API
+            filteredInspections: [],
+            currentPeriod: 'week',
+            currentStatus: 'all',
+            searchTerm: '',
+            showFilters: false,
+            hasMoreInspections: true,
+
+            init() {
+                // Simula la carga de datos (reemplazar con llamada a API real)
+                this.inspections = [
+                    { id: 1, number: '00001', date: '2024-03-15', status: 'summoned', statusText: 'Emplazada', category: 'Higiene y Sanidad', business: 'Carnicería El Lobo', comments: 'Se encontraron algunas irregularidades menores en la limpieza de equipos.' },
+                    { id: 2, number: '00002', date: '2024-03-22', status: 'approved', statusText: 'Aprobada', category: 'Seguridad Alimentaria', business: 'Restaurante La Buena Mesa', comments: 'Cumple con todos los estándares de seguridad alimentaria.' },
+                    { id: 3, number: '00003', date: '2024-04-05', status: 'rejected', statusText: 'Rechazada', category: 'Cumplimiento Normativo', business: 'Supermercado El Ahorro', comments: 'Se encontraron graves incumplimientos de normativas de almacenamiento.' },
+                    // ... más inspecciones
+                ];
+                this.filterInspections();
+            },
+
+            toggleFilters() {
+                this.showFilters = !this.showFilters;
+            },
+
+            filterInspections() {
+                this.filteredInspections = this.inspections.filter(inspection => {
+                    const matchesPeriod = this.filterByPeriod(inspection);
+                    const matchesStatus = this.currentStatus === 'all' || inspection.status === this.currentStatus;
+                    const matchesSearch = inspection.business.toLowerCase().includes(this.searchTerm.toLowerCase());
+                    return matchesPeriod && matchesStatus && matchesSearch;
+                });
+            },
+
+            filterByPeriod(inspection) {
+                const inspectionDate = new Date(inspection.date);
+                const now = new Date();
+                switch (this.currentPeriod) {
+                    case 'week':
+                        return inspectionDate >= new Date(now.setDate(now.getDate() - 7));
+                    case 'month':
+                        return inspectionDate >= new Date(now.setMonth(now.getMonth() - 1));
+                    case 'sixMonths':
+                        return inspectionDate >= new Date(now.setMonth(now.getMonth() - 6));
+                    default:
+                        return true;
+                }
+            },
+
+            filterByStatus(status) {
+                this.currentStatus = status;
+                this.filterInspections();
+            },
+
+            loadMoreInspections() {
+                // Aquí implementarías la lógica para cargar más inspecciones
+                // Por ahora, simplemente deshabilitamos el botón
+                this.hasMoreInspections = false;
+            }
+        }
+    }
+</script>
+</body>
+</html>

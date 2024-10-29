@@ -1,0 +1,15 @@
+            <div class="inspections-list grid grid-cols-1 gap-4">
+
+                {% block items %}
+                {%  for item in history_items  %}
+                    {% include '/templates/inspecciones/historial/[contribuyente_id]/components/_inspection_card.html.twig' %}
+                {% endfor %}
+                {%  endblock %}
+
+            </div>
+
+            <!-- Botón "Ver más" -->
+            <div class="mt-6 text-center">
+                <button class="bg-blue-500  px-8 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                >Ver mas</button>
+            </div>

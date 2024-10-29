@@ -1,0 +1,48 @@
+{% extends '/inspection/v1/base.html.twig' %}
+
+
+{%  block body %}
+
+    {%  block page %}
+        <div class="w-full bg-gray h-[100vh]">
+
+            {%  block page_header %}
+                <header class="bg-white mb-4 rounded-b-2xl md:rounded-b-2xl
+                                rounded-t-xl md:roundend-t-2xl
+                                mt-0
+                              ">
+                    {% block inspection_header %} {% include '/inspection/v1/blocks/headers/_inspection_header.html.twig' %} {%  endblock %}
+                    {% block group_banner %}
+                        <div class="p-2 w-full
+                                    items-center justify-center content-center ">
+                            {%  include '/inspection/v1/blocks/headers/_summary_banner.html.twig' %}
+                        </div>
+                    {%  endblock %}
+
+                </header>
+            {% endblock %} {# page_header #}
+
+            {% block page_content %}
+                <main class="p-2 bg-white mb-4
+                rounded-t-2xl md:roundend-t-2xl
+                rounded-b-2xl md:roundend-b-2xl
+                ">
+
+                    {# listado de resultado #}
+                    {% include '/inspection/v1/inspection_summary/blocks/_list_of_results.html.twig' %}
+
+                </main>
+            {% endblock %} {# page_content #}
+
+            {% block page_bottom %}
+                <div class="fixed bottom-0 w-full md:max-w-[920px] bg-white p-2">
+                    {% include '/inspection/v1/inspection_summary/blocks/_form_actions.html.twig' %}
+                </div>
+            {% endblock %} {# page_bottom #}
+
+        </div>
+    {% endblock %} {#  page #}
+
+{%  endblock %} {# body #}
+
+

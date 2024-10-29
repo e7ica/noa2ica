@@ -23,8 +23,8 @@
       "can_emplacement": true,
       "group": "Higiene",
       "options": [
-        { "label": "Sí", "value": "true", "other": false, "compliance": true, "selected": null},
-        { "label": "No", "value": "false", "other": true, "compliance": false, "selected": null}
+        { "label": "Sí", "value": "true", "other": false, "compliance": true },
+        { "label": "No", "value": "false", "other": false, "compliance": false }
       ],
       "summon": {
         "can_emplacement": true,

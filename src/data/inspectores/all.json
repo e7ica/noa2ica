@@ -1,0 +1,30 @@
+[
+  {
+
+    "id": 1,
+    "name": "Jorge Gonzales",
+    "first_name": "Jorge",
+    "last_name": "Gonzalez",
+    "email": "jorge.gonzales@mail.com",
+    "phone": "4228-1111",
+    "address": "Calle 1234"
+  },
+  {
+   "id": 2,
+    "name": "Lucía Sánchez",
+    "first_name": "Lucía",
+    "last_name": "Sánchez",
+    "email": "lucia.sanchez@mail.com",
+    "phone": "4228-2222",
+    "address": "Calle 5678"
+  },
+  {
+    "id": 3,
+    "name": "Raúl Martínez",
+    "first_name": "Raúl",
+    "last_name": "Martínez",
+    "email": "raul.martinez@mail.com",
+    "phone": "4228-3333",
+    "address": "Calle 91011"
+  }
+]

@@ -1,0 +1,22 @@
+<!-- Resumen dinámico de inspecciones -->
+<div class="w-full mt-4 grid grid-cols-2 md:grid-cols-4 gap-2">
+    <div class="bg-white p-2 rounded-lg shadow text-center">
+        <p class="text-sm font-bold">Total</p>
+        <p class="text-lg font-bold" x-text="inspections.length"></p>
+    </div>
+    <div class="bg-green-100 p-2 rounded-lg shadow text-center">
+        <p class="text-sm font-bold text-green-800">Aprobadas</p>
+        <p class="text-lg font-bold text-green-800" 
+           x-text="inspections.filter(i => i.status === 'approved').length"></p>
+    </div>
+    <div class="bg-yellow-100 p-2 rounded-lg shadow text-center">
+        <p class="text-sm font-bold text-yellow-800">Emplazadas</p>
+        <p class="text-lg font-bold text-yellow-800" 
+           x-text="inspections.filter(i => i.status === 'summoned').length"></p>
+    </div>
+    <div class="bg-red-100 p-2 rounded-lg shadow text-center">
+        <p class="text-sm font-bold text-red-800">Rechazadas</p>
+        <p class="text-lg font-bold text-red-800" 
+           x-text="inspections.filter(i => i.status === 'rejected').length"></p>
+    </div>
+</div>
